@@ -1,0 +1,178 @@
+{
+  "reviewer": "Inspeção técnica pelo agente de desenvolvimento; não é julgamento humano independente. Critério conservador: o trecho deve tratar explicitamente o tema perguntado.",
+  "source_report": "reports/evaluation_test_rag.json",
+  "evidence_judgments": [
+    {
+      "case_id": "test-missing",
+      "document_id": "fd840af63891643e08b9fb91",
+      "label": "E1",
+      "relevant": false,
+      "reason": "Pedido não entregue não implica entrega parcial."
+    },
+    {
+      "case_id": "test-missing",
+      "document_id": "5df92258cfda96acc14e805f",
+      "label": "E2",
+      "relevant": true,
+      "reason": "Entrega parcial, três itens faltando."
+    },
+    {
+      "case_id": "test-missing",
+      "document_id": "e92314654cfea48acd3eddee",
+      "label": "E3",
+      "relevant": true,
+      "reason": "Pedido incompleto e produtos faltantes."
+    },
+    {
+      "case_id": "test-missing",
+      "document_id": "b12616f93e0f96d9ff0bae2f",
+      "label": "E4",
+      "relevant": false,
+      "reason": "Pedido não recebido, sem menção a entrega parcial."
+    },
+    {
+      "case_id": "test-missing",
+      "document_id": "b9dd7d5f5151a31bc5dc6d78",
+      "label": "E5",
+      "relevant": true,
+      "reason": "Faltando encomendas."
+    },
+    {
+      "case_id": "test-missing",
+      "document_id": "b7ee3faf606d7995fb9e95eb",
+      "label": "E6",
+      "relevant": false,
+      "reason": "Frete, prazo e rastreio; não relata item faltante."
+    },
+    {
+      "case_id": "test-wrong",
+      "document_id": "58fc4fb1c766fd52c71ad59a",
+      "label": "E1",
+      "relevant": true,
+      "reason": "Produto diferente da compra."
+    },
+    {
+      "case_id": "test-wrong",
+      "document_id": "24d88a20e90e11106a490f84",
+      "label": "E2",
+      "relevant": true,
+      "reason": "Produto entregue diferente da compra."
+    },
+    {
+      "case_id": "test-wrong",
+      "document_id": "d571101b2b75858e6752100c",
+      "label": "E3",
+      "relevant": true,
+      "reason": "Produto enviado diferente do comprado."
+    },
+    {
+      "case_id": "test-wrong",
+      "document_id": "e7a2e7023e006443b1d40f6e",
+      "label": "E4",
+      "relevant": true,
+      "reason": "Produto chegou diferente."
+    },
+    {
+      "case_id": "test-wrong",
+      "document_id": "9acd329f1066a17e6fefd1ba",
+      "label": "E5",
+      "relevant": true,
+      "reason": "Comprou um produto e recebeu outro."
+    },
+    {
+      "case_id": "test-wrong",
+      "document_id": "0f336e49bdf3503876eb4721",
+      "label": "E6",
+      "relevant": true,
+      "reason": "Produto errado, diferente do solicitado."
+    },
+    {
+      "case_id": "test-service",
+      "document_id": "4d764b39daf2adb74c93716e",
+      "label": "E1",
+      "relevant": true,
+      "reason": "Não há canal de reclamação acessível."
+    },
+    {
+      "case_id": "test-service",
+      "document_id": "c323378c6687a0778a5a9d6c",
+      "label": "E2",
+      "relevant": true,
+      "reason": "Solicitações de atendimento sem resposta."
+    },
+    {
+      "case_id": "test-service",
+      "document_id": "8b99a80f0afbadcc6429ca17",
+      "label": "E3",
+      "relevant": true,
+      "reason": "Reclamações majoritariamente não respondidas."
+    },
+    {
+      "case_id": "test-service",
+      "document_id": "0fb3a4275937b6e55a095103",
+      "label": "E4",
+      "relevant": false,
+      "reason": "Pedido não entregue e ameaça de reclamação, sem falta de resposta explícita."
+    },
+    {
+      "case_id": "test-service",
+      "document_id": "7adc2b5c6dfaad3c9f16d7f8",
+      "label": "E5",
+      "relevant": false,
+      "reason": "Falta de compromisso é genérico."
+    },
+    {
+      "case_id": "test-service",
+      "document_id": "58d133b6cb742e82f5aea56e",
+      "label": "E6",
+      "relevant": false,
+      "reason": "Insatisfação genérica, sem tema de atendimento."
+    },
+    {
+      "case_id": "test-quality",
+      "document_id": "46427aad595b4c568e228cb2",
+      "label": "E1",
+      "relevant": true,
+      "reason": "Qualidade do produto explícita."
+    },
+    {
+      "case_id": "test-quality",
+      "document_id": "4cebb488660a92a3d28b21d0",
+      "label": "E2",
+      "relevant": true,
+      "reason": "Pontualidade e qualidade explícitas."
+    },
+    {
+      "case_id": "test-quality",
+      "document_id": "de4b2b639252c9f36c19710b",
+      "label": "E3",
+      "relevant": true,
+      "reason": "Produto de qualidade explícito."
+    },
+    {
+      "case_id": "test-quality",
+      "document_id": "8730e90152594acd4bd09770",
+      "label": "E4",
+      "relevant": false,
+      "reason": "Tratamento e agilidade de entrega, sem qualidade do produto."
+    },
+    {
+      "case_id": "test-quality",
+      "document_id": "2ec907178967ade69db4c235",
+      "label": "E5",
+      "relevant": false,
+      "reason": "Conformidade com descrição, sem elogio explícito de qualidade."
+    },
+    {
+      "case_id": "test-quality",
+      "document_id": "d6eabfd05058faf9f271bc39",
+      "label": "E6",
+      "relevant": true,
+      "reason": "Qualidade dos produtos explícita."
+    }
+  ],
+  "relevant_documents": 16,
+  "judged_documents": 24,
+  "precision_at_6_pooled": 0.6666666666666666,
+  "note": "4 perguntas respondíveis, 6 evidências cada. Julgamentos locais incompletos: não estimam recall documental e não são um benchmark. Cobertura de gate não equivale a relevância de todo o contexto."
+}

@@ -1,0 +1,563 @@
+{
+  "source_sha256": {
+    "src/voc/__init__.py": "3a5b9bdb32b5ba7b88d98d7871d931eda38d4cf1df90821725cf443b0d3b9f7f",
+    "src/voc/domain/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/voc/domain/entities.py": "ffbc246d23691f1b86da79e4c7b2303e633c1f88d476cf2352c32ce71a354910",
+    "src/voc/domain/policy.py": "f34f451bab5b2f349267d6d279d7ba4c7e02b0e5ea35522c719a2f4887dddbd4",
+    "src/voc/infrastructure/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/voc/infrastructure/dataset.py": "5fe88ef360a82d014bf57822f65eed8bf10ab98def9d27aee6d33c87039d96bf",
+    "src/voc/infrastructure/index.py": "1260ad2eaecfd06f258464a130681cde74aae0300e2db959ec06b23c03b50d16",
+    "src/voc/infrastructure/models.py": "e1252e5c79916fcc6ed207e5bad047efdfdf838ed07b13a738fc4eb1fbdeadc4",
+    "src/voc/infrastructure/storage.py": "85a0d0765fde32e52dd355f5796acb4ba26a071ebedd2d20767dfa539edffa43",
+    "src/voc/usecase/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/voc/usecase/evaluate.py": "c8cc270a0ed32070e3d32cc07893e578c3a71ab32e71ac0e9b01541f4fc6643b",
+    "src/voc/usecase/rag.py": "78ed9c254bd4d1ea4ae85e96ac0766cfeef08f8016d71900b6c9ed5f52a940d3",
+    "src/voc/usecase/reproduce.py": "ffe60b8c1ec1d28868910cfd10fa2a2500ef8a5d133b6e6f469e852efcf13978",
+    "src/voc/views/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/voc/views/cli.py": "08f0572661dc370a01ba1a40c665a650ca22d734a5e35e17abea911da656264a"
+  },
+  "split": "test",
+  "generation_executed": false,
+  "cases": 9,
+  "evidence_gate_accuracy": 1.0,
+  "answerable_gate_recall": 1.0,
+  "unanswerable_abstention_rate": 1.0,
+  "generated_answers": 0,
+  "note": "Pequeno conjunto autoral de smoke tests. Gate correto não prova relevância ou suporte factual. Testes de referências avaliam formato, não verdade. Nenhum recall de documentos é estimado.",
+  "config": {
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "embedding_revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+    "generation_model": "Qwen/Qwen3-0.6B",
+    "generation_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "embedding_dimensions": 384,
+    "document_tokens": 120,
+    "chunk_overlap_tokens": 20,
+    "top_k": 6,
+    "rerank_pool": 100,
+    "mmr_lambda": 0.7,
+    "min_similarity": 0.42,
+    "min_evidence": 2,
+    "max_new_tokens": 384,
+    "threads": 8
+  },
+  "questions_sha256": "d0f428758043230f47ce78e10ac45d48e4c4b9eaee2f139ff9548884af626a8b",
+  "rows": [
+    {
+      "case_id": "test-missing",
+      "expected_answerable": true,
+      "gate_correct": true,
+      "result": {
+        "question": "Há relatos de pedidos entregues com itens faltando?",
+        "status": "retrieval_only",
+        "answer": "Busca concluída. A geração pelo modelo de linguagem não foi executada.",
+        "evidence": [
+          {
+            "label": "E1",
+            "document_id": "fd840af63891643e08b9fb91",
+            "review_id": "14b33ac24083bd93da570659da1630af",
+            "order_id": "d0fd9595949095f91592a79bd26a2126",
+            "text": "Pedido não entregue (prazo de entrega não obedecido)",
+            "chunk": "Pedido não entregue (prazo de entrega não obedecido)",
+            "score": 1,
+            "date": "2018-04-12",
+            "categories": [
+              "bebes"
+            ],
+            "late": true,
+            "similarity": 0.7259777784347534
+          },
+          {
+            "label": "E2",
+            "document_id": "5df92258cfda96acc14e805f",
+            "review_id": "8b0b1e80a008f0f23af15d9d021ad351",
+            "order_id": "b3fd6f1d726da32abced71e3fc845e35",
+            "text": "O pedido foi entregue parcialmente, ficando faltando ainda três itens",
+            "chunk": "O pedido foi entregue parcialmente, ficando faltando ainda três itens",
+            "score": 1,
+            "date": "2018-02-02",
+            "categories": [
+              "casa_construcao",
+              "construcao_ferramentas_seguranca"
+            ],
+            "late": false,
+            "similarity": 0.7168445587158203
+          },
+          {
+            "label": "E3",
+            "document_id": "e92314654cfea48acd3eddee",
+            "review_id": "8cbd43b45179c8a12c3485edb697c56f",
+            "order_id": "4adbb023fd0ab6d84373f8f2f20a9ef5",
+            "text": "Pedido veio incompleto. Vieram faltando produtos e até agora ninguém respondeu meus e-mails",
+            "chunk": "Pedido veio incompleto. Vieram faltando produtos e até agora ninguém respondeu meus e-mails",
+            "score": 1,
+            "date": "2018-05-20",
+            "categories": [
+              "automotivo"
+            ],
+            "late": false,
+            "similarity": 0.7129005193710327
+          },
+          {
+            "label": "E4",
+            "document_id": "b12616f93e0f96d9ff0bae2f",
+            "review_id": "3058caa14cbdac741c17eb300fdb96e1",
+            "order_id": "ce500b2ca0d960f937fb4d24282d3291",
+            "text": "Preciso de informaçãoes sobre o pedido que não chegou ainda",
+            "chunk": "Preciso de informaçãoes sobre o pedido que não chegou ainda",
+            "score": 1,
+            "date": "2017-02-16",
+            "categories": [
+              "cool_stuff"
+            ],
+            "late": false,
+            "similarity": 0.6862804889678955
+          },
+          {
+            "label": "E5",
+            "document_id": "b9dd7d5f5151a31bc5dc6d78",
+            "review_id": "bcf1f7d1fdf796f91d59cdfab8798d7a",
+            "order_id": "f142ccab4f2274122d3b10c539737deb",
+            "text": "Produto entregue faltando encomendas",
+            "chunk": "Produto entregue faltando encomendas",
+            "score": 1,
+            "date": "2017-12-02",
+            "categories": [
+              "cama_mesa_banho"
+            ],
+            "late": false,
+            "similarity": 0.7034095525741577
+          },
+          {
+            "label": "E6",
+            "document_id": "b7ee3faf606d7995fb9e95eb",
+            "review_id": "378b4c91b5d825b2b05df4323bbd20e9",
+            "order_id": "4af2fb154881f350d8696f7f7a7f80d3",
+            "text": "PESSIMO. Paguei por um frete onde os prazos não foram seguidos,nas informações de rastreio aparecia apenas a ocorrência de um imprevisto,a falta de informações demonstra o descaso da empresa com o cliente",
+            "chunk": "PESSIMO. Paguei por um frete onde os prazos não foram seguidos,nas informações de rastreio aparecia apenas a ocorrência de um imprevisto,a falta de informações demonstra o descaso da empresa com o cliente",
+            "score": 1,
+            "date": "2018-08-15",
+            "categories": [
+              "telefonia"
+            ],
+            "late": true,
+            "similarity": 0.6243077516555786
+          }
+        ],
+        "retrieved_documents": 6,
+        "matching_documents": 10978,
+        "elapsed_seconds": 0.04014626401476562,
+        "model": "Qwen/Qwen3-0.6B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "test-wrong",
+      "expected_answerable": true,
+      "gate_correct": true,
+      "result": {
+        "question": "O que os clientes dizem sobre receber um produto diferente do comprado?",
+        "status": "retrieval_only",
+        "answer": "Busca concluída. A geração pelo modelo de linguagem não foi executada.",
+        "evidence": [
+          {
+            "label": "E1",
+            "document_id": "58fc4fb1c766fd52c71ad59a",
+            "review_id": "014552bc1539eed96d4937a07ef1ba03",
+            "order_id": "3e60f029bab712985ebe5bb542730b6e",
+            "text": "Produto entregue diferente da compra",
+            "chunk": "Produto entregue diferente da compra",
+            "score": 2,
+            "date": "2017-08-01",
+            "categories": [
+              "moveis_sala"
+            ],
+            "late": false,
+            "similarity": 0.9118335843086243
+          },
+          {
+            "label": "E2",
+            "document_id": "24d88a20e90e11106a490f84",
+            "review_id": "8f451e1cf55dd3f4a5c6e9607a07c561",
+            "order_id": "47c29eebd9fb0e4d67c674f78e396be4",
+            "text": "Bom vendedor , porém foi entregue um produto diferente da compra efetuada",
+            "chunk": "Bom vendedor , porém foi entregue um produto diferente da compra efetuada",
+            "score": 2,
+            "date": "2017-11-16",
+            "categories": [
+              "esporte_lazer"
+            ],
+            "late": false,
+            "similarity": 0.867547333240509
+          },
+          {
+            "label": "E3",
+            "document_id": "d571101b2b75858e6752100c",
+            "review_id": "0e0b79d9fc0ee15927ba7dc8d4f3918c",
+            "order_id": "42ee4f991900767ba353278c7c4f4df3",
+            "text": "O produto enviado é diferente do produto comprado, solicito a troca do produto",
+            "chunk": "O produto enviado é diferente do produto comprado, solicito a troca do produto",
+            "score": 1,
+            "date": "2017-11-04",
+            "categories": [
+              "pet_shop"
+            ],
+            "late": false,
+            "similarity": 0.829653799533844
+          },
+          {
+            "label": "E4",
+            "document_id": "e7a2e7023e006443b1d40f6e",
+            "review_id": "c94fe7161f7932281babee672d4b4248",
+            "order_id": "8440ebc9a2a4aaa712d4064c35e52995",
+            "text": "O produto chegou diferente do comprado",
+            "chunk": "O produto chegou diferente do comprado",
+            "score": 1,
+            "date": "2017-12-12",
+            "categories": [
+              "telefonia"
+            ],
+            "late": false,
+            "similarity": 0.8416857123374939
+          },
+          {
+            "label": "E5",
+            "document_id": "9acd329f1066a17e6fefd1ba",
+            "review_id": "0a17a80d17d08afa96fcf81a39c32c62",
+            "order_id": "5541bd42a3108b24d82380b08016016c",
+            "text": "Comprei um produto e me encaminharam outro. Estou fazendo a devolução do produto para ressarcimento do valor pago",
+            "chunk": "Comprei um produto e me encaminharam outro. Estou fazendo a devolução do produto para ressarcimento do valor pago",
+            "score": 1,
+            "date": "2018-02-22",
+            "categories": [
+              "fashion_bolsas_e_acessorios"
+            ],
+            "late": false,
+            "similarity": 0.777573823928833
+          },
+          {
+            "label": "E6",
+            "document_id": "0f336e49bdf3503876eb4721",
+            "review_id": "08528f70f579f0c830189efc523d2182",
+            "order_id": "53c71d3953507c6239ff73917ed358c9",
+            "text": "Produto errado. Entrega do produto diferente do solicitado Aguardo orientação para a troca",
+            "chunk": "Produto errado. Entrega do produto diferente do solicitado Aguardo orientação para a troca",
+            "score": 1,
+            "date": "2018-08-03",
+            "categories": [
+              "cool_stuff"
+            ],
+            "late": false,
+            "similarity": 0.8183497786521912
+          }
+        ],
+        "retrieved_documents": 6,
+        "matching_documents": 10978,
+        "elapsed_seconds": 0.0838261189928744,
+        "model": "Qwen/Qwen3-0.6B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "test-service",
+      "expected_answerable": true,
+      "gate_correct": true,
+      "result": {
+        "question": "Quais são as reclamações sobre falta de resposta do atendimento?",
+        "status": "retrieval_only",
+        "answer": "Busca concluída. A geração pelo modelo de linguagem não foi executada.",
+        "evidence": [
+          {
+            "label": "E1",
+            "document_id": "4d764b39daf2adb74c93716e",
+            "review_id": "10b73c782535c2ca6f5df1188f3785a6",
+            "order_id": "d8734ba226623cf1c86b3cce8cbffa78",
+            "text": "Pessimo atendimento, sem canal de reclamação fornecedor",
+            "chunk": "Pessimo atendimento, sem canal de reclamação fornecedor",
+            "score": 1,
+            "date": "2018-03-07",
+            "categories": [
+              "construcao_ferramentas_construcao"
+            ],
+            "late": true,
+            "similarity": 0.8086686134338379
+          },
+          {
+            "label": "E2",
+            "document_id": "c323378c6687a0778a5a9d6c",
+            "review_id": "e43589d9b1eb36907925a598bf511d52",
+            "order_id": "e192b63496e874f9ec02a62d97ac23be",
+            "text": "Não responde as solicitações de atendimento",
+            "chunk": "Não responde as solicitações de atendimento",
+            "score": 1,
+            "date": "2018-04-14",
+            "categories": [
+              "moveis_escritorio"
+            ],
+            "late": true,
+            "similarity": 0.7501794695854187
+          },
+          {
+            "label": "E3",
+            "document_id": "8b99a80f0afbadcc6429ca17",
+            "review_id": "89e36888c39685c524a74270824e9fdb",
+            "order_id": "65fc7195f2f70e60bd81a12c69d7389d",
+            "text": "Mandei diversas reclamações e somente um foi respondida porém não atendida",
+            "chunk": "Mandei diversas reclamações e somente um foi respondida porém não atendida",
+            "score": 1,
+            "date": "2017-08-11",
+            "categories": [
+              "instrumentos_musicais"
+            ],
+            "late": null,
+            "similarity": 0.6805405020713806
+          },
+          {
+            "label": "E4",
+            "document_id": "0fb3a4275937b6e55a095103",
+            "review_id": "b5f1ecee3ada2c5b5fa05ca47b576bbc",
+            "order_id": "d6f1fd48e3b9fbaa5ed2794838559afb",
+            "text": "Cliente super insatisfeit. Quero informar que acho uma falta de respeito com consumir final ficar aguardando algo que já foi pago e não entregue, favor resolver essa situação urgente ou estarei acionando minha ADVOGADA",
+            "chunk": "Cliente super insatisfeit. Quero informar que acho uma falta de respeito com consumir final ficar aguardando algo que já foi pago e não entregue, favor resolver essa situação urgente ou estarei acionando minha ADVOGADA",
+            "score": 1,
+            "date": "2018-07-15",
+            "categories": [],
+            "late": null,
+            "similarity": 0.6553651094436646
+          },
+          {
+            "label": "E5",
+            "document_id": "7adc2b5c6dfaad3c9f16d7f8",
+            "review_id": "c947fcd9fadd5dd3168b0cd7bbf0283e",
+            "order_id": "2c6909e9d8d1f642b6c8126f985146d0",
+            "text": "Falta de compromisso com o cliente",
+            "chunk": "Falta de compromisso com o cliente",
+            "score": 1,
+            "date": "2017-10-13",
+            "categories": [
+              "automotivo"
+            ],
+            "late": true,
+            "similarity": 0.6884506940841675
+          },
+          {
+            "label": "E6",
+            "document_id": "58d133b6cb742e82f5aea56e",
+            "review_id": "db90ab0ea5d97cbfa75cb66ea71013cc",
+            "order_id": "3058f418c175f89b5dc680bcb5634ab1",
+            "text": "Insatisfação. Negativo",
+            "chunk": "Insatisfação. Negativo",
+            "score": 1,
+            "date": "2018-08-29",
+            "categories": [
+              "fashion_bolsas_e_acessorios"
+            ],
+            "late": false,
+            "similarity": 0.5761754512786865
+          }
+        ],
+        "retrieved_documents": 6,
+        "matching_documents": 10978,
+        "elapsed_seconds": 0.09160617701127194,
+        "model": "Qwen/Qwen3-0.6B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "test-quality",
+      "expected_answerable": true,
+      "gate_correct": true,
+      "result": {
+        "question": "O que os compradores elogiam na qualidade dos produtos?",
+        "status": "retrieval_only",
+        "answer": "Busca concluída. A geração pelo modelo de linguagem não foi executada.",
+        "evidence": [
+          {
+            "label": "E1",
+            "document_id": "46427aad595b4c568e228cb2",
+            "review_id": "76df0bd8c9d614662a1e893152b4741f",
+            "order_id": "02e3d94731a28fe10ec1aa91b72b544b",
+            "text": "Produto de qualidade!. Compromisso com o cliente e qualidade no produto resumem essa compra",
+            "chunk": "Produto de qualidade!. Compromisso com o cliente e qualidade no produto resumem essa compra",
+            "score": 5,
+            "date": "2018-05-09",
+            "categories": [
+              "informatica_acessorios"
+            ],
+            "late": false,
+            "similarity": 0.8814189434051514
+          },
+          {
+            "label": "E2",
+            "document_id": "4cebb488660a92a3d28b21d0",
+            "review_id": "38ff9e5da94f8a6020f2a237aeac77f9",
+            "order_id": "81b87cfcdcdbbb35c82e6a588b6894e5",
+            "text": "Recomendo a compra nessa loja, primam pela pontualidade e qualidade dos produtos",
+            "chunk": "Recomendo a compra nessa loja, primam pela pontualidade e qualidade dos produtos",
+            "score": 5,
+            "date": "2017-11-22",
+            "categories": [
+              "bebes"
+            ],
+            "late": false,
+            "similarity": 0.8213534355163574
+          },
+          {
+            "label": "E3",
+            "document_id": "de4b2b639252c9f36c19710b",
+            "review_id": "e2b4d5970fefa486994421aba7976be9",
+            "order_id": "4d9e31ff85efba399f614db862300f50",
+            "text": "Ótimo vendedor!. Produto de qualidade, excelência no processo de compra",
+            "chunk": "Ótimo vendedor!. Produto de qualidade, excelência no processo de compra",
+            "score": 5,
+            "date": "2018-06-19",
+            "categories": [
+              "eletronicos"
+            ],
+            "late": false,
+            "similarity": 0.8519201278686523
+          },
+          {
+            "label": "E4",
+            "document_id": "8730e90152594acd4bd09770",
+            "review_id": "8c53c47cb8b315b9bf4ec1f704040b05",
+            "order_id": "4c689245ea93c43c3bd76bda4dca1403",
+            "text": "É impressionante o respeito, consideração, tratamento e agilidade pela entrega da mercadoria ao consumidor dado pelo stark, só me resta agradecer e reconhecer estes valores. Obrigado",
+            "chunk": "É impressionante o respeito, consideração, tratamento e agilidade pela entrega da mercadoria ao consumidor dado pelo stark, só me resta agradecer e reconhecer estes valores. Obrigado",
+            "score": 5,
+            "date": "2017-05-17",
+            "categories": [
+              "casa_conforto"
+            ],
+            "late": false,
+            "similarity": 0.7731778025627136
+          },
+          {
+            "label": "E5",
+            "document_id": "2ec907178967ade69db4c235",
+            "review_id": "08af1a16cca5edd546f4a10b6e87af2e",
+            "order_id": "00125cb692d04887809806618a2a145f",
+            "text": "produto como descrito, satisfeitíssima com a compra",
+            "chunk": "produto como descrito, satisfeitíssima com a compra",
+            "score": 5,
+            "date": "2017-04-08",
+            "categories": [
+              "moveis_decoracao"
+            ],
+            "late": false,
+            "similarity": 0.8225951194763184
+          },
+          {
+            "label": "E6",
+            "document_id": "d6eabfd05058faf9f271bc39",
+            "review_id": "dcebfef07ae5bad804471747a19338e0",
+            "order_id": "779faf56113de193cb40644b3c455c44",
+            "text": "Estão de parabéns pela pontualidade e qualidade dos produtos",
+            "chunk": "Estão de parabéns pela pontualidade e qualidade dos produtos",
+            "score": 5,
+            "date": "2018-04-14",
+            "categories": [
+              "informatica_acessorios"
+            ],
+            "late": false,
+            "similarity": 0.7892574071884155
+          }
+        ],
+        "retrieved_documents": 6,
+        "matching_documents": 27848,
+        "elapsed_seconds": 0.10794096899917349,
+        "model": "Qwen/Qwen3-0.6B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "test-physics",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "Explique a teoria da relatividade geral e a curvatura do espaço-tempo.",
+        "status": "out_of_scope",
+        "answer": "Esta base permite investigar relatos de experiências de compra e atendimento. A pergunta está fora desse escopo.",
+        "evidence": [],
+        "retrieved_documents": 0,
+        "matching_documents": 0,
+        "elapsed_seconds": 6.168699474073946e-05,
+        "model": "",
+        "warnings": []
+      }
+    },
+    {
+      "case_id": "test-medical",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "Qual medicamento devo tomar para tratar hipertensão arterial?",
+        "status": "out_of_scope",
+        "answer": "Esta base permite investigar relatos de experiências de compra e atendimento. A pergunta está fora desse escopo.",
+        "evidence": [],
+        "retrieved_documents": 0,
+        "matching_documents": 0,
+        "elapsed_seconds": 3.020500298589468e-05,
+        "model": "",
+        "warnings": []
+      }
+    },
+    {
+      "case_id": "test-presidential",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "Quem vencerá a eleição presidencial brasileira de 2030?",
+        "status": "out_of_scope",
+        "answer": "Esta base permite investigar relatos de experiências de compra e atendimento. A pergunta está fora desse escopo.",
+        "evidence": [],
+        "retrieved_documents": 0,
+        "matching_documents": 0,
+        "elapsed_seconds": 2.2025022190064192e-05,
+        "model": "",
+        "warnings": []
+      }
+    },
+    {
+      "case_id": "test-empty",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "Quais problemas apareceram nas entregas?",
+        "status": "insufficient_evidence",
+        "answer": "Não encontrei evidências suficientes nas avaliações para responder com segurança.",
+        "evidence": [],
+        "retrieved_documents": 0,
+        "matching_documents": 0,
+        "elapsed_seconds": 0.1213427509937901,
+        "model": "Qwen/Qwen3-0.6B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "test-aggregate",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "Qual o percentual de pedidos com reclamação de atraso?",
+        "status": "unsupported_aggregate",
+        "answer": "Esta busca não calcula totais ou percentuais do corpus. Reformule para explorar os relatos e suas evidências.",
+        "evidence": [],
+        "retrieved_documents": 0,
+        "matching_documents": 0,
+        "elapsed_seconds": 0.0,
+        "model": "",
+        "warnings": []
+      }
+    }
+  ]
+}

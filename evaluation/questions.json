@@ -1,0 +1,119 @@
+[
+  {
+    "id": "dev-delivery",
+    "split": "dev",
+    "question": "O que os clientes relatam sobre atrasos na entrega?",
+    "answerable": true
+  },
+  {
+    "id": "dev-damage",
+    "split": "dev",
+    "question": "Quais relatos mencionam produtos que chegaram quebrados?",
+    "answerable": true
+  },
+  {
+    "id": "dev-positive",
+    "split": "dev",
+    "question": "O que os clientes elogiam sobre a rapidez da entrega?",
+    "answerable": true,
+    "filters": {
+      "min_score": 4
+    }
+  },
+  {
+    "id": "dev-broad",
+    "split": "dev",
+    "question": "Quais são os principais problemas relatados pelos clientes nas avaliações?",
+    "answerable": true
+  },
+  {
+    "id": "dev-astronomy",
+    "split": "dev",
+    "question": "Como ocorre a fusão nuclear no interior do Sol?",
+    "answerable": false
+  },
+  {
+    "id": "dev-future",
+    "split": "dev",
+    "question": "Qual será o faturamento da Olist em 2035?",
+    "answerable": false
+  },
+  {
+    "id": "dev-empty",
+    "split": "dev",
+    "question": "O que os clientes dizem sobre a entrega?",
+    "answerable": false,
+    "filters": {
+      "start_date": "2030-01-01"
+    }
+  },
+  {
+    "id": "test-missing",
+    "split": "test",
+    "question": "Há relatos de pedidos entregues com itens faltando?",
+    "answerable": true,
+    "filters": {
+      "max_score": 2
+    }
+  },
+  {
+    "id": "test-wrong",
+    "split": "test",
+    "question": "O que os clientes dizem sobre receber um produto diferente do comprado?",
+    "answerable": true,
+    "filters": {
+      "max_score": 2
+    }
+  },
+  {
+    "id": "test-service",
+    "split": "test",
+    "question": "Quais são as reclamações sobre falta de resposta do atendimento?",
+    "answerable": true,
+    "filters": {
+      "max_score": 2
+    }
+  },
+  {
+    "id": "test-quality",
+    "split": "test",
+    "question": "O que os compradores elogiam na qualidade dos produtos?",
+    "answerable": true,
+    "filters": {
+      "min_score": 4
+    }
+  },
+  {
+    "id": "test-physics",
+    "split": "test",
+    "question": "Explique a teoria da relatividade geral e a curvatura do espaço-tempo.",
+    "answerable": false
+  },
+  {
+    "id": "test-medical",
+    "split": "test",
+    "question": "Qual medicamento devo tomar para tratar hipertensão arterial?",
+    "answerable": false
+  },
+  {
+    "id": "test-presidential",
+    "split": "test",
+    "question": "Quem vencerá a eleição presidencial brasileira de 2030?",
+    "answerable": false
+  },
+  {
+    "id": "test-empty",
+    "split": "test",
+    "question": "Quais problemas apareceram nas entregas?",
+    "answerable": false,
+    "filters": {
+      "category": "categoria_inexistente_fiap"
+    }
+  },
+  {
+    "id": "test-aggregate",
+    "split": "test",
+    "question": "Qual o percentual de pedidos com reclamação de atraso?",
+    "answerable": false
+  }
+]

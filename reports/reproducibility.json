@@ -1,0 +1,23 @@
+{
+  "status": "verified",
+  "files": {
+    "data/processed/reviews.parquet": {
+      "expected": "f808a1184bcc165cff42df5be949c2a4d67c510788ca53447d677e028d917f88",
+      "reproduced": "f808a1184bcc165cff42df5be949c2a4d67c510788ca53447d677e028d917f88"
+    },
+    "artifacts/index/chunks.parquet": {
+      "expected": "ae18eb01b13cba862a81781c75284a04a3cef7f1757a1ec837c1a4a482b663d3",
+      "reproduced": "ae18eb01b13cba862a81781c75284a04a3cef7f1757a1ec837c1a4a482b663d3"
+    },
+    "artifacts/index/embeddings.npy": {
+      "expected": "72316d67e9bf511642b4db6fa62cac0d9001f7cf23be3fe3d14ce6e5a0c8513b",
+      "reproduced": "72316d67e9bf511642b4db6fa62cac0d9001f7cf23be3fe3d14ce6e5a0c8513b"
+    }
+  },
+  "exact_hashes_equal": true,
+  "retrieval_ids_equal": true,
+  "retrieval_scores_equal_atol_1e_7": true,
+  "query": "atraso na entrega",
+  "config_sha256": "225e67d1cb32731c84ded182030f7312f0f3d85d3c99e6239cedb2b33615fd89",
+  "note": "Reconstrói preparação, chunks e embeddings desde o ZIP original, em pasta temporária. Reutiliza os pesos locais congelados; não retreina nem baixa outro modelo. Geração é validada separadamente na avaliação RAG e no smoke da interface."
+}
