@@ -1,0 +1,406 @@
+{
+  "split": "dev",
+  "generation_executed": true,
+  "cases": 6,
+  "evidence_gate_accuracy": 1.0,
+  "answerable_gate_recall": 1.0,
+  "unanswerable_abstention_rate": 1.0,
+  "generated_answers": 3,
+  "note": "Pequeno conjunto autoral de smoke tests. Gate correto não prova relevância ou suporte factual. Testes de referências avaliam formato, não verdade. Nenhum recall de documentos é estimado.",
+  "config": {
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "embedding_revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+    "generation_model": "Qwen/Qwen3-0.6B",
+    "generation_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "embedding_dimensions": 384,
+    "document_tokens": 120,
+    "chunk_overlap_tokens": 20,
+    "top_k": 6,
+    "min_similarity": 0.42,
+    "min_evidence": 2,
+    "max_new_tokens": 384,
+    "threads": 8
+  },
+  "questions_sha256": "c1693807d61f01bc72ed993938a6429f543db05730103711c3865a3a23f187fc",
+  "rows": [
+    {
+      "case_id": "dev-delivery",
+      "expected_answerable": true,
+      "gate_correct": true,
+      "result": {
+        "question": "O que os clientes relatam sobre atrasos na entrega?",
+        "status": "answered",
+        "answer": "- [E1] Os clientes relatam que a entrega atrasou.  \n- [E3] A entrega está atrasada.  \n- [E4] Demora na entrega e ainda atrasou.",
+        "evidence": [
+          {
+            "label": "E1",
+            "document_id": "76ab14d5b1c987dbffef64ad",
+            "review_id": "65e3d04aef73660b0b2145ef3d5762cd",
+            "order_id": "639136e1c9d70479de8dfa922ad2cf85",
+            "text": "A entrega atrasou",
+            "chunk": "A entrega atrasou",
+            "score": 5,
+            "date": "2018-02-09",
+            "categories": [
+              "eletronicos"
+            ],
+            "late": false,
+            "similarity": 0.9494733810424805
+          },
+          {
+            "label": "E2",
+            "document_id": "24a6e61b6190466db4c74374",
+            "review_id": "0fc42b14539f4177f534382d69d82d3c",
+            "order_id": "5510c1adb5cc6262d2fd7ce904b6e8f4",
+            "text": "demora na entrega",
+            "chunk": "demora na entrega",
+            "score": 1,
+            "date": "2018-06-09",
+            "categories": [
+              "beleza_saude"
+            ],
+            "late": true,
+            "similarity": 0.9441075921058655
+          },
+          {
+            "label": "E3",
+            "document_id": "2bfe72a4dbf5065c33fa97b1",
+            "review_id": "7eaac7481400e495ddfc2f5398aba896",
+            "order_id": "fc303e9e3e6717098dbf0a3484304832",
+            "text": "A entrega esta atrasada",
+            "chunk": "A entrega esta atrasada",
+            "score": 1,
+            "date": "2018-04-04",
+            "categories": [
+              "utilidades_domesticas"
+            ],
+            "late": true,
+            "similarity": 0.9331214427947998
+          },
+          {
+            "label": "E4",
+            "document_id": "f8600cbe19fba2d73584602e",
+            "review_id": "6964442cd4b5a5a0c5bbfa8d6fb914ef",
+            "order_id": "29e40d80fb76f5da9cf2a104f960790c",
+            "text": "Demora na entrega e ainda atrasou",
+            "chunk": "Demora na entrega e ainda atrasou",
+            "score": 3,
+            "date": "2018-03-22",
+            "categories": [
+              "esporte_lazer"
+            ],
+            "late": true,
+            "similarity": 0.9203620553016663
+          },
+          {
+            "label": "E5",
+            "document_id": "99b5594c51f702d531f56a40",
+            "review_id": "cc7aa30132ae7195c15ac60a6d96f63d",
+            "order_id": "816712dda4284eedabcbdf0f9deb1b71",
+            "text": "Um prazo de entrega demorado",
+            "chunk": "Um prazo de entrega demorado",
+            "score": 3,
+            "date": "2017-08-19",
+            "categories": [
+              "artes"
+            ],
+            "late": false,
+            "similarity": 0.9048072099685669
+          },
+          {
+            "label": "E6",
+            "document_id": "fadfb72620fbb62cf329b21b",
+            "review_id": "35d70a9ae74fa7c6bc01125f3ef0f04b",
+            "order_id": "302e20550af8f4aa30223f3cabcc14c0",
+            "text": "demora com a entrega",
+            "chunk": "demora com a entrega",
+            "score": 2,
+            "date": "2018-02-23",
+            "categories": [
+              "perfumaria"
+            ],
+            "late": true,
+            "similarity": 0.8952544927597046
+          }
+        ],
+        "retrieved_documents": 6,
+        "matching_documents": 42454,
+        "elapsed_seconds": 4.101008042998728,
+        "model": "Qwen/Qwen3-0.6B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "dev-damage",
+      "expected_answerable": true,
+      "gate_correct": true,
+      "result": {
+        "question": "Quais relatos mencionam produtos que chegaram quebrados?",
+        "status": "answered",
+        "answer": "- [E1] O produto veio quebrado.  \n- [E3] O produto com defeito. Produto veio quebrado.  \n- [E4] O produto veio quebrado.",
+        "evidence": [
+          {
+            "label": "E1",
+            "document_id": "202d4d664d67b1eb7d3e8f7c",
+            "review_id": "03a673dc9858b1fe77fc26a3900c129a",
+            "order_id": "85255dfbdf9d963a4517ef2587876dd4",
+            "text": "Produto veio quebrado",
+            "chunk": "Produto veio quebrado",
+            "score": 2,
+            "date": "2018-04-11",
+            "categories": [
+              "brinquedos"
+            ],
+            "late": false,
+            "similarity": 0.7453442811965942
+          },
+          {
+            "label": "E2",
+            "document_id": "cee0a1753de8eb6725c7279e",
+            "review_id": "4e424f744c8185c17c7d275a562ac344",
+            "order_id": "3b9671a31679fa4544b9b7a1e55ffe4f",
+            "text": "Produto avariado, quebrado",
+            "chunk": "Produto avariado, quebrado",
+            "score": 1,
+            "date": "2018-01-31",
+            "categories": [
+              "eletronicos"
+            ],
+            "late": false,
+            "similarity": 0.7326042652130127
+          },
+          {
+            "label": "E3",
+            "document_id": "9c6dfb7e460a8e2db63089f8",
+            "review_id": "13dcde46c1a250aaed407dd6d5a53b77",
+            "order_id": "cdbd981121b82988cdb4bc8229598984",
+            "text": "Produto com defeito. Produto veio quebrado",
+            "chunk": "Produto com defeito. Produto veio quebrado",
+            "score": 3,
+            "date": "2018-07-31",
+            "categories": [
+              "automotivo"
+            ],
+            "late": false,
+            "similarity": 0.7287326455116272
+          },
+          {
+            "label": "E4",
+            "document_id": "b8af9da8aa2714f2a46532f3",
+            "review_id": "1f9abf59f4b7b1ccfcb945f669ffad9a",
+            "order_id": "a0d8479e0bc26a5baa9988711c4320b1",
+            "text": "o produto veio quebrado",
+            "chunk": "o produto veio quebrado",
+            "score": 1,
+            "date": "2017-07-25",
+            "categories": [
+              "brinquedos"
+            ],
+            "late": false,
+            "similarity": 0.7196486592292786
+          },
+          {
+            "label": "E5",
+            "document_id": "cf8b70712f6d6541062a5938",
+            "review_id": "43bf7d48ee35e1ef767b97badbbe7cd7",
+            "order_id": "724074e91e873f7bba4b3548c59e5f92",
+            "text": "O produto chegou quebrado",
+            "chunk": "O produto chegou quebrado",
+            "score": 1,
+            "date": "2018-08-28",
+            "categories": [
+              "telefonia"
+            ],
+            "late": false,
+            "similarity": 0.718316912651062
+          },
+          {
+            "label": "E6",
+            "document_id": "ec0f23cdc1abb5984aebc639",
+            "review_id": "c8b00b8c7a3d22c6e66417bdc3aac0e8",
+            "order_id": "ab4b599b4beedfa0477ae471de03ffa0",
+            "text": "O produto chegou com uns parte quebrada",
+            "chunk": "O produto chegou com uns parte quebrada",
+            "score": 1,
+            "date": "2017-07-11",
+            "categories": [
+              "moveis_escritorio"
+            ],
+            "late": false,
+            "similarity": 0.7175008058547974
+          }
+        ],
+        "retrieved_documents": 6,
+        "matching_documents": 42454,
+        "elapsed_seconds": 3.749175463002757,
+        "model": "Qwen/Qwen3-0.6B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "dev-positive",
+      "expected_answerable": true,
+      "gate_correct": true,
+      "result": {
+        "question": "O que os clientes elogiam sobre a rapidez da entrega?",
+        "status": "answered",
+        "answer": "- [E1] Os clientes elogiam a rapidez da entrega.  \n- [E2] Muita boa a entrega rapida.  \n- [E3] Rapidez na entrega...ótimo.",
+        "evidence": [
+          {
+            "label": "E1",
+            "document_id": "1a72426b98283d88f0129d97",
+            "review_id": "dcabe2a4ee873f7a0dd07d46977cfcf7",
+            "order_id": "82a4587415d59443dce9ac6d0ce8720f",
+            "text": "Muito bom a rapidez da entrega",
+            "chunk": "Muito bom a rapidez da entrega",
+            "score": 5,
+            "date": "2017-05-17",
+            "categories": [
+              "cool_stuff"
+            ],
+            "late": false,
+            "similarity": 0.8756821751594543
+          },
+          {
+            "label": "E2",
+            "document_id": "36b5e24d88751d513208af91",
+            "review_id": "1f6d205468cb70b7a7d58939fb9a06df",
+            "order_id": "7c1e7c128210689fc46f3412f765b678",
+            "text": "Muito boa a entrega rapida",
+            "chunk": "Muito boa a entrega rapida",
+            "score": 5,
+            "date": "2018-04-19",
+            "categories": [
+              "esporte_lazer"
+            ],
+            "late": false,
+            "similarity": 0.854293942451477
+          },
+          {
+            "label": "E3",
+            "document_id": "99cebbd73e11f8771beccb55",
+            "review_id": "d5d0b99a43170ffc72b90294ee9a05b8",
+            "order_id": "e6f4dcae8f74d19df7183854d1276023",
+            "text": "rapidez na entrega...ótimo",
+            "chunk": "rapidez na entrega...ótimo",
+            "score": 5,
+            "date": "2017-06-22",
+            "categories": [
+              "perfumaria"
+            ],
+            "late": false,
+            "similarity": 0.8465170860290527
+          },
+          {
+            "label": "E4",
+            "document_id": "214a43d050ed14f0c7cb3f5b",
+            "review_id": "25e5a291379ef17ad99115818c978f68",
+            "order_id": "2d28ab17a7a4eaa06618d69734143c37",
+            "text": "Parabens pelo rapidez na entrega",
+            "chunk": "Parabens pelo rapidez na entrega",
+            "score": 5,
+            "date": "2018-03-24",
+            "categories": [
+              "eletronicos"
+            ],
+            "late": false,
+            "similarity": 0.8448266983032227
+          },
+          {
+            "label": "E5",
+            "document_id": "b83ccc37db1d0786c992e469",
+            "review_id": "b5bffd8c3f1056e583e9f32a48f72f3c",
+            "order_id": "359004e77a67a2978e6809894f996c98",
+            "text": "entrega rápida, produto de qualidade",
+            "chunk": "entrega rápida, produto de qualidade",
+            "score": 5,
+            "date": "2017-08-24",
+            "categories": [
+              "eletroportateis"
+            ],
+            "late": false,
+            "similarity": 0.8419389724731445
+          },
+          {
+            "label": "E6",
+            "document_id": "0c2914865c6eb7a077eccacb",
+            "review_id": "82ba8525b9ca710a3ada0e1d134e3a8f",
+            "order_id": "92be217451e443e50d816ab21286d00d",
+            "text": "Rapidez e eficiência na entrega. Produto de boa qualidade",
+            "chunk": "Rapidez e eficiência na entrega. Produto de boa qualidade",
+            "score": 5,
+            "date": "2017-09-14",
+            "categories": [
+              "malas_acessorios"
+            ],
+            "late": false,
+            "similarity": 0.8325537443161011
+          }
+        ],
+        "retrieved_documents": 6,
+        "matching_documents": 27848,
+        "elapsed_seconds": 3.8255843880033353,
+        "model": "Qwen/Qwen3-0.6B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "dev-astronomy",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "Como ocorre a fusão nuclear no interior do Sol?",
+        "status": "insufficient_evidence",
+        "answer": "Não encontrei evidências suficientes nas avaliações para responder com segurança.",
+        "evidence": [],
+        "retrieved_documents": 6,
+        "matching_documents": 42454,
+        "elapsed_seconds": 0.04300548799801618,
+        "model": "Qwen/Qwen3-0.6B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "dev-future",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "Qual será o faturamento da Olist em 2035?",
+        "status": "unsupported_aggregate",
+        "answer": "Esta busca não calcula totais ou percentuais do corpus. Reformule para explorar os relatos e suas evidências.",
+        "evidence": [],
+        "retrieved_documents": 0,
+        "matching_documents": 0,
+        "elapsed_seconds": 0.0,
+        "model": "",
+        "warnings": []
+      }
+    },
+    {
+      "case_id": "dev-empty",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "O que os clientes dizem sobre a entrega?",
+        "status": "insufficient_evidence",
+        "answer": "Não encontrei evidências suficientes nas avaliações para responder com segurança.",
+        "evidence": [],
+        "retrieved_documents": 0,
+        "matching_documents": 0,
+        "elapsed_seconds": 0.0021939839934930205,
+        "model": "Qwen/Qwen3-0.6B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    }
+  ]
+}

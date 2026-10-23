@@ -1,0 +1,11 @@
+"""Ponto de entrada CLI, executável sem instalação do pacote."""
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
+
+from voc.views.cli import main  # noqa: E402
+
+if __name__ == "__main__":
+    main()

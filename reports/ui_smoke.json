@@ -1,0 +1,17 @@
+{
+  "offline_model_mode": true,
+  "ui_errors": [],
+  "answer_status": "answered",
+  "evidence_count": 6,
+  "elapsed_seconds": 11.015439632989,
+  "python": "3.12.13",
+  "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "versions": {
+    "torch": "2.9.0+cpu",
+    "transformers": "4.57.1",
+    "sentence-transformers": "5.1.1",
+    "numpy": "2.3.3",
+    "pandas": "2.3.2",
+    "streamlit": "1.50.0"
+  }
+}

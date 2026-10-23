@@ -1,0 +1,16 @@
+{
+  "documents": 42454,
+  "chunks": 42455,
+  "dimensions": 384,
+  "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+  "embedding_revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+  "document_tokens": 120,
+  "chunk_overlap_tokens": 20,
+  "metric": "cosine / dot product of normalized float32 vectors",
+  "approximate": false,
+  "files": {
+    "data/processed/reviews.parquet": "f808a1184bcc165cff42df5be949c2a4d67c510788ca53447d677e028d917f88",
+    "artifacts/index/chunks.parquet": "ae18eb01b13cba862a81781c75284a04a3cef7f1757a1ec837c1a4a482b663d3",
+    "artifacts/index/embeddings.npy": "72316d67e9bf511642b4db6fa62cac0d9001f7cf23be3fe3d14ce6e5a0c8513b"
+  }
+}

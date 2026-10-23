@@ -1,0 +1,104 @@
+{
+  "question": "Quais são os principais problemas relatados pelos clientes nas avaliações?",
+  "status": "answered",
+  "answer": "- [E1] Muitos desencontros nas entregas de produtos.  \n- [E2] Pessimo atendimento, sem canal de reclamação fornecedor.  \n- [E3] Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma semana e nem sinal da empresa.",
+  "evidence": [
+    {
+      "label": "E1",
+      "document_id": "3b5e3b6a1bb18840f68c5548",
+      "review_id": "949eca021ed60d00a2d2bda3cc686d4d",
+      "order_id": "d5d78aa1e1666a81b03bd8791c865fd3",
+      "text": "muitos desencontros nas entregas de produtos",
+      "chunk": "muitos desencontros nas entregas de produtos",
+      "score": 1,
+      "date": "2017-06-07",
+      "categories": [
+        "cama_mesa_banho"
+      ],
+      "late": false,
+      "similarity": 0.7322036027908325
+    },
+    {
+      "label": "E2",
+      "document_id": "4d764b39daf2adb74c93716e",
+      "review_id": "10b73c782535c2ca6f5df1188f3785a6",
+      "order_id": "d8734ba226623cf1c86b3cce8cbffa78",
+      "text": "Pessimo atendimento, sem canal de reclamação fornecedor",
+      "chunk": "Pessimo atendimento, sem canal de reclamação fornecedor",
+      "score": 1,
+      "date": "2018-03-07",
+      "categories": [
+        "construcao_ferramentas_construcao"
+      ],
+      "late": true,
+      "similarity": 0.6558100581169128
+    },
+    {
+      "label": "E3",
+      "document_id": "967a9838b24bbbaa6aaec7d7",
+      "review_id": "21669c0b1d532d754a411e09973d118d",
+      "order_id": "28eaf28c1a7f1e6d917f465578bb1b43",
+      "text": "Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma semana e nem sinal da empresa",
+      "chunk": "Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma semana e nem sinal da empresa",
+      "score": 1,
+      "date": "2018-01-24",
+      "categories": [
+        "automotivo"
+      ],
+      "late": false,
+      "similarity": 0.7106940746307373
+    },
+    {
+      "label": "E4",
+      "document_id": "857299bfd179eb31c9503184",
+      "review_id": "8ee50c88b0c3064d0fe32fbf12544b0a",
+      "order_id": "5bc4d0aa53124192dd06058bdf74a6a7",
+      "text": "responsabilidade e correção com a compra",
+      "chunk": "responsabilidade e correção com a compra",
+      "score": 4,
+      "date": "2018-03-22",
+      "categories": [
+        "informatica_acessorios"
+      ],
+      "late": false,
+      "similarity": 0.6574892997741699
+    },
+    {
+      "label": "E5",
+      "document_id": "65999e75cc0d6d3f19410dcd",
+      "review_id": "a078b007f3b268dc7310d495ec2f8576",
+      "order_id": "861c9fbad462917e9c57742085a3e2dc",
+      "text": "Recomendo o produto e o atendimento",
+      "chunk": "Recomendo o produto e o atendimento",
+      "score": 5,
+      "date": "2017-08-04",
+      "categories": [
+        "moveis_decoracao"
+      ],
+      "late": false,
+      "similarity": 0.6537636518478394
+    },
+    {
+      "label": "E6",
+      "document_id": "d2c8cc094bc729615bda85cc",
+      "review_id": "6d096d02c248a56919a9a5a2b1c54e50",
+      "order_id": "93dbcae5a986d0f7103a0bc2929e7f18",
+      "text": "Falta de respeito com consumidor; produto mal embalado, vidros sem lacre vazando; náo recebi autorização de devolução, mesmo tendo reclamado no dia da entrega; o pior, terei que levar ao correio",
+      "chunk": "Falta de respeito com consumidor; produto mal embalado, vidros sem lacre vazando; náo recebi autorização de devolução, mesmo tendo reclamado no dia da entrega; o pior, terei que levar ao correio",
+      "score": 1,
+      "date": "2017-03-30",
+      "categories": [
+        "alimentos"
+      ],
+      "late": false,
+      "similarity": 0.6704644560813904
+    }
+  ],
+  "retrieved_documents": 6,
+  "matching_documents": 42454,
+  "elapsed_seconds": 7.8622882700001355,
+  "model": "Qwen/Qwen3-0.6B",
+  "warnings": [
+    "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+  ]
+}
