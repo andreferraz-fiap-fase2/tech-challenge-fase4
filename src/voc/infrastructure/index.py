@@ -74,6 +74,11 @@ class VectorIndex:
         if len(self.rows) != len(self.vectors):
             raise ValueError("Quantidade de vetores incompatível com os chunks.")
 
+    def coverage_years(self) -> tuple[int, int]:
+        """Primeiro e último ano de compra presentes no corpus indexado."""
+        dates = self.rows.purchase_date[self.rows.purchase_date.ne("")]
+        return int(dates.min()[:4]), int(dates.max()[:4])
+
     def search(self, query: str, filters: Filters, top_k: int = 6) -> tuple[list[Evidence], int]:
         if not 1 <= top_k <= 20:
             raise ValueError("top_k deve estar entre 1 e 20.")
@@ -94,7 +99,7 @@ class VectorIndex:
         matching = frame.loc[selected, "document_id"].nunique()
         if not len(candidates):
             return [], 0
-        query_vector = self.embedder.encode([query])[0]
+        query_vector = self.embedder.encode_query(query)
         scores = self.vectors[candidates] @ query_vector
         # O corpus cabe em RAM. Ranking completo simplifica deduplicação determinística.
         order = np.argsort(-scores, kind="stable")

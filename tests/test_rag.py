@@ -3,7 +3,13 @@ from dataclasses import replace
 import pytest
 
 from voc.domain.entities import Evidence, Filters
-from voc.domain.policy import build_prompt, normalize_query, valid_citations
+from voc.domain.policy import (
+    build_prompt,
+    ensure_query_fits,
+    normalize_answer,
+    normalize_query,
+    valid_citations,
+)
 from voc.usecase.rag import RagService
 
 
@@ -32,6 +38,9 @@ class StubRetriever:
         self.calls += 1
         return self.rows, 10
 
+    def coverage_years(self) -> tuple[int, int]:
+        return 2016, 2018
+
 
 class StubGenerator:
     name = "test-double"
@@ -45,7 +54,15 @@ class StubGenerator:
         return self.text
 
 
-@pytest.mark.parametrize("rows", [[], [evidence(1)], [evidence(1, 0.1), evidence(2, 0.2)]])
+@pytest.mark.parametrize(
+    "rows",
+    [
+        [],
+        [evidence(1)],
+        [evidence(1, 0.1), evidence(2, 0.2)],
+        [evidence(1, 0.47), evidence(2, 0.44)],
+    ],
+)
 def test_abstain_without_calling_generator_when_evidence_is_insufficient(
     rows: list[Evidence],
 ) -> None:
@@ -147,3 +164,74 @@ def test_domain_scope_blocks_coincidental_similarity_without_search(question: st
     assert result.status == "out_of_scope"
     assert retriever.calls == 0
     assert generator.calls == 0
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "[O1] O comentário [E1] menciona que o produto veio quebrado.",
+        "- <síntese do tema> [E1] [E2]",
+        "- Atraso relatado pelo cliente [E1]\n[E1, E2]",
+        "- Atraso relatado [E1]\n\nSEM_EVIDENCIA",
+        "- Atraso [E1]",
+        "- A maioria dos clientes reclama do atraso [E1][E2]",
+        "- Atraso na entrega aparece com maior frequência [E1]",
+    ],
+)
+def test_reject_invented_labels_prompt_placeholders_and_frequency_claims(text: str) -> None:
+    # Saídas reais do Qwen3-0.6B na revisão de 22/11/2026 aceitas pela checagem anterior.
+    result = RagService(StubRetriever([evidence(1), evidence(2)]), StubGenerator(text)).ask(
+        "Como foram as entregas?"
+    )
+    assert result.status == "generation_abstained"
+
+
+def test_grouped_citations_are_normalized_and_accepted() -> None:
+    text = "- Atrasos sem aviso ao cliente [E1, E2]"
+    result = RagService(StubRetriever([evidence(1), evidence(2)]), StubGenerator(text)).ask(
+        "Como foram as entregas?"
+    )
+    assert result.status == "answered"
+    assert result.answer == "- Atrasos sem aviso ao cliente [E1][E2]"
+    assert normalize_answer("- Atraso [E3; E4]") == "- Atraso [E3][E4]"
+    assert normalize_answer('- - "Entrega atrasada" [E1]') == "- Entrega atrasada [E1]"
+
+
+def test_year_outside_corpus_is_refused_without_search() -> None:
+    # Achado F2: “atrasos em 2025” era respondido com avaliações de 2017–2018.
+    retriever = StubRetriever([evidence(1), evidence(2)])
+    result = RagService(retriever, StubGenerator()).ask(
+        "O que os clientes relataram sobre atrasos na entrega em 2025?"
+    )
+    assert result.status == "period_out_of_coverage"
+    assert "2016 a 2018" in result.answer and "2025" in result.answer
+    assert retriever.calls == 0
+
+
+def test_year_inside_corpus_requires_explicit_period_filter() -> None:
+    question = "O que os clientes relataram sobre atrasos na entrega em 2017?"
+    retriever = StubRetriever([evidence(1), evidence(2)])
+    service = RagService(retriever, StubGenerator())
+    assert service.ask(question).status == "period_needs_filter"
+    assert retriever.calls == 0
+    filtered = service.ask(question, Filters(start_date="2017-01-01", end_date="2017-12-31"))
+    assert filtered.status == "answered"
+
+
+@pytest.mark.parametrize(
+    "question",
+    ["Houve cobrança duplicada no cartão?", "Há dificuldades para realizar trocas?"],
+)
+def test_payment_and_after_sales_questions_reach_the_search(question: str) -> None:
+    # Achado F3: essas perguntas eram classificadas como fora do domínio.
+    retriever = StubRetriever([evidence(1), evidence(2)])
+    result = RagService(retriever, StubGenerator()).ask(question)
+    assert result.status == "answered"
+    assert retriever.calls == 1
+
+
+def test_query_longer_than_encoder_window_is_rejected_with_its_size() -> None:
+    # Achado F4: 139 tokens viravam 128 em silêncio e perguntas distintas colidiam.
+    ensure_query_fits(128, 128)
+    with pytest.raises(ValueError, match="139 tokens.*máximo 128"):
+        ensure_query_fits(139, 128)
