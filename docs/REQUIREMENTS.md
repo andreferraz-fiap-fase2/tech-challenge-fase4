@@ -13,11 +13,11 @@ Fonte: `[IAST] - Tech Challenge - Fase 4.pdf`, disponível na pasta Fase4 do aut
 | Seleção do contexto | Top-k, deduplicação, limiar e mínimo de evidências |
 | Resposta por modelo de linguagem | `LocalGenerator`, Qwen3 real em CPU |
 | Evidências rastreáveis | `Evidence`: texto, review_id, order_id, document_id, nota, data |
-| Falta de suporte e fora de escopo | Gate de similaridade, recusa de agregações, abstenção do LLM |
+| Falta de suporte e fora de escopo | Gate de similaridade, recusa de agregações e de períodos fora da base, abstenção do LLM |
 | Metadados opcionais | Nota, compra, categorias e entrega após estimativa |
 | Código completo e instruções | `src/`, `tests/`, CLI, UI, README e `uv.lock` |
 | Arquitetura e justificativas | `docs/ARCHITECTURE.md` |
-| Exemplos de perguntas e respostas | `evaluation/questions.json`, exemplos executados em `reports/` |
+| Exemplos de perguntas e respostas | README, seção “Exemplos de perguntas e respostas”; execuções completas em `reports/` |
 | Reprodução | README, manifestos e comandos de reconstrução |
 | Repositório público | Publicar e conferir a URL no guia da entrega |
 | Vídeo até sete minutos | `docs/VIDEO.md`; gravação pelo autor |

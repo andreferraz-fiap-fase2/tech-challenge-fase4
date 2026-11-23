@@ -2,7 +2,7 @@
   {
     "command": "uv run pytest -q",
     "exit_code": 0,
-    "stdout": "..............................                                           [100%]\n30 passed in 2.65s",
+    "stdout": "................................................                         [100%]\n48 passed in 2.51s",
     "stderr": ""
   },
   {
@@ -14,7 +14,7 @@
   {
     "command": "uv run ruff format --check .",
     "exit_code": 0,
-    "stdout": "20 files already formatted",
+    "stdout": "22 files already formatted",
     "stderr": ""
   }
 ]

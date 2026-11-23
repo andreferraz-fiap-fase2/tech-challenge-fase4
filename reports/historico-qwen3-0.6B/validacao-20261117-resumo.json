@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-17",
+  "verdict": "Implementação executável e reprodutível, com pendências antes da submissão.",
+  "review_scope": "Validação técnica; sem alteração do código, commits ou pacote oficial.",
+  "checks": {
+    "pytest": "30 aprovados",
+    "ruff": "aprovado",
+    "format": "aprovado",
+    "github_public": true,
+    "github_ci": "success, main 2f8ae423b3a9e503a8c8a7c4f7ceeac2f78426bc",
+    "source_zip_files": 51,
+    "drive_files_verified": 66,
+    "offline_ui": "answered, seis evidências, nenhuma exceção",
+    "reproducibility": "três arquivos idênticos por SHA-256; IDs e scores reproduzidos"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "priority": "Alta",
+      "title": "Vídeo obrigatório não localizado",
+      "evidence": "Não há vídeo na pasta Fase4 nem link de apresentação no repositório analisado. Há somente um roteiro. O enunciado exige demonstração em vídeo de até sete minutos.",
+      "action": "Gravar a apresentação com demonstração, evidências e decisões técnicas; disponibilizar link acessível ao avaliador.",
+      "location": "docs/VIDEO.md; enunciado, páginas 9–10"
+    },
+    {
+      "id": "F2",
+      "priority": "Alta",
+      "title": "Pergunta sobre 2025 é respondida com avaliações de 2017–2018",
+      "evidence": "A pergunta “O que os clientes relataram sobre atrasos na entrega em 2025?” retornou status answered e seis evidências com datas entre 20/12/2017 e 07/04/2018. Com filtro explícito de 2025, o resultado foi insufficient_evidence. A restrição temporal em linguagem natural não é respeitada.",
+      "action": "Reconhecer períodos fora da cobertura e pedir filtro/confirmar escopo; incluir datas no contexto e impedir resposta a períodos sem dados.",
+      "location": "src/voc/usecase/rag.py:50; src/voc/domain/policy.py:61; src/voc/infrastructure/index.py:79"
+    },
+    {
+      "id": "F3",
+      "priority": "Média",
+      "title": "Gate de escopo recusa perguntas legítimas de pós-venda",
+      "evidence": "“Houve cobrança duplicada no cartão?” e “Há dificuldades para realizar trocas?” retornaram out_of_scope sem pesquisar a base. Os termos relevantes não estão no vocabulário aceito. Ausência de evidência seria um resultado possível, mas fora de domínio é uma classificação indevida.",
+      "action": "Rever a política de domínio para contemplar pagamentos e pós-venda e avaliar paráfrases, sem depender de uma lista estreita de palavras.",
+      "location": "src/voc/domain/policy.py:16"
+    },
+    {
+      "id": "F4",
+      "priority": "Média",
+      "title": "Perguntas aceitas pela interface são truncadas silenciosamente",
+      "evidence": "Duas perguntas de 762 e 763 caracteres, com assuntos diferentes no final, produziram embeddings exatamente iguais. Tinham 139 e 138 tokens, mas o encoder limita a entrada a 128. A interface aceita até 1.000 caracteres.",
+      "action": "Validar o tamanho em tokens e solicitar uma pergunta mais curta, ou definir uma estratégia explícita para consultas longas.",
+      "location": "src/voc/infrastructure/models.py:38; src/voc/domain/policy.py:34"
+    }
+  ],
+  "evaluation_limit": "O conjunto de nove casos é de regressão, reutilizado após correção, não um teste independente. Na repetição atual, três das quatro perguntas respondíveis geraram síntese aceita; atendimento absteve-se por formatação. A inspeção anterior de relevância foi 16/24, por agente de desenvolvimento, sem julgamento humano independente.",
+  "evidence_files": [
+    "execucao-rag-atual.json",
+    "reproducibilidade-atual.json",
+    "integridade-pacote-github.json",
+    "integridade-drive.json",
+    "interface-atual.json",
+    "truncamento-consultas.json"
+  ]
+}

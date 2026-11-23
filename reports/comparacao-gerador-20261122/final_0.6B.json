@@ -1,0 +1,1043 @@
+[
+ {
+  "q": "Quais são os principais problemas relatados pelos clientes em suas avaliações?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "answered",
+  "answer": "-[E1] Muitos desencontros nas entregas de produtos  \n-[E2] Pessimo atendimento, sem canal de reclamação  \n-[E3] Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma semana  \n-[E4] Responsabilidade e correção com a compra  \n-[E5] Reomendando o produto e o atendimento  \n-[E6] Falta de respeito com consumidor; produto mal embalado, vidros sem lacre vazando; não recebi autorização de devolução, mesmo tendo reclamado no dia da entrega",
+  "s": 10.3,
+  "ev": [
+   [
+    "E1",
+    0.732,
+    1,
+    "muitos desencontros nas entregas de produtos"
+   ],
+   [
+    "E2",
+    0.656,
+    1,
+    "Pessimo atendimento, sem canal de reclamação fornecedor"
+   ],
+   [
+    "E3",
+    0.711,
+    1,
+    "Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma se"
+   ],
+   [
+    "E4",
+    0.657,
+    4,
+    "responsabilidade e correção com a compra"
+   ],
+   [
+    "E5",
+    0.654,
+    5,
+    "Recomendo o produto e o atendimento"
+   ],
+   [
+    "E6",
+    0.67,
+    1,
+    "Falta de respeito com consumidor; produto mal embalado, vidros sem lacre vazando; náo rece"
+   ]
+  ]
+ },
+ {
+  "q": "O que os clientes relatam sobre problemas relacionados à entrega?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "answered",
+  "answer": "-[E1] Atraso na entrega  \n[E2] Erro na entrega (não chegou completo)  \n[E3] TERRIVEL ESTE PROBLEMA DA ENTREGA  \n[E4] Processo de entrega muito demorado  \n[E5] Produto entregue se problemas obrigado  \n[E6] Problemas com correios que não cumpriram o prometido",
+  "s": 5.9,
+  "ev": [
+   [
+    "E1",
+    0.854,
+    1,
+    "Atraso na entrega"
+   ],
+   [
+    "E2",
+    0.813,
+    1,
+    "erro na entrega. a entrega nao chegou correta completa"
+   ],
+   [
+    "E3",
+    0.773,
+    1,
+    "TERRIVEL ESTE PROBLEMA DA ENTREGA"
+   ],
+   [
+    "E4",
+    0.782,
+    4,
+    "Processo de entrega muito demorado"
+   ],
+   [
+    "E5",
+    0.753,
+    4,
+    "Produto entregue se problemas obrigado"
+   ],
+   [
+    "E6",
+    0.752,
+    4,
+    "O problema são os correios que não cumpre o prometido na entrega"
+   ]
+  ]
+ },
+ {
+  "q": "Quais aspectos da experiência de compra são mais elogiados pelos clientes?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 1.9,
+  "ev": [
+   [
+    "E1",
+    0.843,
+    5,
+    "A experiência da compra foi muito satisfatória"
+   ],
+   [
+    "E2",
+    0.781,
+    5,
+    "Recomendo a compra nessa loja, primam pela pontualidade e qualidade dos produtos"
+   ],
+   [
+    "E3",
+    0.766,
+    5,
+    "Esta pareceria entre a lannister e as demais lojas foi muito bom, pois veio a contribuir p"
+   ],
+   [
+    "E4",
+    0.771,
+    5,
+    "bom serviço. Satisfatória, é a palavra que define minha experiência de compra com essa loj"
+   ],
+   [
+    "E5",
+    0.754,
+    4,
+    "Satisfatório todo o processo de compras e entrega do produto"
+   ],
+   [
+    "E6",
+    0.763,
+    5,
+    "Tanto vendedor como loja, excelentes, gosto muito de comprar pela baratheonr"
+   ]
+  ]
+ },
+ {
+  "q": "Quais padrões podem ser identificados nas avaliações de clientes insatisfeitos?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 5.8,
+  "ev": [
+   [
+    "E1",
+    0.59,
+    2,
+    "Produto recebido divergente ao comprado, gerando frustração e perda de oferta de outras op"
+   ],
+   [
+    "E2",
+    0.548,
+    1,
+    "a qualidade é baixa"
+   ],
+   [
+    "E3",
+    0.565,
+    1,
+    "Desrespeito com o cliente. Falta de respeito com o cliente"
+   ],
+   [
+    "E4",
+    0.512,
+    4,
+    "recomendado. produto entregue no prazo ainda em avaliação"
+   ],
+   [
+    "E5",
+    0.543,
+    4,
+    "avaliação do vendedor"
+   ],
+   [
+    "E6",
+    0.544,
+    3,
+    "Qualidade do produto.. A qualidade do produto deixa a desejar, muito frágil"
+   ]
+  ]
+ },
+ {
+  "q": "Quais avaliações sustentam a conclusão de que existem problemas recorrentes relacionados ao prazo de entrega?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 1.7,
+  "ev": [
+   [
+    "E1",
+    0.646,
+    4,
+    "O status da entrega é ruim, sempre desatualizado, mostra que teve erro na entrega, mudam o"
+   ],
+   [
+    "E2",
+    0.595,
+    4,
+    "recomendado. produto entregue no prazo ainda em avaliação"
+   ],
+   [
+    "E3",
+    0.544,
+    2,
+    "Muita demora"
+   ],
+   [
+    "E4",
+    0.575,
+    3,
+    "A demora para entrega e rastreamento do produto foi muito dificultosa"
+   ],
+   [
+    "E5",
+    0.597,
+    5,
+    "prazos corretos. produto de péssima qualidade"
+   ],
+   [
+    "E6",
+    0.631,
+    3,
+    "O atraso na entrega prejudicou a obra"
+   ]
+  ]
+ },
+ {
+  "q": "Quais reclamações relacionadas à entrega aparecem com maior frequência?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "answered",
+  "answer": "-[E1] Muitos desencontros nas entregas de produtos  \n-[E2] Mandei diversas reclamações e somente um foi respondida porém não atendida  \n-[E3] Demora muito a entrega, e vc paga o frete é muitas vezes tem que retirar nos correios  \n-[E4] Ja enviei vários emails reclamando sobre a entrega do produto e n me respondem  \n-[E5] O status da entrega é ruim, sempre desatualizado, mostra que teve erro na entrega, mudam o prazo e no fim entregam antes  \n-[E6] Os produtos foram entregues em dias diferentes, o que gerou reclamação na entrega do primeiro pacote",
+  "s": 11.7,
+  "ev": [
+   [
+    "E1",
+    0.64,
+    1,
+    "muitos desencontros nas entregas de produtos"
+   ],
+   [
+    "E2",
+    0.548,
+    1,
+    "Mandei diversas reclamações e somente um foi respondida porém não atendida"
+   ],
+   [
+    "E3",
+    0.599,
+    5,
+    "Demora muito a entrega, e vc paga o frete é muitas vezes tem que retirar nos correios"
+   ],
+   [
+    "E4",
+    0.582,
+    1,
+    "Ja enviei varios emails reclamando sobre a entrega do produto e n me respondem"
+   ],
+   [
+    "E5",
+    0.573,
+    4,
+    "O status da entrega é ruim, sempre desatualizado, mostra que teve erro na entrega, mudam o"
+   ],
+   [
+    "E6",
+    0.607,
+    3,
+    "Os produtos foram entregues em dias diferentes, o que gerou reclamação na entrega do prime"
+   ]
+  ]
+ },
+ {
+  "q": "Existem padrões recorrentes nas avaliações relacionadas à qualidade dos produtos?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 1.8,
+  "ev": [
+   [
+    "E1",
+    0.752,
+    5,
+    "Agora e usar o produto para avaliar a qualidade"
+   ],
+   [
+    "E2",
+    0.698,
+    5,
+    "O PRODUTO ESTÁ DENTRO DOS PADRÕES DE QUALIDADE,ATENDENDO MINHA EXPECTATIVA"
+   ],
+   [
+    "E3",
+    0.663,
+    3,
+    "a entrega foi feita no prazo, a qualidade do produto é regular, mas se for comparada ao pr"
+   ],
+   [
+    "E4",
+    0.708,
+    4,
+    "recomendado. produto entregue no prazo ainda em avaliação"
+   ],
+   [
+    "E5",
+    0.691,
+    5,
+    "Produto está em conformidade com o esperado e dentro da qualidade"
+   ],
+   [
+    "E6",
+    0.691,
+    5,
+    "Produtos de qualidade entregues dentro do prazo"
+   ]
+  ]
+ },
+ {
+  "q": "Quais problemas são relatados por clientes insatisfeitos?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "answered",
+  "answer": "-[E1] Ruim. Falta de respeito com cliente  \n-[E2] Produto recebido divergente ao comprado, gerando frustração e perda de oferta de outras opções analisadas  \n-[E3] Problems existem, porem, necessario compreender-los  \n-[E4] Mais uma vez a empresa falha na entrega, prejudicando assim a loja e o cliente.  \n-[E5] Pessimo atendimento, sem canal de reclamação  \n-[E6] Reclamação. Produto incorreto",
+  "s": 8.7,
+  "ev": [
+   [
+    "E1",
+    0.692,
+    2,
+    "Ruim. Falta de respeito com cliente"
+   ],
+   [
+    "E2",
+    0.691,
+    2,
+    "Produto recebido divergente ao comprado, gerando frustração e perda de oferta de outras op"
+   ],
+   [
+    "E3",
+    0.549,
+    4,
+    "Problems existem, porem, necessario compreende-los"
+   ],
+   [
+    "E4",
+    0.629,
+    5,
+    "Mais uma vez a empresa falida \"correios\" falhou na entrega, prejudicando assim a loja e o "
+   ],
+   [
+    "E5",
+    0.643,
+    1,
+    "Pessimo atendimento, sem canal de reclamação fornecedor"
+   ],
+   [
+    "E6",
+    0.605,
+    1,
+    "reclamação. produto incorreto"
+   ]
+  ]
+ },
+ {
+  "q": "Quais são os principais problemas relatados nas avaliações com nota baixa?",
+  "filters": "Filters(min_score=1, max_score=2, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "answered",
+  "answer": "-[E1] Muitos desencontros nas entregas de produtos  \n-[E2] Pessimo atendimento, sem canal de reclamação fornecedor  \n-[E3] Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma semana  \n-[E4] Falta de respeito com consumidor; produto mal embalado, vidros sem lacre vazando; não recebi autorização de devolução  \n-[E5] Gostaria de saber a quem e como reclamar para receber o produto correto  \n-[E6] Se houve alguma dificuldade para entrega do produto, no mínimo, o comprador deveria ser avisado e negociado uma nova situação de entrega",
+  "s": 11.4,
+  "ev": [
+   [
+    "E1",
+    0.732,
+    1,
+    "muitos desencontros nas entregas de produtos"
+   ],
+   [
+    "E2",
+    0.656,
+    1,
+    "Pessimo atendimento, sem canal de reclamação fornecedor"
+   ],
+   [
+    "E3",
+    0.711,
+    1,
+    "Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma se"
+   ],
+   [
+    "E4",
+    0.67,
+    1,
+    "Falta de respeito com consumidor; produto mal embalado, vidros sem lacre vazando; náo rece"
+   ],
+   [
+    "E5",
+    0.63,
+    1,
+    "Gostaria de saber a quem e como reclamar para receber o produto correto. Grata"
+   ],
+   [
+    "E6",
+    0.667,
+    1,
+    "Se houve alguma dificuldade para entrega do produto, no mínimo, o comprador deveria ser av"
+   ]
+  ]
+ },
+ {
+  "q": "O que os clientes mais elogiam?",
+  "filters": "Filters(min_score=4, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "answered",
+  "answer": "-[E1] Super Recomendo. Suporte e atenção prestado aos seus clientes, ótimas variedades e preços justos  \n-[E2] Muito bacana essa atenção com o cliente. Parabéns!  \n-[E3] Compromisso e respeito para com os clientes  \n-[E5] Excelente!!!. Gosto do respeito e preocupação que vocês tem com os clientes! quality e agilidade",
+  "s": 6.9,
+  "ev": [
+   [
+    "E1",
+    0.825,
+    5,
+    "Super Recomendo. Suporte e atenção prestado aos seus clientes, ótimas variedades e preços "
+   ],
+   [
+    "E2",
+    0.797,
+    5,
+    "Muito bacana essa atenção com o cliente. Parabéns!"
+   ],
+   [
+    "E3",
+    0.753,
+    5,
+    "Compromisso e respeito para com os clientes"
+   ],
+   [
+    "E4",
+    0.767,
+    5,
+    "É impressionante o respeito, consideração, tratamento e agilidade pela entrega da mercador"
+   ],
+   [
+    "E5",
+    0.782,
+    4,
+    "excelente!!!!. Gosto do respeito e preocupação que vocês tem com os clientes! qualidade e "
+   ],
+   [
+    "E6",
+    0.791,
+    5,
+    "Ótimo produto e compromisso com o cliente"
+   ]
+  ]
+ },
+ {
+  "q": "O que os clientes relatam sobre atrasos na entrega?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "answered",
+  "answer": "-[E1] A entrega atrasou  \n[E2] Demora na entrega  \n[E3] Demora na entrega e ainda atrasou  \n[E4] A entrega está atrasada  \n[E5] O atraso na entrega prejudicou a obra  \n[E6] Atraso na entrega da mercadoria, não cumpre prazo.",
+  "s": 5.3,
+  "ev": [
+   [
+    "E1",
+    0.949,
+    5,
+    "A entrega atrasou"
+   ],
+   [
+    "E2",
+    0.944,
+    1,
+    "demora na entrega"
+   ],
+   [
+    "E3",
+    0.92,
+    3,
+    "Demora na entrega e ainda atrasou"
+   ],
+   [
+    "E4",
+    0.933,
+    1,
+    "A entrega esta atrasada"
+   ],
+   [
+    "E5",
+    0.851,
+    3,
+    "O atraso na entrega prejudicou a obra"
+   ],
+   [
+    "E6",
+    0.862,
+    1,
+    "atraso na entrega da mercadoria,não cumpre prazo determinado"
+   ]
+  ]
+ },
+ {
+  "q": "Quais relatos mencionam produtos que chegaram quebrados?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "answered",
+  "answer": "[E1] Produto veio quebrado  \n[E2] Produto diferente do oferecido, e cheio de defeitos  \n[E3] Produto que sinais de uso, manchado e quebrado  \n[E4] Tablets quebrados. alguns tablets de bcaa vieram quebrados  \n[E5] Produto mal embalado. Produto chegou com risco e manchado  \n[E6] O produto veio com várias partes quebradas dentro da caixa",
+  "s": 7.3,
+  "ev": [
+   [
+    "E1",
+    0.745,
+    2,
+    "Produto veio quebrado"
+   ],
+   [
+    "E2",
+    0.689,
+    1,
+    "Produto diferente do oferecido, e cheio de defeitos"
+   ],
+   [
+    "E3",
+    0.682,
+    1,
+    "Produto que sinais de uso , manchado , marcado e quebrado"
+   ],
+   [
+    "E4",
+    0.658,
+    1,
+    "tablets quebrados. alguns tablets de bcaa vieram quebrados, diminuindo a qualidade do prod"
+   ],
+   [
+    "E5",
+    0.689,
+    1,
+    "Produto mal embalado. Produto chegou com risco e manchado"
+   ],
+   [
+    "E6",
+    0.67,
+    2,
+    "O produto veio com várias partes quebradas dentro da caixa"
+   ]
+  ]
+ },
+ {
+  "q": "O que os clientes elogiam sobre a rapidez da entrega?",
+  "filters": "Filters(min_score=4, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "answered",
+  "answer": "-[E1] Muito bom a rapidez da entrega  \n[E2] Parabenizo pela qualidade do produto e pontualidade na entrega  \n[E3] Rapidez da entrega e boa assistência ao cliente  \n[E4] Feliz pelo produto e a entrega rápida  \n[E5] Muito eficiente. Gostei muito da rapidez da entrega do produto, do atendimento eu indicaria sim  \n[E6] Entrega rápida, produto de qualidade",
+  "s": 6.7,
+  "ev": [
+   [
+    "E1",
+    0.876,
+    5,
+    "Muito bom a rapidez da entrega"
+   ],
+   [
+    "E2",
+    0.795,
+    5,
+    "parabenizo pela qualidade do produto e pontualidade na entrega"
+   ],
+   [
+    "E3",
+    0.784,
+    5,
+    "Rapidaentrega e boa assistencia ao cliente"
+   ],
+   [
+    "E4",
+    0.826,
+    5,
+    "Feliz pelo produto e a entrega rápida"
+   ],
+   [
+    "E5",
+    0.811,
+    5,
+    "Muito eficiente. Gostei muito da rapidez da entrega do produto, do atendimento eu indicari"
+   ],
+   [
+    "E6",
+    0.842,
+    5,
+    "entrega rápida, produto de qualidade"
+   ]
+  ]
+ },
+ {
+  "q": "Quais são os principais problemas relatados pelos clientes nas avaliações?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "answered",
+  "answer": "-[E1] Muitos desencontros nas entregas de produtos  \n-[E2] Pessimo atendimento, sem canal de reclamação  \n-[E3] Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma semana  \n-[E4] Responsabilidade e correção com a compra  \n-[E5] Reomendando o produto e o atendimento  \n-[E6] Falta de respeito com consumidor; produto mal embalado, vidros sem lacre vazando; não recebi autorização de devolução, mesmo tendo reclamado no dia da entrega",
+  "s": 9.7,
+  "ev": [
+   [
+    "E1",
+    0.732,
+    1,
+    "muitos desencontros nas entregas de produtos"
+   ],
+   [
+    "E2",
+    0.656,
+    1,
+    "Pessimo atendimento, sem canal de reclamação fornecedor"
+   ],
+   [
+    "E3",
+    0.711,
+    1,
+    "Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma se"
+   ],
+   [
+    "E4",
+    0.657,
+    4,
+    "responsabilidade e correção com a compra"
+   ],
+   [
+    "E5",
+    0.654,
+    5,
+    "Recomendo o produto e o atendimento"
+   ],
+   [
+    "E6",
+    0.67,
+    1,
+    "Falta de respeito com consumidor; produto mal embalado, vidros sem lacre vazando; náo rece"
+   ]
+  ]
+ },
+ {
+  "q": "Como ocorre a fusão nuclear no interior do Sol?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": false,
+  "status": "out_of_scope",
+  "answer": "Esta base permite investigar relatos de experiências de compra e atendimento. A pergunta está fora desse escopo.",
+  "s": 0.0,
+  "ev": []
+ },
+ {
+  "q": "Qual será o faturamento da Olist em 2035?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": false,
+  "status": "unsupported_aggregate",
+  "answer": "Esta busca não calcula totais ou percentuais do corpus. Reformule para explorar os relatos e suas evidências.",
+  "s": 0.0,
+  "ev": []
+ },
+ {
+  "q": "O que os clientes dizem sobre a entrega?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='2030-01-01', end_date='', category='', late_only=False)",
+  "expected": false,
+  "status": "insufficient_evidence",
+  "answer": "Não encontrei evidências suficientes nas avaliações para responder com segurança.",
+  "s": 0.0,
+  "ev": []
+ },
+ {
+  "q": "Há relatos de pedidos entregues com itens faltando?",
+  "filters": "Filters(min_score=1, max_score=2, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "answered",
+  "answer": "-[E1] Pedido não entregue (prazo de entrega não obedecido)  \n-[E2] O pedido foi entregue parcialmente, ficando faltando ainda três itens  \n-[E3] Pedido veio incompleto. Vieram faltando produtos e até agora ninguém respondeu meus e-mails  \n-[E5] Produto entregue faltando encomendas  \n-[E6] PESSIMO. Paguei por um frete onde os prazos não foram seguidos, nas informações de rastreio aparecia apenas a ocorrência de um imprevisto, falta de informações demonstra o descaso da empresa com o cliente",
+  "s": 10.0,
+  "ev": [
+   [
+    "E1",
+    0.726,
+    1,
+    "Pedido não entregue (prazo de entrega não obedecido)"
+   ],
+   [
+    "E2",
+    0.717,
+    1,
+    "O pedido foi entregue parcialmente, ficando faltando ainda três itens"
+   ],
+   [
+    "E3",
+    0.713,
+    1,
+    "Pedido veio incompleto. Vieram faltando produtos e até agora ninguém respondeu meus e-mail"
+   ],
+   [
+    "E4",
+    0.686,
+    1,
+    "Preciso de informaçãoes sobre o pedido que não chegou ainda"
+   ],
+   [
+    "E5",
+    0.703,
+    1,
+    "Produto entregue faltando encomendas"
+   ],
+   [
+    "E6",
+    0.624,
+    1,
+    "PESSIMO. Paguei por um frete onde os prazos não foram seguidos,nas informações de rastreio"
+   ]
+  ]
+ },
+ {
+  "q": "O que os clientes dizem sobre receber um produto diferente do comprado?",
+  "filters": "Filters(min_score=1, max_score=2, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 2.1,
+  "ev": [
+   [
+    "E1",
+    0.912,
+    2,
+    "Produto entregue diferente da compra"
+   ],
+   [
+    "E2",
+    0.868,
+    2,
+    "Bom vendedor , porém foi entregue um produto diferente da compra efetuada"
+   ],
+   [
+    "E3",
+    0.83,
+    1,
+    "O produto enviado é diferente do produto comprado, solicito a troca do produto"
+   ],
+   [
+    "E4",
+    0.842,
+    1,
+    "O produto chegou diferente do comprado"
+   ],
+   [
+    "E5",
+    0.778,
+    1,
+    "Comprei um produto e me encaminharam outro. Estou fazendo a devolução do produto para ress"
+   ],
+   [
+    "E6",
+    0.818,
+    1,
+    "Produto errado. Entrega do produto diferente do solicitado Aguardo orientação para a troca"
+   ]
+  ]
+ },
+ {
+  "q": "Quais são as reclamações sobre falta de resposta do atendimento?",
+  "filters": "Filters(min_score=1, max_score=2, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 9.7,
+  "ev": [
+   [
+    "E1",
+    0.809,
+    1,
+    "Pessimo atendimento, sem canal de reclamação fornecedor"
+   ],
+   [
+    "E2",
+    0.75,
+    1,
+    "Não responde as solicitações de atendimento"
+   ],
+   [
+    "E3",
+    0.681,
+    1,
+    "Mandei diversas reclamações e somente um foi respondida porém não atendida"
+   ],
+   [
+    "E4",
+    0.655,
+    1,
+    "Cliente super insatisfeit. Quero informar que acho uma falta de respeito com consumir fina"
+   ],
+   [
+    "E5",
+    0.688,
+    1,
+    "Falta de compromisso com o cliente"
+   ],
+   [
+    "E6",
+    0.576,
+    1,
+    "Insatisfação. Negativo"
+   ]
+  ]
+ },
+ {
+  "q": "O que os compradores elogiam na qualidade dos produtos?",
+  "filters": "Filters(min_score=4, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": true,
+  "status": "answered",
+  "answer": "[E1] Produto de qualidade! Compromisso com o cliente e qualidade no produto resumem essa compra  \n[E2] Recomendo a compra nessa loja, primam pela pontualidade e qualidade dos produtos  \n[E3] Ótimo vendedor! Produto de qualidade, excelência no processo de compra  \n[E4] É impressionante o respeito, consideração, tratamento e agilidade pela entrega da mercadoria ao consumidor dado pelo stark, só me resta agradecer e reconhecer estes valores  \n[E5] Produto como descrito, satisfeitíssima com a compra  \n[E6] Estão de parabéns pela pontualidade e qualidade dos produtos",
+  "s": 10.8,
+  "ev": [
+   [
+    "E1",
+    0.881,
+    5,
+    "Produto de qualidade!. Compromisso com o cliente e qualidade no produto resumem essa compr"
+   ],
+   [
+    "E2",
+    0.821,
+    5,
+    "Recomendo a compra nessa loja, primam pela pontualidade e qualidade dos produtos"
+   ],
+   [
+    "E3",
+    0.852,
+    5,
+    "Ótimo vendedor!. Produto de qualidade, excelência no processo de compra"
+   ],
+   [
+    "E4",
+    0.773,
+    5,
+    "É impressionante o respeito, consideração, tratamento e agilidade pela entrega da mercador"
+   ],
+   [
+    "E5",
+    0.823,
+    5,
+    "produto como descrito, satisfeitíssima com a compra"
+   ],
+   [
+    "E6",
+    0.789,
+    5,
+    "Estão de parabéns pela pontualidade e qualidade dos produtos"
+   ]
+  ]
+ },
+ {
+  "q": "Explique a teoria da relatividade geral e a curvatura do espaço-tempo.",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": false,
+  "status": "out_of_scope",
+  "answer": "Esta base permite investigar relatos de experiências de compra e atendimento. A pergunta está fora desse escopo.",
+  "s": 0.0,
+  "ev": []
+ },
+ {
+  "q": "Qual medicamento devo tomar para tratar hipertensão arterial?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": false,
+  "status": "out_of_scope",
+  "answer": "Esta base permite investigar relatos de experiências de compra e atendimento. A pergunta está fora desse escopo.",
+  "s": 0.0,
+  "ev": []
+ },
+ {
+  "q": "Quem vencerá a eleição presidencial brasileira de 2030?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": false,
+  "status": "out_of_scope",
+  "answer": "Esta base permite investigar relatos de experiências de compra e atendimento. A pergunta está fora desse escopo.",
+  "s": 0.0,
+  "ev": []
+ },
+ {
+  "q": "Quais problemas apareceram nas entregas?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='categoria_inexistente_fiap', late_only=False)",
+  "expected": false,
+  "status": "insufficient_evidence",
+  "answer": "Não encontrei evidências suficientes nas avaliações para responder com segurança.",
+  "s": 0.0,
+  "ev": []
+ },
+ {
+  "q": "Qual o percentual de pedidos com reclamação de atraso?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": false,
+  "status": "unsupported_aggregate",
+  "answer": "Esta busca não calcula totais ou percentuais do corpus. Reformule para explorar os relatos e suas evidências.",
+  "s": 0.0,
+  "ev": []
+ },
+ {
+  "q": "Houve cobrança duplicada no cartão?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": null,
+  "status": "answered",
+  "answer": "-[E1] Reclamação. Entregaram em duplicidade, pedindo ajuda para resolver.  \n-[E3] Entrega errada. Adquiriu 2 unidades, apenas 1 foi entregue, mas NFe dizu 2 produtos.  \n-[E5] Pagamento clonado, cancelado sem ser bem-aceitado.  \n-[E6] Cobrança errada, cartão cobrado apenas uma vez.",
+  "s": 7.4,
+  "ev": [
+   [
+    "E1",
+    0.737,
+    5,
+    "Reclamcao. A entrega foi correta ,porém vocês entregaram em duplicidade é passaram duas ve"
+   ],
+   [
+    "E2",
+    0.685,
+    1,
+    "Houve cobrança do produto na fatura do cartão de crédito. Não foi entregue o produto até h"
+   ],
+   [
+    "E3",
+    0.702,
+    4,
+    "Entrega errada. Eu adquiri 2 (duas) unidades do produto, mas só enviaram (1) uma, porém na"
+   ],
+   [
+    "E4",
+    0.629,
+    1,
+    "O pedido consta de 1 cartucho preto 60xL e outro colorido 60XL. O colorido nào chegou.O pa"
+   ],
+   [
+    "E5",
+    0.669,
+    3,
+    "Problema no pagamento. Tive um problema na forma de pagamento, segundo os meus pais, o car"
+   ],
+   [
+    "E6",
+    0.653,
+    3,
+    "Cobrança Errada. O produto foi comprado em 6x no cartão e foi cobrado em apenas uma vez"
+   ]
+  ]
+ },
+ {
+  "q": "Há dificuldades para realizar trocas?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": null,
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 4.5,
+  "ev": [
+   [
+    "E1",
+    0.658,
+    1,
+    "problemas na entrega. infelizmente essa compra não foi bem sucedida"
+   ],
+   [
+    "E2",
+    0.623,
+    5,
+    "Ótima transação"
+   ],
+   [
+    "E3",
+    0.624,
+    1,
+    "Falta de compromisso"
+   ],
+   [
+    "E4",
+    0.642,
+    1,
+    "PÉSSIMO SERVIÇO. Já solicitei a troca porém até o momento nada. Enviaram o produto errado "
+   ],
+   [
+    "E5",
+    0.576,
+    1,
+    "A entrega de produtos de parceiros deveria ser baratheon . Correios é complicado, detona u"
+   ],
+   [
+    "E6",
+    0.625,
+    2,
+    "Produto recebido divergente ao comprado, gerando frustração e perda de oferta de outras op"
+   ]
+  ]
+ },
+ {
+  "q": "O que os clientes relataram sobre atrasos na entrega em 2025?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": null,
+  "status": "period_out_of_coverage",
+  "answer": "A base contém compras de 2016 a 2018. Não há avaliações de 2025 para sustentar uma resposta.",
+  "s": 0.0,
+  "ev": []
+ },
+ {
+  "q": "O que os clientes relataram sobre atrasos na entrega em 2025?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='2025-01-01', end_date='2025-12-31', category='', late_only=False)",
+  "expected": null,
+  "status": "period_out_of_coverage",
+  "answer": "A base contém compras de 2016 a 2018. Não há avaliações de 2025 para sustentar uma resposta.",
+  "s": 0.0,
+  "ev": []
+ },
+ {
+  "q": "Qual candidato os clientes da Olist devem apoiar na eleição presidencial?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": null,
+  "status": "insufficient_evidence",
+  "answer": "Não encontrei evidências suficientes nas avaliações para responder com segurança.",
+  "s": 0.1,
+  "ev": []
+ },
+ {
+  "q": "Quais avaliações comprovam que a Olist venceu o Prêmio Nobel de Física?",
+  "filters": "Filters(min_score=1, max_score=5, start_date='', end_date='', category='', late_only=False)",
+  "expected": null,
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 1.1,
+  "ev": [
+   [
+    "E1",
+    0.466,
+    5,
+    "sensacional. ótimo produto, bom acabamento. Para quem está começando nesse estudo sobre o "
+   ],
+   [
+    "E3",
+    0.438,
+    1,
+    "Cumpriu com excelência"
+   ]
+  ]
+ }
+]

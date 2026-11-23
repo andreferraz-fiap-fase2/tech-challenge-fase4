@@ -9,7 +9,11 @@ flowchart TD
   Q[Pergunta + filtros explícitos] --> F[Normalização da pergunta]
   F --> S[Gate lexical de escopo]
   S -->|fora do domínio| N
-  S -->|domínio de compra| G[Embedding da consulta]
+  S -->|domínio de compra| P[Ano citado x cobertura e filtro]
+  P -->|fora de 2016–2018 ou sem filtro| N
+  P -->|sem ano ou filtrado| T[Limite de 128 tokens]
+  T -->|consulta longa| X[Erro: encurtar a pergunta]
+  T --> G[Embedding da consulta]
   E --> H[Filtros antes da busca / cosseno exato]
   G --> H
   H --> I[Top 6 / deduplicação / limiar / mínimo de 2]
@@ -70,21 +74,41 @@ Um gate lexical conservador exige vocabulário de experiência de compra antes d
 Ele foi acrescentado após uma falha no teste: uma pergunta política recuperou comentários
 com a palavra “Brasil”. O resultado inicial foi preservado e a reexecução é reportada
 como regressão. O gate é transparente e testável, mas pode ter falsos positivos/negativos;
-não se afirma que classifica universalmente a intenção do usuário.
+não se afirma que classifica universalmente a intenção do usuário. A validação de
+17/11/2026 mostrou falsos negativos em pagamento e pós-venda (“cobrança duplicada no
+cartão”, “trocas”); o vocabulário passou a incluir pagamento, cobrança, cartão, boleto,
+parcelas, trocas, garantia, cancelamento, rastreio, correios, prazo e preço.
 
-O gate exige pelo menos duas avaliações distintas com cosseno ≥ 0,42. Não se trata de
-probabilidade nem intervalo de confiança. O corte é uma decisão inicial heurística,
-examinada no desenvolvimento. Os seis resultados não constituem amostra aleatória.
+Anos escritos na pergunta não filtram a busca. Antes, “atrasos em 2025” era respondido
+com avaliações de 2017–2018. Agora, um ano fora da cobertura do índice (anos de compra
+lidos dos próprios dados: 2016–2018) gera abstenção que informa o período disponível;
+um ano dentro da cobertura exige o filtro explícito de período da compra. A regra
+mantém a decisão de não converter linguagem natural em filtro sem confirmação.
 
-O Qwen3-0.6B recebe somente a pergunta e os trechos de comentários, com nota e referências
+O encoder lê no máximo 128 tokens. Consultas maiores eram truncadas em silêncio, e duas
+perguntas diferentes no final produziam o mesmo vetor. A consulta é medida no tokenizer
+antes do embedding e recusada com o tamanho encontrado.
+
+O gate exige pelo menos duas avaliações distintas com cosseno ≥ 0,50. Não se trata de
+probabilidade nem intervalo de confiança. O corte inicial, 0,42, foi elevado na revisão de
+22/11/2026: a pergunta sobre um “Prêmio Nobel” da Olist passava com duas evidências
+(0,466 e 0,438) e o gerador inventava uma síntese; nas 28 perguntas respondíveis, todas as
+seis evidências ficaram em 0,512 ou mais. O ajuste foi motivado pela regressão, com margem
+estreita, e não foi validado em conjunto independente. Os seis resultados não constituem
+amostra aleatória.
+
+O Qwen3-1.7B recebe somente a pergunta e os trechos de comentários, com nota e referências
 locais. Metadados de cliente não são enviados. Pensamento desabilitado, geração greedy
 e parâmetros fixos favorecem previsibilidade em CPU. Não se usa o conhecimento geral do
 modelo como fonte de fatos sobre a empresa. O prompt impede proporções, frequências,
 causas ou recomendações sem suporte e orienta a abstenção.
 
 A checagem automática exige que cada linha de resposta cite referências que existam no
-contexto e rejeita percentuais. Essa checagem detecta referências inventadas ou ausentes;
-não verifica entailment entre comentário e afirmação. Por isso, a aplicação sempre mostra
+contexto e rejeita percentuais. Também recusa rótulos inventados (como `[O1]`), marcadores
+copiados do prompt, linhas apenas com referências e alegações de frequência (“maioria”,
+“frequente”); grupos como `[E1, E3]` são normalizados para `[E1][E3]`. Essa checagem
+detecta referências inventadas ou ausentes; não verifica entailment entre comentário e
+afirmação. Por isso, a aplicação sempre mostra
 as avaliações e a documentação separa integridade de citações de suporte factual.
 
 ## Escolhas e alternativas
@@ -92,12 +116,37 @@ as avaliações e a documentação separa integridade de citações de suporte f
 | Escolha | Motivo | Custo ou limite |
 | --- | --- | --- |
 | Modelos locais | Sem chave, custo de API ou envio de comentários a provedor | Download inicial e menor qualidade do gerador pequeno |
+| Qwen3-1.7B em vez de 0.6B | Segue o formato com referências e agrupa temas | ~2× o tempo de resposta e 3,8 GB de pesos |
 | CPU / PyTorch | Reproduzível em WSL sem placa de vídeo | Geração mais lenta |
 | Busca densa multilíngue | Recupera por significado em português | Pode recuperar analogias irrelevantes |
 | Cosseno exato | Auditável e suficiente ao volume | Custo linear por pergunta |
 | Documento por avaliação | Preserva contexto e rastreabilidade | Comentários curtos e repetitivos limitam insights |
 | Mínimo de duas evidências | Evita síntese sobre um único relato isolado | Pode recusar pergunta rara mas legítima |
 | Recusa de agregações | Top-k não mede frequências do corpus | Análise quantitativa exige módulo próprio |
+
+## Escolha do gerador
+
+A revisão de 22/11/2026 executou as perguntas respondíveis de dev, test e os exemplos do
+enunciado com o mesmo índice e as mesmas evidências, variando apenas gerador, prompt e
+validador. Os resultados brutos estão em `reports/comparacao-gerador-20261122/`.
+
+| Gerador | Prompt / validador | Sínteses aceitas | Tempo médio | Observação |
+| --- | --- | ---: | ---: | --- |
+| Qwen3-0.6B | anterior | 13/18 | 4,8 s | copia comentários; aceitou rótulos `[O1]` |
+| Qwen3-0.6B | novo / anterior | 17/18 | 4,5 s | copiou o marcador `<síntese do tema>` em quase todas |
+| Qwen3-0.6B | novo / novo | 12/18 | 7,1 s | recusas por formato; 4 dos 5 exemplos de exploração sem síntese |
+| Qwen3-1.7B | anterior | 18/18 | 24,6 s | prolixo; afirmava “aparece com maior frequência” |
+| Qwen3-1.7B | novo / novo | 16/18 | 14,7 s | agrupa temas; recusas restantes descritas no protocolo |
+
+Depois da comparação, a regra de palavras mínimas por tópico passou de três para duas
+(“Entrega atrasada [E4]” era recusada) e o corte de similaridade, para 0,50. Com essa
+configuração final, a avaliação oficial de todos os splits teve 18/19 sínteses aceitas
+nas perguntas respondíveis, 13,9 s em média (`evaluation/PROTOCOL.md`).
+
+O 0.6B atende ao formato apenas copiando texto, o que a checagem não consegue distinguir
+de uma síntese. O 1.7B foi adotado porque produz tópicos próprios com referências válidas
+em CPU, ainda sem chave de API. O Qwen3-4B foi baixado, mas não avaliado: o custo estimado
+de 40–60 s por resposta inviabilizaria a demonstração.
 
 ## Reprodutibilidade e separação da Fase 3
 

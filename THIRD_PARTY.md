@@ -9,7 +9,7 @@
   [paraphrase-multilingual-MiniLM-L12-v2](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2),
   Apache-2.0. Referência: Reimers e Gurevych, *Sentence-BERT*, EMNLP 2019.
 - **Geração:** Qwen Team / Alibaba,
-  [Qwen3-0.6B](https://huggingface.co/Qwen/Qwen3-0.6B), Apache-2.0.
+  [Qwen3-1.7B](https://huggingface.co/Qwen/Qwen3-1.7B), Apache-2.0.
 - **Bibliotecas:** suas licenças permanecem com seus respectivos autores. O ambiente
   completo e versões transitivas estão em `uv.lock`.
 

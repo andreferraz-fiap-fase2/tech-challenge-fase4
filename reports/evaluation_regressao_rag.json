@@ -1,0 +1,458 @@
+{
+  "source_sha256": {
+    "src/voc/__init__.py": "3a5b9bdb32b5ba7b88d98d7871d931eda38d4cf1df90821725cf443b0d3b9f7f",
+    "src/voc/domain/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/voc/domain/entities.py": "27ddbb9eb95fcb52c581c287544a25665b2179126ed10753efd4ff698c2a431d",
+    "src/voc/domain/policy.py": "1d33b6ae29a29246a9e6114cace51ff42a6f7dfd2f1f7ed7f2026df1982a1708",
+    "src/voc/infrastructure/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/voc/infrastructure/dataset.py": "5fe88ef360a82d014bf57822f65eed8bf10ab98def9d27aee6d33c87039d96bf",
+    "src/voc/infrastructure/index.py": "42f96ae2dc01473e198def7f44d571510dd70c955e10b08880280f0c9f155c51",
+    "src/voc/infrastructure/model_source.py": "8fc87598c97f53a7e3123f89863ceed8b1d041d9cbb2e039c17b4b3791e71072",
+    "src/voc/infrastructure/models.py": "fa19d15615dc9c71053c5fc5a6f7d301f8af69f88ce2574bdfffc7468690dc27",
+    "src/voc/infrastructure/storage.py": "85a0d0765fde32e52dd355f5796acb4ba26a071ebedd2d20767dfa539edffa43",
+    "src/voc/usecase/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/voc/usecase/evaluate.py": "c8cc270a0ed32070e3d32cc07893e578c3a71ab32e71ac0e9b01541f4fc6643b",
+    "src/voc/usecase/rag.py": "eea18ac36faf72c1626210171efb1b0291ccef58f3ca5a760f2253d6ed69f022",
+    "src/voc/usecase/reproduce.py": "ffe60b8c1ec1d28868910cfd10fa2a2500ef8a5d133b6e6f469e852efcf13978",
+    "src/voc/views/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/voc/views/cli.py": "73f801afb36097c936b190fe614df7474f9edeaeb6d0156655db26b765f3b2ad"
+  },
+  "split": "regressao",
+  "generation_executed": true,
+  "cases": 8,
+  "evidence_gate_accuracy": 1.0,
+  "answerable_gate_recall": 1.0,
+  "unanswerable_abstention_rate": 1.0,
+  "generated_answers": 3,
+  "note": "Pequeno conjunto autoral de smoke tests. Gate correto não prova relevância ou suporte factual. Testes de referências avaliam formato, não verdade. Nenhum recall de documentos é estimado.",
+  "config": {
+    "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "embedding_revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
+    "generation_model": "Qwen/Qwen3-1.7B",
+    "generation_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+    "embedding_dimensions": 384,
+    "document_tokens": 120,
+    "chunk_overlap_tokens": 20,
+    "top_k": 6,
+    "rerank_pool": 100,
+    "mmr_lambda": 0.7,
+    "min_similarity": 0.5,
+    "min_evidence": 2,
+    "max_new_tokens": 384,
+    "threads": 8
+  },
+  "questions_sha256": "125b380171a1adfb78520f25b2decef42ab2064b11a0038f98d52368e895078a",
+  "rows": [
+    {
+      "case_id": "reg-payment",
+      "expected_answerable": true,
+      "gate_correct": true,
+      "result": {
+        "question": "Houve cobrança duplicada no cartão?",
+        "status": "answered",
+        "answer": "- Cobrança duplicada no cartão: Comentário E1 menciona que houve entrega em duplicidade, debita-se o cartão duas vezes. [E1][E2]\n- Pagamento incorreto: Comentário E5 afirma que o cartão foi clonado e houve cobrança errada. [E5]\n- Entregas inadequadas: Comentário E3 indica que apenas uma unidade foi enviada, enquanto a NF indicava duas. [E3]\n- Problemas com o produto: Comentário E4 relata que o produto colorido não chegou. [E4]",
+        "evidence": [
+          {
+            "label": "E1",
+            "document_id": "54117af526a4470c7e53b138",
+            "review_id": "056b3ad0eea6283fb5d5671ef40d2a0d",
+            "order_id": "9c047f1058da1c399c10a1526f528855",
+            "text": "Reclamcao. A entrega foi correta ,porém vocês entregaram em duplicidade é passaram duas vezes o meu cartão,quero ver como podemos resolver isso ,pq eu não preciso de 2 Fico no aguardo",
+            "chunk": "Reclamcao. A entrega foi correta ,porém vocês entregaram em duplicidade é passaram duas vezes o meu cartão,quero ver como podemos resolver isso ,pq eu não preciso de 2 Fico no aguardo",
+            "score": 5,
+            "date": "2018-07-14",
+            "categories": [
+              "ferramentas_jardim"
+            ],
+            "late": false,
+            "similarity": 0.7367504835128784
+          },
+          {
+            "label": "E2",
+            "document_id": "856599eac74fdb064d6e59a9",
+            "review_id": "e1e140bd572dca24be659828a479275d",
+            "order_id": "0a075803f6a9f73007c86d42003cc231",
+            "text": "Houve cobrança do produto na fatura do cartão de crédito. Não foi entregue o produto até hoje e o fornecedor informou que não ha estoque. Gostaria do reembolso imediato do valor no meu cartão",
+            "chunk": "Houve cobrança do produto na fatura do cartão de crédito. Não foi entregue o produto até hoje e o fornecedor informou que não ha estoque. Gostaria do reembolso imediato do valor no meu cartão",
+            "score": 1,
+            "date": "2017-04-30",
+            "categories": [
+              "utilidades_domesticas"
+            ],
+            "late": null,
+            "similarity": 0.6854516267776489
+          },
+          {
+            "label": "E3",
+            "document_id": "a7522522b720db2a2132bf11",
+            "review_id": "9a950fef55ee6382f301183f24988fbf",
+            "order_id": "8ed4df9e21def5033d20475c0e568c92",
+            "text": "Entrega errada. Eu adquiri 2 (duas) unidades do produto, mas só enviaram (1) uma, porém na NFe enviada na caixa diz que foi faturado 2 (dois) produtos e foi debitado no meu cartão o valor total compra. Como resolvo?",
+            "chunk": "Entrega errada. Eu adquiri 2 (duas) unidades do produto, mas só enviaram (1) uma, porém na NFe enviada na caixa diz que foi faturado 2 (dois) produtos e foi debitado no meu cartão o valor total compra. Como resolvo?",
+            "score": 4,
+            "date": "2018-05-22",
+            "categories": [
+              "esporte_lazer"
+            ],
+            "late": false,
+            "similarity": 0.7015448808670044
+          },
+          {
+            "label": "E4",
+            "document_id": "8f6dd1c379b426b2e060f603",
+            "review_id": "5aae83cb75b399520cfe95604b8aa05d",
+            "order_id": "1e7daa50f3b5b4b0325e1467947249f1",
+            "text": "O pedido consta de 1 cartucho preto 60xL e outro colorido 60XL. O colorido nào chegou.O pagamento foi feito integral e ja consta fa fatura de meu cartao de credito",
+            "chunk": "O pedido consta de 1 cartucho preto 60xL e outro colorido 60XL. O colorido nào chegou.O pagamento foi feito integral e ja consta fa fatura de meu cartao de credito",
+            "score": 1,
+            "date": "2018-01-23",
+            "categories": [
+              "informatica_acessorios"
+            ],
+            "late": false,
+            "similarity": 0.6291520595550537
+          },
+          {
+            "label": "E5",
+            "document_id": "0350d97c0e86c9cab9f9d1b4",
+            "review_id": "9aa185c9a1ecb5d47cdb615495054e6b",
+            "order_id": "aaaf39a2d037083a190432524162a3fd",
+            "text": "Problema no pagamento. Tive um problema na forma de pagamento, segundo os meus pais, o cartão foi \"clonado\" e apareceu outra valor, com isso tive que cancelar o cartão, não foi uma situação agradável",
+            "chunk": "Problema no pagamento. Tive um problema na forma de pagamento, segundo os meus pais, o cartão foi \"clonado\" e apareceu outra valor, com isso tive que cancelar o cartão, não foi uma situação agradável",
+            "score": 3,
+            "date": "2018-06-06",
+            "categories": [
+              "livros_interesse_geral"
+            ],
+            "late": false,
+            "similarity": 0.6685833930969238
+          },
+          {
+            "label": "E6",
+            "document_id": "3a6d64b8461efcd5719ae8e4",
+            "review_id": "6eb6e9daacece449b0286c05215ee809",
+            "order_id": "d2816e182d8750e410a4288b16a9ecd6",
+            "text": "Cobrança Errada. O produto foi comprado em 6x no cartão e foi cobrado em apenas uma vez",
+            "chunk": "Cobrança Errada. O produto foi comprado em 6x no cartão e foi cobrado em apenas uma vez",
+            "score": 3,
+            "date": "2018-05-18",
+            "categories": [
+              "cool_stuff"
+            ],
+            "late": false,
+            "similarity": 0.6530264616012573
+          }
+        ],
+        "retrieved_documents": 6,
+        "matching_documents": 42454,
+        "elapsed_seconds": 25.44528006800101,
+        "model": "Qwen/Qwen3-1.7B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "reg-exchange",
+      "expected_answerable": true,
+      "gate_correct": true,
+      "result": {
+        "question": "Há dificuldades para realizar trocas?",
+        "status": "answered",
+        "answer": "- Problemas na entrega [E1]\n- Troca não possível [E4]\n- Entrega de produtos de parceiros [E5]\n- Produto divergente ao comprado [E6]",
+        "evidence": [
+          {
+            "label": "E1",
+            "document_id": "e149fd189a01a3fff13a49ed",
+            "review_id": "27bb48e9d6189b09e21b69b62f8c4097",
+            "order_id": "f3e80ce79cc543e78b626ae391d7ee5a",
+            "text": "problemas na entrega. infelizmente essa compra não foi bem sucedida",
+            "chunk": "problemas na entrega. infelizmente essa compra não foi bem sucedida",
+            "score": 1,
+            "date": "2018-08-02",
+            "categories": [
+              "informatica_acessorios"
+            ],
+            "late": false,
+            "similarity": 0.657787561416626
+          },
+          {
+            "label": "E2",
+            "document_id": "788d0b06af0b700aec5bca05",
+            "review_id": "667d99bb0bb52a7e6670e511f4109e49",
+            "order_id": "f91346a89554e0c864ce1007a89eaad9",
+            "text": "Ótima transação",
+            "chunk": "Ótima transação",
+            "score": 5,
+            "date": "2017-12-13",
+            "categories": [
+              "brinquedos"
+            ],
+            "late": false,
+            "similarity": 0.6231308579444885
+          },
+          {
+            "label": "E3",
+            "document_id": "525b54d90cb34deeb1fabc56",
+            "review_id": "fa6802dda2cd5015410612ad9725dfbf",
+            "order_id": "3a20bcc250e5404ca717dfa90e8a9c05",
+            "text": "Falta de compromisso",
+            "chunk": "Falta de compromisso",
+            "score": 1,
+            "date": "2017-12-09",
+            "categories": [
+              "cama_mesa_banho"
+            ],
+            "late": true,
+            "similarity": 0.6243042349815369
+          },
+          {
+            "label": "E4",
+            "document_id": "07861a44a30a80cff1e911e1",
+            "review_id": "86349933ffb523f45e0be79472cb8144",
+            "order_id": "836f9b5adb4fe06d8980fb71fa06b691",
+            "text": "PÉSSIMO SERVIÇO. Já solicitei a troca porém até o momento nada. Enviaram o produto errado e agora informam que a troca não pode ser feita",
+            "chunk": "PÉSSIMO SERVIÇO. Já solicitei a troca porém até o momento nada. Enviaram o produto errado e agora informam que a troca não pode ser feita",
+            "score": 1,
+            "date": "2018-08-18",
+            "categories": [
+              "relogios_presentes"
+            ],
+            "late": false,
+            "similarity": 0.6421372294425964
+          },
+          {
+            "label": "E5",
+            "document_id": "d8066da2afffadbc5bb9b1c4",
+            "review_id": "19238036379b1539c2f70ce6b3c196a0",
+            "order_id": "8a5c6f8c338d3e4804bd969ba46d5d0c",
+            "text": "A entrega de produtos de parceiros deveria ser baratheon . Correios é complicado, detona um nome bem construído",
+            "chunk": "A entrega de produtos de parceiros deveria ser baratheon . Correios é complicado, detona um nome bem construído",
+            "score": 1,
+            "date": "2018-04-05",
+            "categories": [
+              "cama_mesa_banho"
+            ],
+            "late": true,
+            "similarity": 0.5760065317153931
+          },
+          {
+            "label": "E6",
+            "document_id": "e1487b69fc503370ac61e9c4",
+            "review_id": "db2ad68a772d476d92bae6d8c9a8eb18",
+            "order_id": "67b1dc65d26c33458a65a0dc85c2d682",
+            "text": "Produto recebido divergente ao comprado, gerando frustração e perda de oferta de outras opções analisadas",
+            "chunk": "Produto recebido divergente ao comprado, gerando frustração e perda de oferta de outras opções analisadas",
+            "score": 2,
+            "date": "2017-05-19",
+            "categories": [
+              "casa_construcao"
+            ],
+            "late": false,
+            "similarity": 0.6251449584960938
+          }
+        ],
+        "retrieved_documents": 6,
+        "matching_documents": 42454,
+        "elapsed_seconds": 8.486578781012213,
+        "model": "Qwen/Qwen3-1.7B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "reg-future-2025",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "O que os clientes relataram sobre atrasos na entrega em 2025?",
+        "status": "period_out_of_coverage",
+        "answer": "A base contém compras de 2016 a 2018. Não há avaliações de 2025 para sustentar uma resposta.",
+        "evidence": [],
+        "retrieved_documents": 0,
+        "matching_documents": 0,
+        "elapsed_seconds": 0.0031972459983080626,
+        "model": "",
+        "warnings": []
+      }
+    },
+    {
+      "case_id": "reg-future-2025-filtered",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "O que os clientes relataram sobre atrasos na entrega em 2025?",
+        "status": "period_out_of_coverage",
+        "answer": "A base contém compras de 2016 a 2018. Não há avaliações de 2025 para sustentar uma resposta.",
+        "evidence": [],
+        "retrieved_documents": 0,
+        "matching_documents": 0,
+        "elapsed_seconds": 0.003663968003820628,
+        "model": "",
+        "warnings": []
+      }
+    },
+    {
+      "case_id": "reg-year-without-filter",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "O que os clientes relataram sobre atrasos na entrega em 2017?",
+        "status": "period_needs_filter",
+        "answer": "A pergunta cita 2017, mas o texto da pergunta não filtra datas. Aplique o filtro de período da compra para esse intervalo e consulte novamente.",
+        "evidence": [],
+        "retrieved_documents": 0,
+        "matching_documents": 0,
+        "elapsed_seconds": 0.003221505001420155,
+        "model": "",
+        "warnings": []
+      }
+    },
+    {
+      "case_id": "reg-year-with-filter",
+      "expected_answerable": true,
+      "gate_correct": true,
+      "result": {
+        "question": "O que os clientes relataram sobre atrasos na entrega em 2017?",
+        "status": "answered",
+        "answer": "- Clientes relataram atrasos na entrega em 2017 [E1][E2][E3][E4][E5][E6]\n- Comentários mencionam prazos inválidos ou inconsistentes [E2][E4]\n- Alguns clientes expressaram preocupação com a demora [E3][E5]\n- Há relatos de produtos entregues atrasados [E2][E5]",
+        "evidence": [
+          {
+            "label": "E1",
+            "document_id": "e3046803c9ff4ae2ce77a870",
+            "review_id": "7c4c2d10a57d4aab58a570a5a8ac9f2c",
+            "order_id": "e269b2472c0546324acf4d09dd7acfab",
+            "text": "Gostaria de esclarecimentos acerca da entrega que está em atraso",
+            "chunk": "Gostaria de esclarecimentos acerca da entrega que está em atraso",
+            "score": 1,
+            "date": "2017-12-20",
+            "categories": [
+              "relogios_presentes"
+            ],
+            "late": true,
+            "similarity": 0.8090070486068726
+          },
+          {
+            "label": "E2",
+            "document_id": "83538e7c008f1fa9aa2f1e92",
+            "review_id": "8a16c25ba338614974d204c5b6444b52",
+            "order_id": "8a7679380ddbbbe7495aa2d1cafd515b",
+            "text": "Previsão de entrega até 06/04/2017, porém até a presente data, dia 17/04/2017, os produtos não foram entregues",
+            "chunk": "Previsão de entrega até 06/04/2017, porém até a presente data, dia 17/04/2017, os produtos não foram entregues",
+            "score": 1,
+            "date": "2017-04-08",
+            "categories": [
+              "alimentos"
+            ],
+            "late": true,
+            "similarity": 0.6978225111961365
+          },
+          {
+            "label": "E3",
+            "document_id": "2c7e5663199a79c58f7e11aa",
+            "review_id": "1bf2b9a92e76901b24965acd9cf95e66",
+            "order_id": "02852b112ad108b3d2b3d4ee198d84a8",
+            "text": "Muita demora na entrega",
+            "chunk": "Muita demora na entrega",
+            "score": 1,
+            "date": "2017-12-24",
+            "categories": [
+              "cama_mesa_banho"
+            ],
+            "late": true,
+            "similarity": 0.7640691995620728
+          },
+          {
+            "label": "E4",
+            "document_id": "df4cdd33d9a75f57f272ef26",
+            "review_id": "941392abedd499016d8f4fbecfd1e0c5",
+            "order_id": "31116b5bedeace2fc1202e1e5288be14",
+            "text": "Gostaria que o prazo de entrega fosse mais real do que informado.O prazo dado na ocasião na encomenda foi para o dia 17/11/2017. Tal prazo assusta um pouco o cliente. Aceitei com restrição",
+            "chunk": "Gostaria que o prazo de entrega fosse mais real do que informado.O prazo dado na ocasião na encomenda foi para o dia 17/11/2017. Tal prazo assusta um pouco o cliente. Aceitei com restrição",
+            "score": 5,
+            "date": "2017-11-08",
+            "categories": [
+              "relogios_presentes"
+            ],
+            "late": false,
+            "similarity": 0.7621321678161621
+          },
+          {
+            "label": "E5",
+            "document_id": "89b750402785e64a137e558a",
+            "review_id": "2acb97b500b95b1205a5e4aea261a172",
+            "order_id": "251c2e36f5f9d2c37b63c23c4226039a",
+            "text": "Produto recebido é o correto, mas teve significativo atraso na entrega",
+            "chunk": "Produto recebido é o correto, mas teve significativo atraso na entrega",
+            "score": 3,
+            "date": "2017-12-24",
+            "categories": [
+              "telefonia"
+            ],
+            "late": true,
+            "similarity": 0.7361440062522888
+          },
+          {
+            "label": "E6",
+            "document_id": "4ec07193aa0b4e8a881ba24b",
+            "review_id": "8f9772ae7dec3db4af0418fd7fb1be4d",
+            "order_id": "4882f3ba2955233931dbfa02945db130",
+            "text": "Produto com entrega atrasada",
+            "chunk": "Produto com entrega atrasada",
+            "score": 1,
+            "date": "2017-12-20",
+            "categories": [
+              "cama_mesa_banho"
+            ],
+            "late": true,
+            "similarity": 0.744747519493103
+          }
+        ],
+        "retrieved_documents": 6,
+        "matching_documents": 18790,
+        "elapsed_seconds": 18.279715714990743,
+        "model": "Qwen/Qwen3-1.7B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "reg-politics-domain",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "Qual candidato os clientes da Olist devem apoiar na eleição presidencial?",
+        "status": "insufficient_evidence",
+        "answer": "Não encontrei evidências suficientes nas avaliações para responder com segurança.",
+        "evidence": [],
+        "retrieved_documents": 6,
+        "matching_documents": 42454,
+        "elapsed_seconds": 0.04234739800449461,
+        "model": "Qwen/Qwen3-1.7B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    },
+    {
+      "case_id": "reg-nobel",
+      "expected_answerable": false,
+      "gate_correct": true,
+      "result": {
+        "question": "Quais avaliações comprovam que a Olist venceu o Prêmio Nobel de Física?",
+        "status": "insufficient_evidence",
+        "answer": "Não encontrei evidências suficientes nas avaliações para responder com segurança.",
+        "evidence": [],
+        "retrieved_documents": 6,
+        "matching_documents": 42454,
+        "elapsed_seconds": 0.04454866699234117,
+        "model": "Qwen/Qwen3-1.7B",
+        "warnings": [
+          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
+        ]
+      }
+    }
+  ]
+}
