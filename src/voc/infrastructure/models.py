@@ -9,6 +9,13 @@ from huggingface_hub import snapshot_download
 from sentence_transformers import SentenceTransformer
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from voc.domain.policy import ensure_query_fits
+from voc.infrastructure.model_source import (
+    clear_if_outdated,
+    ensure_installed,
+    expected_source,
+    record_source,
+)
 from voc.infrastructure.storage import read_json
 
 os.environ.setdefault("HF_HUB_DISABLE_XET", "1")
@@ -18,13 +25,17 @@ os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 def fetch_models(root: Path) -> None:
     settings = read_json(root / "config/models.json")
     for kind in ("embedding", "generation"):
+        folder = root / "models" / kind
+        expected = expected_source(settings, kind)
+        clear_if_outdated(folder, expected)
         snapshot_download(
-            repo_id=str(settings[f"{kind}_model"]),
-            revision=str(settings[f"{kind}_revision"]),
-            local_dir=root / "models" / kind,
+            repo_id=expected["repo_id"],
+            revision=expected["revision"],
+            local_dir=folder,
             allow_patterns=["*.json", "*.safetensors", "*.txt", "*.model", "*.tiktoken", "*.jinja"],
             ignore_patterns=["onnx/*", "openvino/*"],
         )
+        record_source(folder, expected)
 
 
 class LocalEmbedder:
@@ -43,6 +54,11 @@ class LocalEmbedder:
             show_progress_bar=progress,
             convert_to_numpy=True,
         ).astype(np.float32)
+
+    def encode_query(self, query: str) -> np.ndarray:
+        tokens = len(self.model.tokenizer(query, verbose=False)["input_ids"])
+        ensure_query_fits(tokens, self.model.max_seq_length)
+        return self.encode([query])[0]
 
     def chunks(self, text: str) -> list[str]:
         offsets = self.model.tokenizer(
@@ -71,6 +87,9 @@ class LocalGenerator:
 
     def generate(self, prompt: str) -> str:
         if self.model is None:
+            ensure_installed(
+                self.root / "models/generation", expected_source(self.settings, "generation")
+            )
             torch.set_num_threads(int(self.settings["threads"]))
             self.tokenizer = AutoTokenizer.from_pretrained(
                 self.root / "models/generation", local_files_only=True

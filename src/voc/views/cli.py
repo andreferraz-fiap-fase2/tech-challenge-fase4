@@ -50,7 +50,9 @@ def main() -> None:
     ask.add_argument("--output", type=Path)
     evaluate = commands.add_parser("evaluate", help="Avaliar recuperação e abstenção")
     evaluate.add_argument("--generate", action="store_true", help="Também executar o LLM local")
-    evaluate.add_argument("--split", choices=["dev", "test", "all"], default="test")
+    evaluate.add_argument(
+        "--split", choices=["dev", "test", "enunciado", "regressao", "all"], default="test"
+    )
     args = parser.parse_args()
     root = args.root.resolve()
     if args.command == "download":

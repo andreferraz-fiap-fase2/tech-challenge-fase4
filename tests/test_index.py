@@ -18,6 +18,9 @@ class FakeEmbedder:
             [[1, 0] if "atraso" in text else [0, 1] for text in texts], dtype=np.float32
         )
 
+    def encode_query(self, query: str) -> np.ndarray:
+        return self.encode([query])[0]
+
 
 def build_fixture(root: Path) -> VectorIndex:
     write_json(
@@ -101,3 +104,8 @@ def test_integrity_failure_does_not_silently_load_changed_vectors(tmp_path: Path
     (tmp_path / "artifacts/index/embeddings.npy").write_bytes(b"corrupted")
     with pytest.raises(ValueError, match="alterado"):
         VectorIndex(tmp_path, FakeEmbedder())
+
+
+def test_coverage_years_come_from_indexed_purchase_dates(tmp_path: Path) -> None:
+    index = build_fixture(tmp_path)
+    assert index.coverage_years() == (2018, 2018)
