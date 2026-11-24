@@ -1,0 +1,110 @@
+[
+ {
+  "q": "Quais são os principais problemas relatados pelos clientes em suas avaliações?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1] [E3]  \n- <síntese do tema> [E4] [E6]  \n- <síntese do tema> [E2] [E5]",
+  "s": 5.3
+ },
+ {
+  "q": "O que os clientes relatam sobre problemas relacionados à entrega?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1]  \n- <síntese do tema> [E3]  \n\n- <síntese do tema> [E4]  \n- <síntese do tema> [E5]",
+  "s": 4.2
+ },
+ {
+  "q": "Quais aspectos da experiência de compra são mais elogiados pelos clientes?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1]  \n- <síntese do tema> [E3]  \n- <síntese do tema> [E5]  \n- <síntese do tema> [E6]",
+  "s": 4.3
+ },
+ {
+  "q": "Quais padrões podem ser identificados nas avaliações de clientes insatisfeitos?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1] [E6]  \n- <síntese do tema> [E2] [E5]  \n- <síntese do tema> [E3] [E4]",
+  "s": 4.0
+ },
+ {
+  "q": "Quais avaliações sustentam a conclusão de que existem problemas recorrentes relacionados ao prazo de entrega?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1] [E6]  \n- <síntese do tema> [E3] [E4]  \n- <síntese do tema> [E2] [E5]",
+  "s": 4.2
+ },
+ {
+  "q": "Quais reclamações relacionadas à entrega aparecem com maior frequência?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1] [E3]  \n- <síntese do tema> [E5] [E6]",
+  "s": 3.2
+ },
+ {
+  "q": "Existem padrões recorrentes nas avaliações relacionadas à qualidade dos produtos?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1]  \n- <síntese do tema> [E2]  \n- <síntese do tema> [E3]  \n- <síntese do tema> [E4]  \n- <síntese do tema> [E5]  \n- <síntese do tema> [E6]",
+  "s": 6.0
+ },
+ {
+  "q": "Quais problemas são relatados por clientes insatisfeitos?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E3] [E6]  \n- <síntese do tema> [E1] [E4]  \n- <síntese do tema> [E2] [E5]",
+  "s": 4.2
+ },
+ {
+  "q": "Quais são os principais problemas relatados nas avaliações com nota baixa?",
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 3.1
+ },
+ {
+  "q": "O que os clientes mais elogiam?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1]  \n- <síntese do tema> [E2]  \n\n- <síntese do tema> [E3]  \n- <síntese do tema> [E4]  \n\n- <síntese do tema> [E5]  \n- <síntese do tema> [E6]",
+  "s": 6.2
+ },
+ {
+  "q": "O que os clientes relatam sobre atrasos na entrega?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1] A entrega atrasou  \n- <síntese do tema> [E3] Demora na entrega e ainda atrasou  \n- <síntese do tema> [E4] A entrega está atrasada  \n- <síntese do tema> [E5] O atraso na entrega prejudicou a obra  \n- <síntese do tema> [E6] Atraso na entrega da mercadoria, não cumpre prazo determinado",
+  "s": 8.1
+ },
+ {
+  "q": "Quais relatos mencionam produtos que chegaram quebrados?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1] [E3]  \n- <síntese do tema> [E4] [E6]  \n- <síntese do tema> [E2] [E5]",
+  "s": 4.1
+ },
+ {
+  "q": "O que os clientes elogiam sobre a rapidez da entrega?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1]  \n- <síntese do tema> [E3]  \n- <síntese do tema> [E5]  \n- <síntese do tema> [E6]",
+  "s": 4.0
+ },
+ {
+  "q": "Quais são os principais problemas relatados pelos clientes nas avaliações?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1] [E3]  \n- <síntese do tema> [E4] [E6]  \n- <síntese do tema> [E2] [E5]",
+  "s": 4.1
+ },
+ {
+  "q": "Há relatos de pedidos entregues com itens faltando?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E3] [E6]  \n- <síntese do tema> [E1] [E5]",
+  "s": 2.9
+ },
+ {
+  "q": "O que os clientes dizem sobre receber um produto diferente do comprado?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1] [E3]  \n- <síntese do tema> [E4] [E6]  \n- <síntese do tema> [E2] [E5]",
+  "s": 4.1
+ },
+ {
+  "q": "Quais são as reclamações sobre falta de resposta do atendimento?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E3] [E6]  \n- <síntese do tema> [E2] [E5]  \n- <síntese do tema> [E1] [E4]",
+  "s": 4.2
+ },
+ {
+  "q": "O que os compradores elogiam na qualidade dos produtos?",
+  "status": "answered",
+  "answer": "- <síntese do tema> [E1] [E6]  \n- <síntese do tema> [E2] [E5]  \n- <síntese do tema> [E3] [E4]",
+  "s": 4.0
+ }
+]

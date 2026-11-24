@@ -1,0 +1,110 @@
+[
+ {
+  "q": "Quais são os principais problemas relatados pelos clientes em suas avaliações?",
+  "status": "answered",
+  "answer": "- [E1] Muitos desencontros nas entregas de produtos.  \n- [E2] Pessimo atendimento, sem canal de reclamação fornecedor.  \n- [E3] Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma semana e nem sinal da empresa.",
+  "s": 6.6
+ },
+ {
+  "q": "O que os clientes relatam sobre problemas relacionados à entrega?",
+  "status": "answered",
+  "answer": "- [E1] Atraso na entrega  \n- [E2] Erro na entrega (a entrega não chegou correta completa)  \n- [E3] TERRIVEL ESTE PROBLEMA DA ENTREGA",
+  "s": 3.6
+ },
+ {
+  "q": "Quais aspectos da experiência de compra são mais elogiados pelos clientes?",
+  "status": "answered",
+  "answer": "- A experiência da compra foi muito satisfatória [E1].  \n- A pontualidade e a qualidade dos produtos foram recomendadas [E2].  \n- A relação de compras entre a empresa e os clientes foi facilitada [E3].  \n- O atendimento ao cliente foi bom e satisfatório [E4].  \n- O processo de compra e a entrega dos produtos foram satisfatórios [E5].",
+  "s": 6.2
+ },
+ {
+  "q": "Quais padrões podem ser identificados nas avaliações de clientes insatisfeitos?",
+  "status": "answered",
+  "answer": "- [E1] Os comentários indicam que há frustrações relacionadas à falta de qualidade do produto.  \n- [E2] As avaliações indicam que a qualidade do produto é baixa.  \n- [E3] Há desrespeito com o cliente mencionado.",
+  "s": 4.3
+ },
+ {
+  "q": "Quais avaliações sustentam a conclusão de que existem problemas recorrentes relacionados ao prazo de entrega?",
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 3.4
+ },
+ {
+  "q": "Quais reclamações relacionadas à entrega aparecem com maior frequência?",
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 10.0
+ },
+ {
+  "q": "Existem padrões recorrentes nas avaliações relacionadas à qualidade dos produtos?",
+  "status": "answered",
+  "answer": "- [E1] As avaliações destacam a importância de avaliar a qualidade dos produtos.  \n- [E2] O produto atende às expectativas e está alinhado com os padrões de qualidade.  \n- [E5] A qualidade do produto está conforme previsto, sendo considerado recomendável.",
+  "s": 4.7
+ },
+ {
+  "q": "Quais problemas são relatados por clientes insatisfeitos?",
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 2.9
+ },
+ {
+  "q": "Quais são os principais problemas relatados nas avaliações com nota baixa?",
+  "status": "answered",
+  "answer": "- [E1] Muitos desencontros nas entregas de produtos.  \n- [E2] Pessimo atendimento, sem canal de reclamação fornecedor.  \n- [E3] Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma semana e nem sinal da empresa.",
+  "s": 5.5
+ },
+ {
+  "q": "O que os clientes mais elogiam?",
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 4.0
+ },
+ {
+  "q": "O que os clientes relatam sobre atrasos na entrega?",
+  "status": "answered",
+  "answer": "- [E1] Os clientes relatam que a entrega atrasou.  \n- [E3] Demora na entrega e ainda atrasou.  \n- [E5] O atraso na entrega prejudicou a obra.",
+  "s": 3.9
+ },
+ {
+  "q": "Quais relatos mencionam produtos que chegaram quebrados?",
+  "status": "answered",
+  "answer": "[O1] O comentário [E1] menciona que o produto veio quebrado.  \n[O2] O comentário [E3] afirma que o produto apresenta sinais de uso, manchado e quebrado.  \n[O4] O comentário [E4] indica que alguns tablets de BCAA foram quebros.",
+  "s": 5.2
+ },
+ {
+  "q": "O que os clientes elogiam sobre a rapidez da entrega?",
+  "status": "answered",
+  "answer": "- [E1] Os clientes elogiam a rapidez da entrega.  \n- [E3] Rápida entrega e boa assistência ao cliente.  \n- [E6] Entrega rápida, produto de qualidade.",
+  "s": 3.5
+ },
+ {
+  "q": "Quais são os principais problemas relatados pelos clientes nas avaliações?",
+  "status": "answered",
+  "answer": "- [E1] Muitos desencontros nas entregas de produtos.  \n- [E2] Pessimo atendimento, sem canal de reclamação fornecedor.  \n- [E3] Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma semana e nem sinal da empresa.",
+  "s": 5.5
+ },
+ {
+  "q": "Há relatos de pedidos entregues com itens faltando?",
+  "status": "answered",
+  "answer": "- [E1] Pedido não entregue (prazo de entrega não obedecido).  \n- [E2] O pedido foi entregue parcialmente, ficando faltando ainda três itens.  \n- [E3] Pedido veio incompleto. Vieram faltando produtos e até agora ninguém respondeu meus e-mails.",
+  "s": 5.2
+ },
+ {
+  "q": "O que os clientes dizem sobre receber um produto diferente do comprado?",
+  "status": "answered",
+  "answer": "- [E1] Os clientes dizem que o produto entregue diferente da compra.  \n- [E2] Bem vendedor, mas o produto entregue diferente da compra efetuada.  \n- [E3] O produto enviado é diferente do produto comprado, solicito a troca do produto.",
+  "s": 4.5
+ },
+ {
+  "q": "Quais são as reclamações sobre falta de resposta do atendimento?",
+  "status": "generation_abstained",
+  "answer": "O modelo não produziu uma síntese com referências válidas. Consulte as avaliações recuperadas abaixo.",
+  "s": 3.8
+ },
+ {
+  "q": "O que os compradores elogiam na qualidade dos produtos?",
+  "status": "answered",
+  "answer": "- [E1] Os compradores elogiam a qualidade do produto.  \n- [E2] Recomendam a loja por sua pontualidade e qualidade.  \n- [E3] A experiência é considerada muito boa com a qualidade e o vendedor.",
+  "s": 4.4
+ }
+]

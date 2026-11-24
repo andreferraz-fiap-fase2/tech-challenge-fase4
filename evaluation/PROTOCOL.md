@@ -2,8 +2,9 @@
 
 Perguntas em `questions.json`. Os casos de teste foram definidos antes de sua primeira
 execução; uma pergunta ampla de desenvolvimento foi acrescentada durante a inspeção de
-dev. Dev e test têm casos distintos. Os parâmetros iniciais são top-k = 6, mínimo de 2 evidências e
-cosseno mínimo 0,42. Estes valores são heurísticos, não probabilidades calibradas.
+dev. Dev e test têm casos distintos. Os parâmetros iniciais eram top-k = 6, mínimo de 2 evidências e
+cosseno mínimo 0,42; o corte passou a 0,50 na revisão de 22/11/2026 (seção final). Estes
+valores são heurísticos, não probabilidades calibradas.
 
 1. Executar dev em modo somente recuperação. Qualquer ajuste motivado por dev deve
    ser registrado antes de observar test.
@@ -53,3 +54,45 @@ A cobertura de geração é uma medida distinta: somente 3 das 4 perguntas respo
 receberam uma síntese aceita; a quarta apresentou evidências, mas o LLM não passou na
 checagem de referências. O relatório de inspeção de relevância deve ser lido junto às
 métricas de gate: uma pergunta pode recuperar documentos irrelevantes mesmo passando.
+
+## Revisão de 22/11/2026: validação ampliada e troca do gerador
+
+A validação de 17/11/2026 executou perguntas novas e encontrou três falhas: um ano fora
+da base (2025) respondido com relatos de 2017–2018; perguntas de pagamento e pós-venda
+recusadas como fora do domínio; e consultas acima de 128 tokens truncadas em silêncio.
+Também registrou uma pergunta sobre um “Prêmio Nobel” da Olist respondida com comentários
+sem relação. Os resultados daquela versão estão em `reports/historico-qwen3-0.6B/`.
+
+A revisão executou ainda as perguntas de exemplo do enunciado. Com o Qwen3-0.6B, a maior
+parte das respostas copiava comentários, e a checagem anterior aceitava rótulos inventados
+(`[O1]`) e o marcador do formato pedido. A comparação entre geradores, com as mesmas
+evidências, está em `reports/comparacao-gerador-20261122/` e em `docs/ARCHITECTURE.md`.
+
+Correções: regra de período (ano fora da base gera abstenção; ano dentro da base exige o
+filtro explícito), vocabulário de pagamento e pós-venda, recusa de consultas longas,
+validação mais rígida das referências, prompt que agrupa temas, Qwen3-1.7B como gerador
+e corte de similaridade 0,50. O corte foi escolhido observando estes mesmos casos: o
+“Nobel” tinha evidências máximas de 0,466 e 0,438; nas perguntas respondíveis, todas as
+evidências ficaram em 0,512 ou mais. A margem é estreita e o ajuste não é independente.
+
+Foram acrescentados dois splits. `enunciado` contém as perguntas de exemplo do enunciado,
+definidas pelo desafio. `regressao` contém os casos de 17/11 e dois casos de período,
+escritos **depois** de conhecidas as falhas. O gabarito de “cobrança duplicada no cartão”
+foi conferido na base: há relato direto (“passaram duas vezes o meu cartão”). Dev e test
+foram reexecutados como regressão; as evidências de test são idênticas às da versão
+anterior, de modo que a inspeção de relevância (16/24) continua aplicável a elas.
+
+| Split | Casos | Gate correto | Sínteses aceitas nas respondíveis |
+| --- | ---: | ---: | ---: |
+| dev | 7 | 7/7 | 4/4 |
+| test | 9 | 9/9 | 4/4 |
+| enunciado | 8 | 8/8 | 7/8 |
+| regressao | 8 | 8/8 | 3/3 |
+
+Tempo médio de 13,9 s por resposta gerada em CPU (8,5–25,4 s). A pergunta sobre padrões
+de clientes insatisfeitos teve evidências, mas o modelo terminou os tópicos com
+`SEM_EVIDENCIA`, e a saída contraditória foi recusada. Na inspeção do autor da revisão,
+algumas sínteses aceitas ainda trazem defeitos que a checagem de formato não detecta:
+texto copiado entre colchetes (“[fornecedor]”), comentário sobre a nota, “muitas
+reclamações” e tópicos pouco pertinentes na pergunta sobre trocas. Referências válidas
+continuam sendo uma checagem de formato, não de suporte factual.
