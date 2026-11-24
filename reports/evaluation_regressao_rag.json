@@ -3,7 +3,7 @@
     "src/voc/__init__.py": "3a5b9bdb32b5ba7b88d98d7871d931eda38d4cf1df90821725cf443b0d3b9f7f",
     "src/voc/domain/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "src/voc/domain/entities.py": "27ddbb9eb95fcb52c581c287544a25665b2179126ed10753efd4ff698c2a431d",
-    "src/voc/domain/policy.py": "1d33b6ae29a29246a9e6114cace51ff42a6f7dfd2f1f7ed7f2026df1982a1708",
+    "src/voc/domain/policy.py": "e96ca96e6b0e4b7057ee611b3be6fd415c35977cb02bb8bf18862033205d640e",
     "src/voc/infrastructure/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "src/voc/infrastructure/dataset.py": "5fe88ef360a82d014bf57822f65eed8bf10ab98def9d27aee6d33c87039d96bf",
     "src/voc/infrastructure/index.py": "42f96ae2dc01473e198def7f44d571510dd70c955e10b08880280f0c9f155c51",
@@ -145,7 +145,7 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 25.44528006800101,
+        "elapsed_seconds": 26.077681302998826,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
@@ -254,7 +254,7 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 8.486578781012213,
+        "elapsed_seconds": 9.055218145000254,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
@@ -272,7 +272,7 @@
         "evidence": [],
         "retrieved_documents": 0,
         "matching_documents": 0,
-        "elapsed_seconds": 0.0031972459983080626,
+        "elapsed_seconds": 0.0031626919990230817,
         "model": "",
         "warnings": []
       }
@@ -288,7 +288,7 @@
         "evidence": [],
         "retrieved_documents": 0,
         "matching_documents": 0,
-        "elapsed_seconds": 0.003663968003820628,
+        "elapsed_seconds": 0.0027891509998880792,
         "model": "",
         "warnings": []
       }
@@ -304,7 +304,7 @@
         "evidence": [],
         "retrieved_documents": 0,
         "matching_documents": 0,
-        "elapsed_seconds": 0.003221505001420155,
+        "elapsed_seconds": 0.002959790999739198,
         "model": "",
         "warnings": []
       }
@@ -411,7 +411,7 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 18790,
-        "elapsed_seconds": 18.279715714990743,
+        "elapsed_seconds": 18.1970576729982,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
@@ -429,7 +429,7 @@
         "evidence": [],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 0.04234739800449461,
+        "elapsed_seconds": 0.04768177399819251,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
@@ -447,7 +447,7 @@
         "evidence": [],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 0.04454866699234117,
+        "elapsed_seconds": 0.09272541199970874,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."

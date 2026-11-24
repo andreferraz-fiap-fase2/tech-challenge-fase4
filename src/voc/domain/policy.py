@@ -24,7 +24,7 @@ DOMAIN_TERMS = (
     r"trocas?|garantia|cancelamentos?|cancelad[oa]s?|rastreio|rastreamento|correios|"
     r"transportadoras?|prazos?|precos?|encomendas?|notas? fiscal|notas? fiscais|sac|suporte"
 )
-# Moldura de frequência que o top-k não sustenta (AGENTS.md: top-k não é frequência).
+# Moldura de frequência que o top-k não sustenta (docs/ARCHITECTURE.md: recusa de agregações).
 FREQUENCY_CLAIM = re.compile(r"\b(maioria|frequen\w*|todos os clientes|percentual|porcentagem)\b")
 
 

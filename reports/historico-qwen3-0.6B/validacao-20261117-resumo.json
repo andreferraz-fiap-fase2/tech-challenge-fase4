@@ -47,7 +47,7 @@
       "location": "src/voc/infrastructure/models.py:38; src/voc/domain/policy.py:34"
     }
   ],
-  "evaluation_limit": "O conjunto de nove casos é de regressão, reutilizado após correção, não um teste independente. Na repetição atual, três das quatro perguntas respondíveis geraram síntese aceita; atendimento absteve-se por formatação. A inspeção anterior de relevância foi 16/24, por agente de desenvolvimento, sem julgamento humano independente.",
+  "evaluation_limit": "O conjunto de nove casos é de regressão, reutilizado após correção, não um teste independente. Na repetição atual, três das quatro perguntas respondíveis geraram síntese aceita; atendimento absteve-se por formatação. A inspeção anterior de relevância foi 16/24, feita durante o desenvolvimento, sem julgamento humano independente.",
   "evidence_files": [
     "execucao-rag-atual.json",
     "reproducibilidade-atual.json",

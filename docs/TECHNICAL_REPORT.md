@@ -120,7 +120,7 @@ generalização para perguntas novas.
 | Sínteses aceitas entre perguntas respondíveis | 3/4 |
 | Evidências estritamente pertinentes na inspeção | 16/24 |
 
-A inspeção de pertinência foi realizada pelo agente de desenvolvimento, com critério
+A inspeção de pertinência foi uma revisão técnica feita durante o desenvolvimento, com critério
 conservador e justificativa por documento, em `evaluation/relevance_review.json`.
 Não é julgamento humano independente. A precisão agrupada observada foi 66,7%; não há
 recall documental, pois não foram julgados todos os documentos do corpus.
