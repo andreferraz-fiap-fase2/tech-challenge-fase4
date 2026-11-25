@@ -1,28 +1,26 @@
 # Roteiro do vídeo — até sete minutos
 
-**Autor: André Mohallem Ferraz.** O vídeo segue a apresentação entregue
-(`Apresentacao-TechChallenge-Fase4.pptx`, 13 slides principais e 2 anexos). As notas de
-cada slide trazem fala sugerida, ação na tela e tempo. Duração planejada: **6min40s**.
-O vídeo é a gravação da apresentação com narração e é enviado na plataforma da FIAP; a
-demonstração da aplicação está gravada no slide 8.
+**Autor: André Mohallem Ferraz.** O vídeo é a apresentação narrada
+(`Apresentacao-TechChallenge-Fase4.pptx`, 14 slides), enviada na plataforma da FIAP.
+A demonstração da aplicação está gravada no slide 8. Duração planejada: **6min35s**.
 
 ## Ordem e tempo
 
-| Tempo | Slide | Assunto / ação |
+| Tempo | Slide | Conteúdo |
 | --- | --- | --- |
-| 0:00–0:15 | 1 | Abertura: tema e objetivo. |
-| 0:15–0:35 | 2 | Roteiro: os oito itens do enunciado e onde cada um aparece. |
-| 0:35–1:00 | 3 | Problema de negócio: nota, comentário e necessidade do gestor. |
-| 1:00–1:45 | 4 | Arquitetura: preparação e consulta no diagrama. |
-| 1:45–2:15 | 5 | Preparação da base: seleção, limpeza, ausências e junções. |
-| 2:15–2:55 | 6 | Estratégia e recuperação: modelos, índice exato, MMR, filtros e limiar. |
-| 2:55–3:20 | 7 | Demonstração: apresentar as três perguntas. |
-| 3:20–4:20 | 8 | Evidências: gravação da aplicação (60 s) com as três perguntas, respostas [E#], IDs e a recusa de 2025. |
-| 4:20–4:40 | 9 | Sem evidências: explicar as três formas de abstenção. |
-| 4:40–5:20 | 10 | Validação: testes e reprodução separados de relevância e suporte factual. |
-| 5:20–5:55 | 11 | Desafios e decisões: falhas da validação, correções e testes de regressão. |
-| 5:55–6:20 | 12 | Código e reprodução: repositório e comandos. |
-| 6:20–6:40 | 13 | Fechamento. Os anexos não entram no vídeo. |
+| 0:00–0:20 | 1 | Capa: “O que os clientes dizem, com a prova em cada resposta”. |
+| 0:20–0:45 | 2 | Agenda da apresentação. |
+| 0:45–1:10 | 3 | Problema de negócio: a nota não explica toda a experiência. |
+| 1:10–1:55 | 4 | Arquitetura: preparar a base uma vez e responder a cada pergunta. |
+| 1:55–2:25 | 5 | Preparação: mais da metade das avaliações não tem comentário. |
+| 2:25–3:10 | 6 | Como a solução encontra e resume os comentários (entender, escolher, resumir). |
+| 3:10–3:30 | 7 | As três perguntas da demonstração e seus filtros. |
+| 3:30–4:30 | 8 | Gravação da aplicação (60 s): respostas com [E#], avaliações de origem e recusa de 2025. |
+| 4:30–4:50 | 9 | Quando não há base para responder, a solução explica o motivo. |
+| 4:50–5:30 | 10 | Como verificamos se dá para confiar. |
+| 5:30–6:05 | 11 | Os principais desafios e como os resolvemos. |
+| 6:05–6:25 | 12 | Fechamento e próximos passos. |
+| 6:25–6:35 | 14 | Referências. O slide 13 (distribuição das notas) é um anexo fora do vídeo. |
 
 ## Cobertura dos itens do vídeo
 
@@ -35,7 +33,7 @@ demonstração da aplicação está gravada no slide 8.
 | 5. Demonstração prática | 7–9 |
 | 6. Exemplos de perguntas | 7–8 |
 | 7. Evidências que fundamentam as respostas | 8–9 |
-| 8. Desafios e decisões técnicas | 6 e 10–11 |
+| 8. Desafios e decisões técnicas | 6, 10 e 11 |
 
 ## Demonstração gravada
 
@@ -48,5 +46,3 @@ tempo real aparece na tela (26,8 s e 17,1 s em CPU).
 | 1 | O que os compradores elogiam na qualidade dos produtos? | Nota 4–5 | Resposta com [E1]–[E6]; avaliações com nota, data, review_id e order_id |
 | 2 | Há relatos de pedidos entregues com itens faltando? | Nota 1–2 | Trechos sobre entrega parcial e um pedido não recebido |
 | 3 | O que os clientes relataram sobre atrasos na entrega em 2025? | Nenhum | Recusa antes da busca: a base cobre compras de 2016 a 2018 |
-
-Antes de enviar, confira áudio, legibilidade e duração abaixo de 7:00.
