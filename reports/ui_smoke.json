@@ -6,7 +6,9 @@
       "question": "O que os clientes relatam sobre atrasos na entrega?",
       "status": "answered",
       "evidence_count": 6,
-      "elapsed_seconds": 16.6,
+      "elapsed_seconds": 18.3,
+      "evidence_section_shown": true,
+      "refusal_caption_shown": false,
       "ui_errors": [],
       "ui_exceptions": []
     },
@@ -14,7 +16,9 @@
       "question": "O que os clientes relataram sobre atrasos na entrega em 2025?",
       "status": "period_out_of_coverage",
       "evidence_count": 0,
-      "elapsed_seconds": 0.0,
+      "elapsed_seconds": 0.1,
+      "evidence_section_shown": false,
+      "refusal_caption_shown": true,
       "ui_errors": [],
       "ui_exceptions": []
     }

@@ -146,7 +146,7 @@ não constituem teste independente.
 As evidências de test não mudaram, e a inspeção de pertinência (16/24) continua válida.
 Defeitos remanescentes e a recusa restante estão descritos em `evaluation/PROTOCOL.md`.
 
-O código passou em 48 testes automatizados de preparação, preservação de negações,
+O código passou em 52 testes automatizados de preparação, preservação de negações,
 metadados, filtros antes do ranking, deduplicação, integridade do índice, escopo,
 período, tamanho da consulta, origem dos pesos, abstenção e referências. Lint e formatação passaram. Os testes unitários usam fixtures
 pequenas e não dependem dos dados reais. Os testes de integração utilizaram os dados e

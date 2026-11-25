@@ -12,7 +12,7 @@
     "src/voc/infrastructure/storage.py": "85a0d0765fde32e52dd355f5796acb4ba26a071ebedd2d20767dfa539edffa43",
     "src/voc/usecase/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "src/voc/usecase/evaluate.py": "c8cc270a0ed32070e3d32cc07893e578c3a71ab32e71ac0e9b01541f4fc6643b",
-    "src/voc/usecase/rag.py": "eea18ac36faf72c1626210171efb1b0291ccef58f3ca5a760f2253d6ed69f022",
+    "src/voc/usecase/rag.py": "b34080bb78f1f12a505454f96c6402db93679047f3f83ba03f3db9484f0c361d",
     "src/voc/usecase/reproduce.py": "ffe60b8c1ec1d28868910cfd10fa2a2500ef8a5d133b6e6f469e852efcf13978",
     "src/voc/views/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "src/voc/views/cli.py": "73f801afb36097c936b190fe614df7474f9edeaeb6d0156655db26b765f3b2ad"
@@ -145,7 +145,7 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 12.633365478999622,
+        "elapsed_seconds": 12.528876536998723,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
@@ -254,7 +254,7 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 14.296458188000543,
+        "elapsed_seconds": 12.650052896002308,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
@@ -363,7 +363,7 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 12.841955192001478,
+        "elapsed_seconds": 11.658624302996031,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
@@ -470,7 +470,7 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 11.49190193600225,
+        "elapsed_seconds": 10.793928069993854,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
@@ -579,7 +579,7 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 13.498861323998426,
+        "elapsed_seconds": 12.278562573999807,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
@@ -688,7 +688,7 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 22.10939819900159,
+        "elapsed_seconds": 18.985576181003125,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
@@ -798,7 +798,7 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 15.778800672000216,
+        "elapsed_seconds": 14.68080104800174,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
@@ -907,7 +907,7 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 10978,
-        "elapsed_seconds": 12.699020351003128,
+        "elapsed_seconds": 12.088876233996416,
         "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."

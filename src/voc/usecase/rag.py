@@ -17,6 +17,11 @@ from voc.domain.policy import (
     valid_citations,
 )
 
+# Status devolvidos sem consultar o índice; a interface não deve exibi-los como busca vazia.
+REFUSED_BEFORE_SEARCH = frozenset(
+    {"unsupported_aggregate", "out_of_scope", "period_out_of_coverage", "period_needs_filter"}
+)
+
 
 class RagService:
     def __init__(
