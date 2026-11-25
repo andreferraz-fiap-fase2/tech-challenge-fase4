@@ -3,6 +3,8 @@
 **Autor: André Mohallem Ferraz.** O vídeo segue a apresentação entregue
 (`Apresentacao-TechChallenge-Fase4.pptx`, 13 slides principais e 2 anexos). As notas de
 cada slide trazem fala sugerida, ação na tela e tempo. Duração planejada: **6min40s**.
+O vídeo é a gravação da apresentação com narração e é enviado na plataforma da FIAP; a
+demonstração da aplicação está gravada no slide 8.
 
 ## Ordem e tempo
 
@@ -14,9 +16,9 @@ cada slide trazem fala sugerida, ação na tela e tempo. Duração planejada: **
 | 1:00–1:45 | 4 | Arquitetura: preparação e consulta no diagrama. |
 | 1:45–2:15 | 5 | Preparação da base: seleção, limpeza, ausências e junções. |
 | 2:15–2:55 | 6 | Estratégia e recuperação: modelos, índice exato, MMR, filtros e limiar. |
-| 2:55–3:20 | 7 | Demonstração: apresentar as três perguntas e mudar para a aplicação. |
-| 3:20–4:15 | 8 | Evidências: executar as perguntas 1 e 2, abrir E1/E2, mostrar IDs e trechos. |
-| 4:15–4:40 | 9 | Sem evidências: executar a pergunta 3 e explicar a recusa. |
+| 2:55–3:20 | 7 | Demonstração: apresentar as três perguntas. |
+| 3:20–4:20 | 8 | Evidências: gravação da aplicação (60 s) com as três perguntas, respostas [E#], IDs e a recusa de 2025. |
+| 4:20–4:40 | 9 | Sem evidências: explicar as três formas de abstenção. |
 | 4:40–5:20 | 10 | Validação: testes e reprodução separados de relevância e suporte factual. |
 | 5:20–5:55 | 11 | Desafios e decisões: falhas da validação, correções e testes de regressão. |
 | 5:55–6:20 | 12 | Código e reprodução: repositório e comandos. |
@@ -35,18 +37,16 @@ cada slide trazem fala sugerida, ação na tela e tempo. Duração planejada: **
 | 7. Evidências que fundamentam as respostas | 8–9 |
 | 8. Desafios e decisões técnicas | 6 e 10–11 |
 
-## Demonstração na aplicação
+## Demonstração gravada
 
-Execute `uv run streamlit run streamlit_app.py` e abra http://localhost:8501. Faça uma
-consulta antes de gravar para carregar os modelos.
+A gravação do slide 8 mostra a aplicação local (`uv run streamlit run streamlit_app.py`)
+executando as três perguntas abaixo. Só a espera da geração foi acelerada na edição; o
+tempo real aparece na tela (26,8 s e 17,1 s em CPU).
 
-| # | Pergunta | Filtro na barra lateral | Mostrar |
+| # | Pergunta | Filtro na barra lateral | O que aparece |
 | --- | --- | --- | --- |
-| 1 | O que os compradores elogiam na qualidade dos produtos? | Nota 4–5 | Resposta com [E#]; abrir E1 e E2, ler o comentário, nota, data e review_id |
-| 2 | Há relatos de pedidos entregues com itens faltando? | Nota 1–2 | Conferir se cada trecho trata de entrega parcial |
-| 3 | O que os clientes relataram sobre atrasos na entrega em 2025? | Nenhum | Recusa: a base cobre compras de 2016 a 2018 |
+| 1 | O que os compradores elogiam na qualidade dos produtos? | Nota 4–5 | Resposta com [E1]–[E6]; avaliações com nota, data, review_id e order_id |
+| 2 | Há relatos de pedidos entregues com itens faltando? | Nota 1–2 | Trechos sobre entrega parcial e um pedido não recebido |
+| 3 | O que os clientes relataram sobre atrasos na entrega em 2025? | Nenhum | Recusa antes da busca: a base cobre compras de 2016 a 2018 |
 
-Cada resposta gerada leva 10–25 s em CPU; a espera pode ser cortada na edição, sem trocar
-a resposta exibida. Mostre a aplicação executando: um slide estático não substitui a
-demonstração. Antes de enviar, confira áudio, legibilidade, duração abaixo de 7:00 e o
-acesso do avaliador ao link do vídeo.
+Antes de enviar, confira áudio, legibilidade e duração abaixo de 7:00.
