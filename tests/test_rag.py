@@ -10,7 +10,7 @@ from voc.domain.policy import (
     normalize_query,
     valid_citations,
 )
-from voc.usecase.rag import RagService
+from voc.usecase.rag import REFUSED_BEFORE_SEARCH, RagService
 
 
 def evidence(number: int, similarity: float = 0.8) -> Evidence:
@@ -235,3 +235,22 @@ def test_query_longer_than_encoder_window_is_rejected_with_its_size() -> None:
     ensure_query_fits(128, 128)
     with pytest.raises(ValueError, match="139 tokens.*máximo 128"):
         ensure_query_fits(139, 128)
+
+
+@pytest.mark.parametrize(
+    ("question", "filters"),
+    [
+        ("Qual o percentual de clientes que reclamaram?", Filters()),
+        ("Como ocorre fusão nuclear no Sol?", Filters()),
+        ("O que os clientes relataram sobre atrasos na entrega em 2025?", Filters()),
+        ("O que os clientes relataram sobre atrasos na entrega em 2017?", Filters()),
+    ],
+)
+def test_refusals_without_search_are_flagged_for_the_interface(
+    question: str, filters: Filters
+) -> None:
+    # A interface usa o conjunto para não exibir "0 avaliações no recorte" numa busca não feita.
+    retriever = StubRetriever([evidence(1), evidence(2)])
+    result = RagService(retriever, StubGenerator()).ask(question, filters)
+    assert retriever.calls == 0
+    assert result.status in REFUSED_BEFORE_SEARCH

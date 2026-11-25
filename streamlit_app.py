@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / "src"))
 
 from voc.domain.entities import Filters  # noqa: E402
 from voc.infrastructure.storage import read_json  # noqa: E402
+from voc.usecase.rag import REFUSED_BEFORE_SEARCH  # noqa: E402
 from voc.views.cli import make_service  # noqa: E402
 
 if TYPE_CHECKING:
@@ -91,12 +92,16 @@ if "result" in st.session_state:
         st.warning(result.answer)
     for warning in result.warnings:
         st.caption(warning)
-    st.caption(
-        f"{len(result.evidence)} evidências · {result.matching_documents:,} avaliações no recorte antes da busca · {result.elapsed_seconds:.1f} s".replace(
-            ",", "."
+    if result.status in REFUSED_BEFORE_SEARCH:
+        st.caption("Recusada antes da busca: nenhuma avaliação foi consultada.")
+    else:
+        st.caption(
+            f"{len(result.evidence)} evidências · {result.matching_documents:,} avaliações no recorte antes da busca · {result.elapsed_seconds:.1f} s".replace(
+                ",", "."
+            )
         )
-    )
-    st.subheader("Evidências recuperadas")
+    if result.evidence:
+        st.subheader("Evidências recuperadas")
     for item in result.evidence:
         with st.expander(
             f"[{item.label}] Nota {item.score}/5 · {item.date or 'data desconhecida'} · similaridade {item.similarity:.3f}",
