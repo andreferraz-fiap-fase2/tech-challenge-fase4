@@ -12,6 +12,23 @@ Olist**, um problema diferente da classificação de alfabetização da Fase 3. 
 a disciplina de organização, testes e reprodução. Nesta entrega, o código-fonte integra
 o repositório e o pacote de avaliação, com acesso direto a cada etapa.
 
+## Entregáveis do enunciado
+
+| Item exigido no repositório | Onde está |
+| --- | --- |
+| Código-fonte da solução | [`src/voc/`](src/voc), [`app.py`](app.py), [`streamlit_app.py`](streamlit_app.py), testes em [`tests/`](tests) |
+| Instruções de instalação e execução | [Executar](#executar) e [Consultar pela linha de comando](#consultar-pela-linha-de-comando) |
+| README explicando o projeto | Este arquivo |
+| Descrição da arquitetura | [Arquitetura](#arquitetura) e [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
+| Tecnologias e bibliotecas | [Tecnologias e bibliotecas](#tecnologias-e-bibliotecas) |
+| Estratégia do pipeline RAG | [Preparação da base e pipeline RAG](#preparação-da-base-e-pipeline-rag) |
+| Preparação da base | [Preparação da base e pipeline RAG](#preparação-da-base-e-pipeline-rag), itens 1–5 |
+| Justificativa das decisões técnicas | [Principais decisões técnicas](#principais-decisões-técnicas) |
+| Exemplos de perguntas e respostas | [Exemplos de perguntas e respostas](#exemplos-de-perguntas-e-respostas) |
+| Informações para reproduzir | [Verificar e reproduzir](#verificar-e-reproduzir) |
+
+O mapa completo, incluindo os itens do vídeo, está em [docs/REQUIREMENTS.md](docs/REQUIREMENTS.md).
+
 ## Executar
 
 Ambiente de referência: Linux / WSL2, Python **3.12**, CPU. Instale o
@@ -65,7 +82,71 @@ período; se o ano está dentro da base, pede o filtro de período antes de resp
 a data exibida na evidência é a **criação da avaliação**. “Entrega atrasada” nos metadados
 significa entrega registrada em dia posterior à estimativa, sem inferir a causa.
 
-## O que a implementação faz
+## Arquitetura
+
+Dois fluxos: a preparação transforma os CSVs da Olist em documentos, trechos e vetores; a
+consulta aplica recusas antes da busca, recupera evidências e só então gera a resposta.
+
+```mermaid
+flowchart TD
+  A[CSVs Olist / Kaggle] --> B[Limpeza + metadados + manifesto]
+  B --> C[Documento por avaliação distinta]
+  C --> D[Janelas por tokens / MiniLM multilíngue]
+  D --> E[Parquet + matriz de vetores normalizados]
+  Q[Pergunta + filtros explícitos] --> F[Normalização da pergunta]
+  F --> S[Gate lexical de escopo]
+  S -->|fora do domínio| N
+  S -->|domínio de compra| P[Ano citado x cobertura e filtro]
+  P -->|fora de 2016–2018 ou sem filtro| N
+  P -->|sem ano ou filtrado| T[Limite de 128 tokens]
+  T -->|consulta longa| X[Erro: encurtar a pergunta]
+  T --> G[Embedding da consulta]
+  E --> H[Filtros antes da busca / cosseno exato]
+  G --> H
+  H --> I[Top 6 / deduplicação / limiar / mínimo de 2]
+  I -->|evidência insuficiente| N[Abstenção com motivo]
+  I -->|evidência suficiente| J[Contexto com IDs E1 a E6]
+  J --> K[Qwen3 local em CPU]
+  K --> L[Validação das referências]
+  L -->|inválida| N
+  L -->|válida| M[Resposta + comentários + IDs + filtros]
+```
+
+Camadas do código: `domain` (entidades, regras de evidência e prompt, sem dependências
+externas), `infrastructure` (CSVs, embeddings, índice e LLM), `usecase` (orquestração do
+RAG e avaliação) e `views` (CLI). Detalhes em [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+## Tecnologias e bibliotecas
+
+| Tecnologia | Versão | Uso |
+| --- | --- | --- |
+| Python + [uv](https://docs.astral.sh/uv/) | 3.12, `uv.lock` | Ambiente e dependências congeladas |
+| [sentence-transformers](https://www.sbert.net/) | 5.1.1 | Embeddings com `paraphrase-multilingual-MiniLM-L12-v2` (384 dimensões) |
+| [Transformers](https://huggingface.co/docs/transformers) + [PyTorch](https://pytorch.org/) CPU | 4.57.1 / 2.9.0 | Geração local com `Qwen/Qwen3-1.7B` |
+| NumPy | 2.3.3 | Matriz de vetores normalizados e busca por cosseno exato |
+| pandas + PyArrow | 2.3.2 / 21.0.0 | Limpeza, junções e armazenamento em Parquet |
+| [Streamlit](https://streamlit.io/) | 1.50.0 | Interface de investigação |
+| requests | 2.32.5 | Download da base pública |
+| pytest + Ruff | 8.4.2 / 0.13.1 | Testes, lint e formatação; executados no CI (GitHub Actions) |
+
+Modelos e revisões fixadas: [config/models.json](config/models.json). Não há chave de API,
+serviço pago nem banco vetorial externo.
+
+## Principais decisões técnicas
+
+| Decisão | Justificativa | Custo ou limite |
+| --- | --- | --- |
+| Um documento por avaliação distinta, título + mensagem | Preserva contexto e rastreabilidade até `review_id` e `order_id` | Comentários curtos limitam a síntese |
+| Embeddings multilíngues em CPU | Busca por significado em português, sem GPU nem API | Pode recuperar analogias irrelevantes |
+| Cosseno exato + MMR | ~42 mil documentos cabem em memória; scores auditáveis; MMR reduz repetição | Custo linear por pergunta |
+| Filtros explícitos de metadados antes do ranking | Nota, período, categoria e atraso não são “inferidos” do texto | O usuário precisa escolher o filtro |
+| Mínimo de 2 evidências com cosseno ≥ 0,50 | Evita síntese sobre relato isolado ou sem relação | Pode recusar pergunta rara mas legítima |
+| Recusa de agregações, períodos fora da base e consultas longas | Top-k não mede frequência; a base cobre 2016–2018; o encoder lê 128 tokens | Análise quantitativa exige módulo próprio |
+| Qwen3-1.7B local com validação das referências | Sem envio de comentários a terceiros; cada tópico cita [E#] existentes | 10–25 s por resposta; checagem de formato, não de verdade |
+
+Alternativas, comparação de geradores e evidências: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+## Preparação da base e pipeline RAG
 
 1. Baixa e registra os hashes dos CSVs de avaliações, pedidos, itens e produtos.
 2. Combina título e mensagem, preserva negações e acentos e mascara padrões de contatos.

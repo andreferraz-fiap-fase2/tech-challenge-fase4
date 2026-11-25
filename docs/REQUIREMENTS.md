@@ -2,6 +2,8 @@
 
 Fonte: `[IAST] - Tech Challenge - Fase 4.pdf`, disponível na pasta Fase4 do autor.
 
+## Requisitos da solução
+
 | Exigência | Implementação / evidência |
 | --- | --- |
 | Base Olist e foco nas avaliações | `infrastructure/dataset.py`; `reports/source_manifest.json` |
@@ -19,8 +21,27 @@ Fonte: `[IAST] - Tech Challenge - Fase 4.pdf`, disponível na pasta Fase4 do aut
 | Arquitetura e justificativas | `docs/ARCHITECTURE.md` |
 | Exemplos de perguntas e respostas | README, seção “Exemplos de perguntas e respostas”; execuções completas em `reports/` |
 | Reprodução | README, manifestos e comandos de reconstrução |
-| Repositório público | Publicar e conferir a URL no guia da entrega |
-| Vídeo até sete minutos | `docs/VIDEO.md`; gravação pelo autor |
+| Repositório público | https://github.com/andreferraz-fiap-fase2/tech-challenge-fase4 |
+
+## Entregável 1 — repositório
+
+| Item exigido | Onde está |
+| --- | --- |
+| Código-fonte da solução | `src/voc/`, `app.py`, `streamlit_app.py`, `tests/` |
+| Instruções de instalação e execução | README, seções “Executar” e “Consultar pela linha de comando” |
+| README explicando o projeto | `README.md` |
+| Descrição da arquitetura | README, “Arquitetura”; `docs/ARCHITECTURE.md` |
+| Tecnologias e bibliotecas | README, “Tecnologias e bibliotecas”; `pyproject.toml`, `uv.lock` |
+| Estratégia do pipeline RAG | README, “Preparação da base e pipeline RAG”; `docs/ARCHITECTURE.md` |
+| Preparação da base | README, itens 1–5 da mesma seção; `reports/data_quality.json` |
+| Justificativa das decisões técnicas | README, “Principais decisões técnicas”; `docs/ARCHITECTURE.md` |
+| Exemplos de perguntas e respostas | README, “Exemplos de perguntas e respostas”; `reports/evaluation_*_rag.json` |
+| Informações para reproduzir | README, “Verificar e reproduzir”; `config/models.json`, manifestos em `reports/` |
+
+## Entregável 2 — vídeo de até sete minutos
+
+Os oito itens exigidos e os slides correspondentes estão em [VIDEO.md](VIDEO.md). A
+gravação é feita pelo autor a partir da apresentação entregue.
 
 O certificado ou comprovante da trilha Databricks é um bônus opcional mencionado no
 enunciado. Só o autor pode concluir a formação e fornecer um comprovante verdadeiro.
