@@ -1,0 +1,110 @@
+[
+ {
+  "q": "Quais são os principais problemas relatados pelos clientes em suas avaliações?",
+  "status": "answered",
+  "answer": "[E1] Os clientes mencionam muitos desencontros nas entregas de produtos, indicando uma falta de organização na logística.  \n[E2] Há relatos de pessimo atendimento e ausência de canais de reclamação do fornecedor, o que afeta a experiência do cliente.  \n[E3] Problemas como entrega de produtos errados, requisição de troca e falta de resposta da empresa foram destacados, mostrando insatisfação persistente.  \n[E4] Clientes avaliam a responsabilidade e a correção com relação à compra como pontos positivos, apesar dos problemas mencionados.  \n[E5] Alguns clientes recomendam o produto e o atendimento, demonstrando satisfação em alguns aspectos.  \n[E6] Relatam frustrações por falta de respeito ao consumidor, embalagem inadequada e dificuldades na devolução, reforçando a insatisfação geral.",
+  "s": 36.0
+ },
+ {
+  "q": "O que os clientes relatam sobre problemas relacionados à entrega?",
+  "status": "answered",
+  "answer": "[E1] O cliente relata atraso na entrega, indicando uma experiência negativa no processo de envio.  \n[E2] Há relatos de erro na entrega, onde o produto não chega completo ou com defeito.  \n[E3] Um cliente destaca o problema como \"terrível\" na entrega, reforçando a gravidade do problema.  \n[E4] Outros clientes mencionam que o processo de entrega é muito demorado, afetando a expectativa.  \n[E5] Alguns clientes reportam que o produto entregue apresenta problemas, sugerindo falhas no serviço.  \n[E6] Havia reclamações sobre os correios não cumprirem o prometido na entrega, destacando a responsabilidade dos serviços de transporte.",
+  "s": 28.4
+ },
+ {
+  "q": "Quais aspectos da experiência de compra são mais elogiados pelos clientes?",
+  "status": "answered",
+  "answer": "[E1] A experiência da compra foi muito satisfatória, indicando uma avaliação alta na área de serviços oferecidos.  \n[E2] A recomendação da compra, associada à pontualidade e qualidade dos produtos, destaca aspectos específicos da experiência de compra.  \n[E4] O bom serviço e a satisfação com o atendimento são elementos centrais da experiência de compra, destacando a qualidade do contato com os clientes.",
+  "s": 17.9
+ },
+ {
+  "q": "Quais padrões podem ser identificados nas avaliações de clientes insatisfeitos?",
+  "status": "answered",
+  "answer": "[E1] A avaliação de nota 2 indica que o cliente foi insatisfeito com o produto recebido, que divergia da descrição fornecida, resultando em frustração e perda de confiança na marca.  \n[E2] A nota 1 reflete uma avaliação negativa sobre a qualidade do produto, destacando que ela \"deixa a desejar\" e \"muito frágil\".  \n[E3] A nota 1 também menciona um desrespeito com o cliente, indicando falta de atenção e respeito durante a experiência.",
+  "s": 22.0
+ },
+ {
+  "q": "Quais avaliações sustentam a conclusão de que existem problemas recorrentes relacionados ao prazo de entrega?",
+  "status": "answered",
+  "answer": "[E1] apresenta uma nota de 4, indicando que o status da entrega é ruim e há erros na entrega, incluindo mudanças de prazo.  \n[E4] também recebe nota 3, destacando a demora e dificuldade no rastreamento do produto.  \n[E3] tem nota 2, afirmando que há muita demora na entrega.  \n[E6] menciona que o atraso na entrega prejudicou a obra.",
+  "s": 19.4
+ },
+ {
+  "q": "Quais reclamações relacionadas à entrega aparecem com maior frequência?",
+  "status": "answered",
+  "answer": "[E1] A reclamação sobre desencontros nas entregas de produtos aparece com maior frequência, sendo marcada como nota 1.  \n[E2] A reclamação de que somente um dos vários reclamados foi respondido e atendido também está presente, mas com menor frequência.  \n[E3] A demora na entrega e a necessidade de retirar os produtos nos correios são mencionados com nota 5, indicando uma forte preocupação com esse aspecto.",
+  "s": 20.8
+ },
+ {
+  "q": "Existem padrões recorrentes nas avaliações relacionadas à qualidade dos produtos?",
+  "status": "answered",
+  "answer": "[E1] A nota 5 indica que o cliente considera o produto como sendo de qualidade adequada, embora ele esteja aguardando uma avaliação mais detalhada.  \n[E2] A nota 5 também confirma que o produto atende às expectativas do cliente, destacando sua conformidade com os padrões de qualidade.  \n[E5] A nota 5 reforça a ideia de que o produto está em conformidade com o esperado, indicando que a qualidade é aceitável.  \n[E6] A nota 5 destaca a qualidade dos produtos entregues, mostrando que eles estão dentro dos padrões desejados.",
+  "s": 26.0
+ },
+ {
+  "q": "Quais problemas são relatados por clientes insatisfeitos?",
+  "status": "answered",
+  "answer": "[E1] - A avaliação de nota 2 indica que o cliente percebeu falta de respeito com o serviço, o que pode ser considerado um problema de atendimento.  \n[E2] - A nota 2 também menciona que o produto recebido foi diferente do solicitado, causando frustração e impacto negativo no processo de compra.  \n[E4] - A nota 5 destaca um problema específico com a entrega, onde a empresa correios falhou, prejudicando tanto a loja quanto o cliente.",
+  "s": 19.8
+ },
+ {
+  "q": "Quais são os principais problemas relatados nas avaliações com nota baixa?",
+  "status": "answered",
+  "answer": "[E1] Os comentários indicam que muitos desencontros nas entregas de produtos são uma das principais preocupações dos clientes com nota baixa.  \n[E2] O problema de atendimento inadequado e falta de canais de reclamação fornecidos também é mencionado como um fator negativo.  \n[E3] Atrasos na entrega e falhas no processo de troca, além de falta de comunicação com o cliente, são destacadas como problemas significativos.",
+  "s": 19.0
+ },
+ {
+  "q": "O que os clientes mais elogiam?",
+  "status": "answered",
+  "answer": "[E1] Os clientes destacam a atenção e o respeito oferecidos pelos serviços, com elogios como \"Super Recomendo\" e \"Muito bacana essa atenção com o cliente\".  \n[E2] Há mencionamento de qualidade dos produtos e preços justos, conforme observado nas avaliações.  \n[E3] A agilidade na entrega e o compromisso com os clientes são pontos positivos identificados pelos usuários.",
+  "s": 16.9
+ },
+ {
+  "q": "O que os clientes relatam sobre atrasos na entrega?",
+  "status": "answered",
+  "answer": "[E1] Cliente E1 relata atraso na entrega com nota 5.  \n[E2] Cliente E2 dá nota 1 e menciona demora na entrega.  \n[E3] Cliente E3 dá nota 3 e afirma que a entrega demorou e ainda atrasou.  \n[E4] Cliente E4 dá nota 1 e diz que a entrega está atrasada.  \n[E5] Cliente E5 dá nota 3 e indica que o atraso na entrega prejudicou a obra.  \n[E6] Cliente E6 dá nota 1 e menciona atraso na entrega da mercadoria e não cumpre prazo determinado.",
+  "s": 24.4
+ },
+ {
+  "q": "Quais relatos mencionam produtos que chegaram quebrados?",
+  "status": "answered",
+  "answer": "[E1] O comentário E1 menciona explicitamente que o produto veio quebrado.  \n[E3] O comentário E3 afirma que o produto apresenta sinais de uso, manchado e quebrado.  \n[E4] O comentário E4 destaca que alguns tablets de bcaa viram quebrados, reduzindo a qualidade do produto.  \n[E6] O comentário E6 indica que o produto veio com várias partes quebradas dentro da caixa.",
+  "s": 18.0
+ },
+ {
+  "q": "O que os clientes elogiam sobre a rapidez da entrega?",
+  "status": "answered",
+  "answer": "[E1] Os clientes elogiam a rapidez da entrega, com notas cinco em todos os casos.  \n[E2] Além da rapidez, os clientes destacam a qualidade do produto e a pontualidade na entrega.  \n[E3] Os clientes apreciam a rapidez da entrega e a assistência ao cliente.  \n[E4] Os clientes expressam felicidade pela entrega rápida.  \n[E5] Os clientes mencionam a eficiência na entrega e a rapidez do produto.  \n[E6] Os clientes elogiam a entrega rápida e a qualidade do produto.",
+  "s": 21.1
+ },
+ {
+  "q": "Quais são os principais problemas relatados pelos clientes nas avaliações?",
+  "status": "answered",
+  "answer": "[E1] Os clientes mencionam muitos desencontros nas entregas de produtos, indicando uma falta de organização na logística.  \n[E2] Há relatos de pessimo atendimento e ausência de canais de reclamação do fornecedor, o que prejudica a experiência do cliente.  \n[E3] Problemas como entrega de produtos errados, requisição de troca e falta de resposta da empresa foram destacados, mostrando insatisfação persistente.  \n[E4] Clientes avaliam a responsabilidade e a correção com relação à compra como pontos positivos, apesar dos problemas mencionados.  \n[E5] Alguns clientes recomendam o produto e o atendimento, demonstrando confiança em aspectos negativos.  \n[E6] Relatam frustrações com o serviço, incluindo falta de respeito e problemas de embalagem, reforçando a insatisfação geral.",
+  "s": 34.2
+ },
+ {
+  "q": "Há relatos de pedidos entregues com itens faltando?",
+  "status": "answered",
+  "answer": "[E1] Pedido não entregue (prazo de entrega não obedecido) - indica que o item solicitado não foi entregue completamente.\n\n[E2] Pedido foi entregue parcialmente, ficando faltando ainda três itens - afirma que há itens faltantes após a entrega parcial.\n\n[E3] Pedido veio incompleto. Vieram faltando produtos e até agora ninguém respondeu meus e-mails - destaca a incompletude do pedido e a ausência de resposta aos e-mails.\n\n[E4] Preciso de informações sobre o pedido que não chegou ainda - reforça a necessidade de informações sobre o pedido que não foi entregue.\n\n[E5] Produto entregue faltando encomendas - indica que o produto foi entregue, mas há encomendas faltantes.\n\n[E6] PESSIMO. Paguei por um frete onde os prazos não foram seguidos... - critica a falta de informações e o desgaste da empresa.",
+  "s": 36.3
+ },
+ {
+  "q": "O que os clientes dizem sobre receber um produto diferente do comprado?",
+  "status": "answered",
+  "answer": "[E1] Cliente E1 de nota 2 menciona que o produto entregue diferente da compra.  \n[E2] Cliente E2 de nota 2 também relata que o produto entregue diferente da compra efetuada.  \n[E3] Cliente E3 de nota 1 indica que o produto enviado é diferente do comprado e solicita a troca.  \n[E4] Cliente E4 de nota 1 afirma que o produto chegou diferente do comprado.  \n[E5] Cliente E5 de nota 1 informa que foi enviada uma entrega diferente do solicitado e está realizando a devolução.  \n[E6] Cliente E6 de nota 1 destaca que o produto entregue é diferente do solicitado e espera orientação para a troca.",
+  "s": 27.4
+ },
+ {
+  "q": "Quais são as reclamações sobre falta de resposta do atendimento?",
+  "status": "answered",
+  "answer": "[E1] A avaliação E1 menciona \"Pessimo atendimento, sem canal de reclamação fornecedor\", indicando que o cliente percebeu uma falta de resposta ao seu contato.  \n[E2] A avaliação E2 afirma \"Não responde as solicitações de atendimento\", destacando que o serviço não atende às necessidades do cliente.  \n[E3] A avaliação E3 destaca \"Mandei diversas reclamações e somente um foi respondida porém não atendida\", mostrando que há repetidas falhas no atendimento.  \n[E4] A avaliação E4 expressa insatisfação com a falta de resposta e menciona a possibilidade de acionar um advogado, reforçando a sensação de desrespeito e frustração.  \n[E5] A avaliação E5 aponta \"Falta de compromisso com o cliente\", sugerindo que o serviço não está se alinhando com os expectativas do cliente.  \n[E6] A avaliação E6 indica \"Insatisfação. Negativo\", confirmando a percepção geral de insatisfação com o atendimento.",
+  "s": 40.9
+ },
+ {
+  "q": "O que os compradores elogiam na qualidade dos produtos?",
+  "status": "answered",
+  "answer": "[E1] Os compradores elogiam a qualidade do produto, destacando que é \"de qualidade!\" e \"satisfeitíssima com a compra\".  \n[E2] Além disso, muitos mencionam a pontualidade e a qualidade dos produtos como pontos positivos.  \n[E3] Outros apontam a excelência no processo de compra e a qualidade do produto.",
+  "s": 15.0
+ }
+]

@@ -2,18 +2,20 @@
   "source_sha256": {
     "src/voc/__init__.py": "3a5b9bdb32b5ba7b88d98d7871d931eda38d4cf1df90821725cf443b0d3b9f7f",
     "src/voc/domain/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "src/voc/domain/entities.py": "ffbc246d23691f1b86da79e4c7b2303e633c1f88d476cf2352c32ce71a354910",
-    "src/voc/domain/policy.py": "b9804e8a2e70c82e6475f8dc2fb35161f6e36f00d38717bc8adf753f386e3f92",
+    "src/voc/domain/entities.py": "27ddbb9eb95fcb52c581c287544a25665b2179126ed10753efd4ff698c2a431d",
+    "src/voc/domain/policy.py": "e96ca96e6b0e4b7057ee611b3be6fd415c35977cb02bb8bf18862033205d640e",
     "src/voc/infrastructure/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "src/voc/infrastructure/dataset.py": "5fe88ef360a82d014bf57822f65eed8bf10ab98def9d27aee6d33c87039d96bf",
-    "src/voc/infrastructure/index.py": "cb5f2762f4e85d69f99924094c67db2bcf59b8f1c7f72be3221cd1395e7f8253",
-    "src/voc/infrastructure/models.py": "e1252e5c79916fcc6ed207e5bad047efdfdf838ed07b13a738fc4eb1fbdeadc4",
+    "src/voc/infrastructure/index.py": "42f96ae2dc01473e198def7f44d571510dd70c955e10b08880280f0c9f155c51",
+    "src/voc/infrastructure/model_source.py": "8fc87598c97f53a7e3123f89863ceed8b1d041d9cbb2e039c17b4b3791e71072",
+    "src/voc/infrastructure/models.py": "fa19d15615dc9c71053c5fc5a6f7d301f8af69f88ce2574bdfffc7468690dc27",
     "src/voc/infrastructure/storage.py": "85a0d0765fde32e52dd355f5796acb4ba26a071ebedd2d20767dfa539edffa43",
     "src/voc/usecase/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "src/voc/usecase/evaluate.py": "b04ce5a6859e2531f28582aa08e6942fed2ca02deaf059f0a69a01d2e586bf3a",
-    "src/voc/usecase/rag.py": "0b02c264884654a388d5f87e8ba486e4e1e3e56ee31caae5a49e3a55bb251916",
+    "src/voc/usecase/evaluate.py": "c8cc270a0ed32070e3d32cc07893e578c3a71ab32e71ac0e9b01541f4fc6643b",
+    "src/voc/usecase/rag.py": "eea18ac36faf72c1626210171efb1b0291ccef58f3ca5a760f2253d6ed69f022",
+    "src/voc/usecase/reproduce.py": "ffe60b8c1ec1d28868910cfd10fa2a2500ef8a5d133b6e6f469e852efcf13978",
     "src/voc/views/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "src/voc/views/cli.py": "3bb4edc074921c56236b7335a95af41d3a086bf73414408bfe979a2bc3fc1fee"
+    "src/voc/views/cli.py": "73f801afb36097c936b190fe614df7474f9edeaeb6d0156655db26b765f3b2ad"
   },
   "split": "dev",
   "generation_executed": true,
@@ -26,20 +28,20 @@
   "config": {
     "embedding_model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
     "embedding_revision": "e8f8c211226b894fcb81acc59f3b34ba3efd5f42",
-    "generation_model": "Qwen/Qwen3-0.6B",
-    "generation_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+    "generation_model": "Qwen/Qwen3-1.7B",
+    "generation_revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
     "embedding_dimensions": 384,
     "document_tokens": 120,
     "chunk_overlap_tokens": 20,
     "top_k": 6,
     "rerank_pool": 100,
     "mmr_lambda": 0.7,
-    "min_similarity": 0.42,
+    "min_similarity": 0.5,
     "min_evidence": 2,
     "max_new_tokens": 384,
     "threads": 8
   },
-  "questions_sha256": "d0f428758043230f47ce78e10ac45d48e4c4b9eaee2f139ff9548884af626a8b",
+  "questions_sha256": "125b380171a1adfb78520f25b2decef42ab2064b11a0038f98d52368e895078a",
   "rows": [
     {
       "case_id": "dev-delivery",
@@ -48,7 +50,7 @@
       "result": {
         "question": "O que os clientes relatam sobre atrasos na entrega?",
         "status": "answered",
-        "answer": "- [E1] Os clientes relatam que a entrega atrasou.  \n- [E3] Demora na entrega e ainda atrasou.  \n- [E5] O atraso na entrega prejudicou a obra.",
+        "answer": "- A entrega atrasou [E1]\n- Demora na entrega [E2]\n- Demora na entrega e atrasou [E3]\n- Entrega atrasada [E4]\n- Atraso na entrega prejudicou a obra [E5]\n- Atraso na entrega da mercadoria [E6]",
         "evidence": [
           {
             "label": "E1",
@@ -143,8 +145,8 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 6.488035924005089,
-        "model": "Qwen/Qwen3-0.6B",
+        "elapsed_seconds": 14.624828921001608,
+        "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
         ]
@@ -157,7 +159,7 @@
       "result": {
         "question": "Quais relatos mencionam produtos que chegaram quebrados?",
         "status": "answered",
-        "answer": "[O1] O comentário [E1] menciona que o produto veio quebrado.  \n[O2] O comentário [E3] afirma que o produto apresenta sinais de uso, manchado e quebrado.  \n[O4] O comentário [E4] indica que alguns tablets de BCAA foram quebros.",
+        "answer": "- Produto veio quebrado [E1][E6]\n- Defeitos e quebra em produtos [E3][E4]\n- Problemas de embalagem e condições de entrega [E5]\n- Partes quebradas dentro da caixa [E6]",
         "evidence": [
           {
             "label": "E1",
@@ -250,8 +252,8 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 7.543109996011481,
-        "model": "Qwen/Qwen3-0.6B",
+        "elapsed_seconds": 11.294449063003412,
+        "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
         ]
@@ -264,7 +266,7 @@
       "result": {
         "question": "O que os clientes elogiam sobre a rapidez da entrega?",
         "status": "answered",
-        "answer": "- [E1] Os clientes elogiam a rapidez da entrega.  \n- [E3] Rápida entrega e boa assistência ao cliente.  \n- [E6] Entrega rápida, produto de qualidade.",
+        "answer": "- Clientes elogiam a rapidez da entrega [E1][E2][E3][E4][E5][E6]\n- Comentários destacam a eficiência e pontualidade na entrega [E1][E2][E3][E5]",
         "evidence": [
           {
             "label": "E1",
@@ -359,8 +361,8 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 27848,
-        "elapsed_seconds": 3.982052262988873,
-        "model": "Qwen/Qwen3-0.6B",
+        "elapsed_seconds": 11.332199558000866,
+        "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
         ]
@@ -373,7 +375,7 @@
       "result": {
         "question": "Quais são os principais problemas relatados pelos clientes nas avaliações?",
         "status": "answered",
-        "answer": "- [E1] Muitos desencontros nas entregas de produtos.  \n- [E2] Pessimo atendimento, sem canal de reclamação fornecedor.  \n- [E3] Produto entregue errado, reclamação realizada, solicitado de troca aberta a mais de uma semana e nem sinal da empresa.",
+        "answer": "- muitos desencontros nas entregas de produtos[E1]\n- Pessimo atendimento e falta de canal de reclamação[fornecedor][E2]\n- Produto entregue errado e longa espera para solução[E3]\n- Responsabilidade e correção na compra[E4]",
         "evidence": [
           {
             "label": "E1",
@@ -468,8 +470,8 @@
         ],
         "retrieved_documents": 6,
         "matching_documents": 42454,
-        "elapsed_seconds": 6.1030707210011315,
-        "model": "Qwen/Qwen3-0.6B",
+        "elapsed_seconds": 11.324616375000915,
+        "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
         ]
@@ -481,16 +483,14 @@
       "gate_correct": true,
       "result": {
         "question": "Como ocorre a fusão nuclear no interior do Sol?",
-        "status": "insufficient_evidence",
-        "answer": "Não encontrei evidências suficientes nas avaliações para responder com segurança.",
+        "status": "out_of_scope",
+        "answer": "Esta base permite investigar relatos de experiências de compra e atendimento. A pergunta está fora desse escopo.",
         "evidence": [],
-        "retrieved_documents": 6,
-        "matching_documents": 42454,
-        "elapsed_seconds": 0.041512864001560956,
-        "model": "Qwen/Qwen3-0.6B",
-        "warnings": [
-          "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
-        ]
+        "retrieved_documents": 0,
+        "matching_documents": 0,
+        "elapsed_seconds": 2.1095002011861652e-05,
+        "model": "",
+        "warnings": []
       }
     },
     {
@@ -504,7 +504,7 @@
         "evidence": [],
         "retrieved_documents": 0,
         "matching_documents": 0,
-        "elapsed_seconds": 0.0,
+        "elapsed_seconds": 5.042998964199796e-06,
         "model": "",
         "warnings": []
       }
@@ -520,8 +520,8 @@
         "evidence": [],
         "retrieved_documents": 0,
         "matching_documents": 0,
-        "elapsed_seconds": 0.0018145260110031813,
-        "model": "Qwen/Qwen3-0.6B",
+        "elapsed_seconds": 0.0014126410023891367,
+        "model": "Qwen/Qwen3-1.7B",
         "warnings": [
           "As evidências são uma amostra recuperada por similaridade. Não permitem estimar a frequência dos temas em toda a base nem provar causas."
         ]

@@ -1,5 +1,5 @@
 {
-  "reviewer": "Inspeção técnica pelo agente de desenvolvimento; não é julgamento humano independente. Critério conservador: o trecho deve tratar explicitamente o tema perguntado.",
+  "reviewer": "Inspeção técnica feita durante o desenvolvimento; não é julgamento humano independente. Critério conservador: o trecho deve tratar explicitamente o tema perguntado.",
   "source_report": "reports/evaluation_test_rag.json",
   "evidence_judgments": [
     {

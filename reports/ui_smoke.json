@@ -1,9 +1,24 @@
 {
   "offline_model_mode": true,
-  "ui_errors": [],
-  "answer_status": "answered",
-  "evidence_count": 6,
-  "elapsed_seconds": 11.015439632989,
+  "generation_model": "Qwen/Qwen3-1.7B",
+  "runs": {
+    "default": {
+      "question": "O que os clientes relatam sobre atrasos na entrega?",
+      "status": "answered",
+      "evidence_count": 6,
+      "elapsed_seconds": 16.6,
+      "ui_errors": [],
+      "ui_exceptions": []
+    },
+    "period": {
+      "question": "O que os clientes relataram sobre atrasos na entrega em 2025?",
+      "status": "period_out_of_coverage",
+      "evidence_count": 0,
+      "elapsed_seconds": 0.0,
+      "ui_errors": [],
+      "ui_exceptions": []
+    }
+  },
   "python": "3.12.13",
   "platform": "Linux-6.6.114.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
   "versions": {

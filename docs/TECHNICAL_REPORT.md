@@ -78,20 +78,25 @@ deve selecioná-los explicitamente na interface ou CLI.
 
 ## Geração e tratamento de insuficiência
 
-O gerador é `Qwen/Qwen3-0.6B`, executado localmente por Transformers e PyTorch CPU.
+O gerador é `Qwen/Qwen3-1.7B`, executado localmente por Transformers e PyTorch CPU.
 Não há ajuste fino. O modo de pensamento é desabilitado; a geração é greedy, limitada
 a 384 novos tokens. O prompt recebe a pergunta e até seis trechos com referências E1–E6.
-Instrui a responder em português usando apenas as evidências, sem causas, percentuais,
-frequências ou recomendações não sustentadas. Comentários são delimitados como dados,
+Instrui a responder em português usando apenas as evidências, agrupando relatos do mesmo
+tema em até quatro tópicos, sem causas, percentuais, frequências ou recomendações não
+sustentadas. O Qwen3-0.6B, usado até 22/11/2026, foi substituído: com as mesmas evidências,
+copiava os comentários ou o marcador do formato pedido (comparação em `docs/ARCHITECTURE.md`). Comentários são delimitados como dados,
 nunca como instruções para o modelo.
 
-O gate exige pelo menos duas evidências com similaridade de cosseno ≥ 0,42. É uma regra
-heurística, não uma probabilidade calibrada. Perguntas sem vocabulário de experiência de
-compra são recusadas por um gate lexical conservador. Solicitações de totais e percentuais
+O gate exige pelo menos duas evidências com similaridade de cosseno ≥ 0,50 (0,42 até
+22/11/2026). É uma regra heurística, não uma probabilidade calibrada. Perguntas sem
+vocabulário de experiência de compra, pagamento ou pós-venda são recusadas por um gate
+lexical conservador. Um ano fora da base (2016–2018) gera abstenção; um ano dentro da
+base exige o filtro explícito de período. Consultas acima de 128 tokens são recusadas. Solicitações de totais e percentuais
 são recusadas porque top-k não permite estimar frequência no corpus inteiro.
 
 Cada tópico da síntese deve conter referências existentes no contexto. Saídas sem esse
-formato ou com percentuais são recusadas. Essa checagem verifica a integridade das
+formato, com percentuais, alegações de frequência, rótulos inventados ou marcadores do
+prompt são recusadas. Essa checagem verifica a integridade das
 referências, não a verdade de cada afirmação. A interface mostra texto, nota, data,
 categorias, review_id e order_id, permitindo conferir a origem de cada relato.
 
@@ -115,7 +120,7 @@ generalização para perguntas novas.
 | Sínteses aceitas entre perguntas respondíveis | 3/4 |
 | Evidências estritamente pertinentes na inspeção | 16/24 |
 
-A inspeção de pertinência foi realizada pelo agente de desenvolvimento, com critério
+A inspeção de pertinência foi uma revisão técnica feita durante o desenvolvimento, com critério
 conservador e justificativa por documento, em `evaluation/relevance_review.json`.
 Não é julgamento humano independente. A precisão agrupada observada foi 66,7%; não há
 recall documental, pois não foram julgados todos os documentos do corpus.
@@ -126,9 +131,24 @@ Esses erros mostram por que gate correto não equivale a contexto inteiramente p
 O caso de atendimento teve evidências, mas o LLM não gerou saída aceita pela checagem de
 referências. Essa abstenção é reportada, sem substituição por resposta pronta.
 
-O código passou em 30 testes automatizados de preparação, preservação de negações,
+A validação de 17/11/2026 e a revisão de 22/11/2026 acrescentaram as perguntas de exemplo
+do enunciado e casos de regressão. Com o Qwen3-1.7B e as correções descritas acima, todos
+os splits foram reexecutados; os casos de regressão foram escritos depois das falhas e
+não constituem teste independente.
+
+| Split (revisão de 22/11/2026) | Gate correto | Sínteses aceitas |
+| --- | ---: | ---: |
+| dev | 7/7 | 4/4 |
+| test | 9/9 | 4/4 |
+| enunciado | 8/8 | 7/8 |
+| regressao | 8/8 | 3/3 |
+
+As evidências de test não mudaram, e a inspeção de pertinência (16/24) continua válida.
+Defeitos remanescentes e a recusa restante estão descritos em `evaluation/PROTOCOL.md`.
+
+O código passou em 48 testes automatizados de preparação, preservação de negações,
 metadados, filtros antes do ranking, deduplicação, integridade do índice, escopo,
-abstenção e referências. Lint e formatação passaram. Os testes unitários usam fixtures
+período, tamanho da consulta, origem dos pesos, abstenção e referências. Lint e formatação passaram. Os testes unitários usam fixtures
 pequenas e não dependem dos dados reais. Os testes de integração utilizaram os dados e
 modelos reais, conforme os relatórios de execução.
 
@@ -163,7 +183,7 @@ Notas sem texto e clientes que não avaliaram não estão representados na base 
 
 O gate lexical pode recusar perguntas válidas pouco explícitas e aceitar perguntas
 irrelevantes que usem vocabulário do domínio. O gerador pequeno pode errar mesmo com
-referências válidas. Próximas etapas: julgamentos humanos independentes, conjunto maior
+referências válidas; cada resposta leva 10–25 s em CPU. Próximas etapas: julgamentos humanos independentes, conjunto maior
 de perguntas, comparação com busca lexical/híbrida, reranker multilíngue, avaliação de
 suporte por afirmação e estudo de custo/qualidade com modelos locais maiores.
 
@@ -176,7 +196,7 @@ O envio no portal e o comprovante opcional da trilha Databricks dependem do auto
 
 - Olist: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce — CC BY-NC-SA 4.0.
 - Sentence Transformers: https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2 — Apache-2.0.
-- Qwen: https://huggingface.co/Qwen/Qwen3-0.6B — Apache-2.0.
+- Qwen: https://huggingface.co/Qwen/Qwen3-1.7B — Apache-2.0.
 - Sentence Transformers, similaridade: https://sbert.net/docs/sentence_transformer/usage/semantic_textual_similarity.html.
 
 As atribuições completas e a distinção entre licença do código e dos dados estão em

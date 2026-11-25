@@ -18,6 +18,6 @@
   "retrieval_ids_equal": true,
   "retrieval_scores_equal_atol_1e_7": true,
   "query": "atraso na entrega",
-  "config_sha256": "225e67d1cb32731c84ded182030f7312f0f3d85d3c99e6239cedb2b33615fd89",
+  "config_sha256": "fbc0bd75d2ce09358c88ca732ffb79cebdac3d3a6b1ca451a98a4909e3aa2b19",
   "note": "Reconstrói preparação, chunks e embeddings desde o ZIP original, em pasta temporária. Reutiliza os pesos locais congelados; não retreina nem baixa outro modelo. Geração é validada separadamente na avaliação RAG e no smoke da interface."
 }

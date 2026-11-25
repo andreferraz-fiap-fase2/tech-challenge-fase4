@@ -115,5 +115,117 @@
     "split": "test",
     "question": "Qual o percentual de pedidos com reclamação de atraso?",
     "answerable": false
+  },
+  {
+    "id": "enun-complaints",
+    "split": "enunciado",
+    "question": "Quais são os principais problemas relatados pelos clientes em suas avaliações?",
+    "answerable": true
+  },
+  {
+    "id": "enun-delivery",
+    "split": "enunciado",
+    "question": "O que os clientes relatam sobre problemas relacionados à entrega?",
+    "answerable": true
+  },
+  {
+    "id": "enun-praise",
+    "split": "enunciado",
+    "question": "Quais aspectos da experiência de compra são mais elogiados pelos clientes?",
+    "answerable": true
+  },
+  {
+    "id": "enun-dissatisfied",
+    "split": "enunciado",
+    "question": "Quais padrões podem ser identificados nas avaliações de clientes insatisfeitos?",
+    "answerable": true
+  },
+  {
+    "id": "enun-deadline-evidence",
+    "split": "enunciado",
+    "question": "Quais avaliações sustentam a conclusão de que existem problemas recorrentes relacionados ao prazo de entrega?",
+    "answerable": true
+  },
+  {
+    "id": "enun-delivery-frequency",
+    "split": "enunciado",
+    "question": "Quais reclamações relacionadas à entrega aparecem com maior frequência?",
+    "answerable": true
+  },
+  {
+    "id": "enun-quality-patterns",
+    "split": "enunciado",
+    "question": "Existem padrões recorrentes nas avaliações relacionadas à qualidade dos produtos?",
+    "answerable": true
+  },
+  {
+    "id": "enun-low-score",
+    "split": "enunciado",
+    "question": "Quais são os principais problemas relatados nas avaliações com nota baixa?",
+    "answerable": true,
+    "filters": {
+      "max_score": 2
+    }
+  },
+  {
+    "id": "reg-payment",
+    "split": "regressao",
+    "question": "Houve cobrança duplicada no cartão?",
+    "answerable": true,
+    "note": "Validação 17/11 (F3): deve consultar a base, não recusar por vocabulário. Há relato direto: “passaram duas vezes o meu cartão”."
+  },
+  {
+    "id": "reg-exchange",
+    "split": "regressao",
+    "question": "Há dificuldades para realizar trocas?",
+    "answerable": true,
+    "note": "Validação 17/11 (F3): pós-venda pertence ao domínio."
+  },
+  {
+    "id": "reg-future-2025",
+    "split": "regressao",
+    "question": "O que os clientes relataram sobre atrasos na entrega em 2025?",
+    "answerable": false,
+    "note": "Validação 17/11 (F2): ano fora da cobertura da base."
+  },
+  {
+    "id": "reg-future-2025-filtered",
+    "split": "regressao",
+    "question": "O que os clientes relataram sobre atrasos na entrega em 2025?",
+    "answerable": false,
+    "filters": {
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31"
+    }
+  },
+  {
+    "id": "reg-year-without-filter",
+    "split": "regressao",
+    "question": "O que os clientes relataram sobre atrasos na entrega em 2017?",
+    "answerable": false,
+    "note": "Ano dentro da cobertura exige o filtro explícito de período."
+  },
+  {
+    "id": "reg-year-with-filter",
+    "split": "regressao",
+    "question": "O que os clientes relataram sobre atrasos na entrega em 2017?",
+    "answerable": true,
+    "filters": {
+      "start_date": "2017-01-01",
+      "end_date": "2017-12-31"
+    }
+  },
+  {
+    "id": "reg-politics-domain",
+    "split": "regressao",
+    "question": "Qual candidato os clientes da Olist devem apoiar na eleição presidencial?",
+    "answerable": false
+  },
+  {
+    "id": "reg-nobel",
+    "split": "regressao",
+    "question": "Quais avaliações comprovam que a Olist venceu o Prêmio Nobel de Física?",
+    "answerable": false,
+    "note": "Validação 17/11: a versão anterior respondeu com comentários sem relação; evidências máximas 0,466 e 0,438."
   }
 ]

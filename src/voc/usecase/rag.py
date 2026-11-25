@@ -9,7 +9,10 @@ from voc.domain.policy import (
     NOTICE,
     build_prompt,
     has_domain_scope,
+    mentioned_years,
+    normalize_answer,
     normalize_query,
+    period_filter_covers,
     search_query,
     valid_citations,
 )
@@ -20,7 +23,7 @@ class RagService:
         self,
         retriever: Retriever,
         generator: Generator,
-        min_similarity: float = 0.42,
+        min_similarity: float = 0.5,
         min_evidence: int = 2,
         top_k: int = 6,
     ) -> None:
@@ -37,24 +40,11 @@ class RagService:
     ) -> Answer:
         start = time.perf_counter()
         question = normalize_query(question)
-        if re.search(
-            r"\b(quantos|quantas|percentual|porcentagem|faturamento|receita total)\b",
-            question,
-            re.IGNORECASE,
-        ):
-            return Answer(
-                question,
-                "unsupported_aggregate",
-                "Esta busca não calcula totais ou percentuais do corpus. Reformule para explorar os relatos e suas evidências.",
-            )
+        refusal = self.refusal_before_search(question, filters)
+        if refusal:
+            status, message = refusal
+            return Answer(question, status, message, elapsed_seconds=time.perf_counter() - start)
         query = search_query(question)
-        if not has_domain_scope(question):
-            return Answer(
-                question,
-                "out_of_scope",
-                "Esta base permite investigar relatos de experiências de compra e atendimento. A pergunta está fora desse escopo.",
-                elapsed_seconds=time.perf_counter() - start,
-            )
         retrieved, matching = self.retriever.search(query, filters, top_k=self.top_k)
         evidence = [item for item in retrieved if item.similarity >= self.min_similarity]
         common = {
@@ -80,7 +70,7 @@ class RagService:
                 elapsed_seconds=time.perf_counter() - start,
                 **common,
             )
-        response = self.generator.generate(build_prompt(question, evidence))
+        response = normalize_answer(self.generator.generate(build_prompt(question, evidence)))
         if not valid_citations(response, evidence):
             return Answer(
                 question,
@@ -91,4 +81,43 @@ class RagService:
             )
         return Answer(
             question, "answered", response, elapsed_seconds=time.perf_counter() - start, **common
+        )
+
+    def refusal_before_search(self, question: str, filters: Filters) -> tuple[str, str] | None:
+        """Perguntas que a busca não deve tentar responder: (status, mensagem) ou None."""
+        if re.search(
+            r"\b(quantos|quantas|percentual|porcentagem|faturamento|receita total)\b",
+            question,
+            re.IGNORECASE,
+        ):
+            return (
+                "unsupported_aggregate",
+                "Esta busca não calcula totais ou percentuais do corpus. Reformule para explorar os relatos e suas evidências.",
+            )
+        if not has_domain_scope(question):
+            return (
+                "out_of_scope",
+                "Esta base permite investigar relatos de experiências de compra e atendimento. A pergunta está fora desse escopo.",
+            )
+        return self.period_refusal(question, filters)
+
+    def period_refusal(self, question: str, filters: Filters) -> tuple[str, str] | None:
+        """Ano escrito na pergunta não filtra a busca (achado F2 da validação de 17/11/2026)."""
+        years = mentioned_years(question)
+        if not years:
+            return None
+        first, last = self.retriever.coverage_years()
+        outside = [year for year in years if not first <= year <= last]
+        if outside:
+            cited = ", ".join(str(year) for year in outside)
+            return (
+                "period_out_of_coverage",
+                f"A base contém compras de {first} a {last}. Não há avaliações de {cited} para sustentar uma resposta.",
+            )
+        if period_filter_covers(filters.start_date, filters.end_date, years):
+            return None
+        cited = ", ".join(str(year) for year in years)
+        return (
+            "period_needs_filter",
+            f"A pergunta cita {cited}, mas o texto da pergunta não filtra datas. Aplique o filtro de período da compra para esse intervalo e consulte novamente.",
         )
